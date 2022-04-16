@@ -140,11 +140,11 @@ namespace Better_Enemies
             crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
             crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
             chironFireWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironFireWormMortar.ChargesMax = 30;    // 15            
+            chironFireWormMortar.ChargesMax = 18;    // 15            
             chironAcidWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironAcidWormMortar.ChargesMax = 30;    // 15            
+            chironAcidWormMortar.ChargesMax = 18;    // 15            
             chironPoisonWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironPoisonWormMortar.ChargesMax = 30;    // 15            
+            chironPoisonWormMortar.ChargesMax = 18;    // 15            
             chironBlastMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
             chironBlastMortar.ChargesMax = 18;   // 12           
             chironCristalMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
@@ -192,9 +192,20 @@ namespace Better_Enemies
             crabUShielder.Data.Abilites = new TacticalAbilityDef[]
             {
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Regeneration_Torso_Passive_AbilityDef")),
+
             };
+
+            crabShielder.Data.Speed = 8;
+            crabAShielder.Data.Speed = 8;
+            crabAShielder2.Data.Speed = 8;
+            crabEShielder.Data.Speed = 8;
+            crabEShielder2.Data.Speed = 8;
+            crabEShielder3.Data.Speed = 8;
+            crabUShielder.Data.Speed = 8;
+
             int faceHuggerBlastDamage = 1;
-            int faceHuggerAcidDamage = 5;
+            int faceHuggerAcidDamage = 10;
             int faceHuggerAOERadius = 2;
 
             TacCharacterDef faceHuggerTac = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(p => p.name.Equals("Facehugger_TacCharacterDef"));
