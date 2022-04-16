@@ -1,4 +1,4 @@
-﻿using Base.AI.Defs;
+using Base.AI.Defs;
 using Base.Core;
 using Base.Defs;
 using Base.Entities.Abilities;
