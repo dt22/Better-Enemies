@@ -88,10 +88,16 @@ namespace Better_Enemies
             }
         }
     }
+    internal class ModConfig
+    {
+        public bool SameTurnMindControl = false;
+    }
     public static class MyMod
     {
+        internal static ModConfig Config;
         public static void HomeMod(Func<string, object, object> api = null)
         {
+            MyMod.Config = ((api("config", null) as ModConfig) ?? new ModConfig());
             HarmonyInstance.Create("your.mod.id").PatchAll();
             api?.Invoke("log verbose", "Mod Initialised.");
 
@@ -105,7 +111,7 @@ namespace Better_Enemies
             PsychicScreamAbilityDef sirenPsychicScream = Repo.GetAllDefs<PsychicScreamAbilityDef>().FirstOrDefault(a => a.name.Equals("Siren_PsychicScream_AbilityDef"));
 
             TacticalItemDef crabmanHeavyHead = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Crabman_Head_EliteHumanoid_BodyPartDef"));
-
+            MindControlStatusDef mcStatus = Repo.GetAllDefs<MindControlStatusDef>().FirstOrDefault(a => a.name.Equals("MindControl_StatusDef"));
             WeaponDef chironBlastMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_Mortar_WeaponDef"));
             WeaponDef chironCristalMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_Crystal_Mortar_WeaponDef"));
             WeaponDef chironAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_Acid_Mortar_WeaponDef"));
@@ -148,7 +154,12 @@ namespace Better_Enemies
             chironBlastMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
             chironBlastMortar.ChargesMax = 18;   // 12           
             chironCristalMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironCristalMortar.ChargesMax = 30;    // 12                                                                         
+            chironCristalMortar.ChargesMax = 30;    // 12
+                  
+            if(Config.SameTurnMindControl == true)
+            {
+                mcStatus.StartActorTurnOnApply = true;
+            }
 
             queenSpawner.Abilities = new AbilityDef[]
             {
