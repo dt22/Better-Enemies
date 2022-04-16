@@ -135,6 +135,15 @@ namespace Better_Enemies
             TacCharacterDef sirenHarbinger = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren4_SlasherBuffer_AlienMutationVariationDef"));
             TacticalPerceptionDef sirenPerception = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault(a => a.name.Equals("Siren_PerceptionDef"));
             TacCharacterDef sirenArmis = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren5_Orichalcum_AlienMutationVariationDef"));
+            WeaponDef sirenInjectorArms = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Siren_Arms_Injector_WeaponDef"));
+            TacticalPerceptionDef tacticalPerceptionEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("Fireworm_Egg_PerceptionDef"));
+            TacticalPerceptionDef tacticalPerceptionHatchling = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelHatching_PerceptionDef"));
+            TacticalPerceptionDef tacticalPerceptionTerror = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelTerror_PerceptionDef"));
+            TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("EggFacehugger_PerceptionDef"));
+            tacticalPerceptionMindFraggerEgg.PerceptionRange = 7;
+            tacticalPerceptionTerror.PerceptionRange = 18;
+            tacticalPerceptionEgg.PerceptionRange = 7;
+            tacticalPerceptionHatchling.PerceptionRange = 18;
 
 
             queenSpawner.Armor = 60;
@@ -146,7 +155,7 @@ namespace Better_Enemies
 
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
-            
+            sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
             sirenLegsAgile.Armor = 30;
             sirenLegsOrichalcum.Armor = 30;
             sirenPsychicScream.ActionPointCost = 0.25f;
