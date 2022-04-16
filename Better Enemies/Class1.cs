@@ -140,6 +140,16 @@ namespace Better_Enemies
             TacticalPerceptionDef tacticalPerceptionHatchling = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelHatching_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionTerror = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelTerror_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("EggFacehugger_PerceptionDef"));
+            WeaponDef fishArmsParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Fishman_UpperArms_Paralyzing_BodyPartDef"));
+            WeaponDef fishArmsEliteParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_Paralyzing_BodyPartDef"));
+            TacCharacterDef chironFireHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron2_FireWormHeavy_AlienMutationVariationDef"));
+            TacCharacterDef chironPoisonHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron4_PoisonWormHeavy_AlienMutationVariationDef"));
+            TacCharacterDef chironAcidHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron6_AcidWormHeavy_AlienMutationVariationDef"));
+            TacCharacterDef chironGooHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron8_GooHeavy_AlienMutationVariationDef"));
+
+            fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
+            fishArmsEliteParalyze.DamagePayload.DamageKeywords[1].Value = 16;
+
             tacticalPerceptionMindFraggerEgg.PerceptionRange = 7;
             tacticalPerceptionTerror.PerceptionRange = 18;
             tacticalPerceptionEgg.PerceptionRange = 7;
@@ -161,6 +171,10 @@ namespace Better_Enemies
             sirenPsychicScream.ActionPointCost = 0.25f;
             sirenPsychicScream.UsesPerTurn = 1;
 
+            chironFireHeavy.Data.Speed = 8;
+            chironPoisonHeavy.Data.Speed = 8;
+            chironAcidHeavy.Data.Speed = 8;
+            chironGooHeavy.Data.Speed = 8;
             chironAcidMortar.DamagePayload.DamageKeywords[0].Value = 20;
             chironAcidMortar.ChargesMax = 18;
             crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
