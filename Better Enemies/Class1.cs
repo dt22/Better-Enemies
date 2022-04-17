@@ -157,8 +157,8 @@ namespace Better_Enemies
             tacticalPerceptionEgg.PerceptionRange = 7;
             tacticalPerceptionHatchling.PerceptionRange = 18;
 
-            string walkableArmadillo = scarabNav.NavAreas[0];
-            queenNav.NavAreas = queenNav.NavAreas.AddToArray(walkableArmadillo);
+            
+            queenNav.NavAreas = queenNav.NavAreas.AddToArray("WalkableArmadillo");
             queenSpawner.Armor = 60;
             queenBelcher.Armor = 60;
 
@@ -166,7 +166,7 @@ namespace Better_Enemies
             queenSpitterHead.WillPower = 165;
             queenSonicHead.WillPower = 170;
 
-            sirenInjectorArms.BodyPartAspectDef.Stealth = 0.4f;
+            //sirenInjectorArms.BodyPartAspectDef.Stealth = 0.4f;
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
             sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
