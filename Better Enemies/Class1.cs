@@ -163,6 +163,7 @@ namespace Better_Enemies
             queenSpitterHead.WillPower = 165;
             queenSonicHead.WillPower = 170;
 
+            sirenInjectorArms.BodyPartAspectDef.Stealth = 0.4f;
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
             sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
