@@ -146,6 +146,8 @@ namespace Better_Enemies
             TacCharacterDef chironPoisonHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron4_PoisonWormHeavy_AlienMutationVariationDef"));
             TacCharacterDef chironAcidHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron6_AcidWormHeavy_AlienMutationVariationDef"));
             TacCharacterDef chironGooHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron8_GooHeavy_AlienMutationVariationDef"));
+            TacticalNavigationComponentDef queenNav = Repo.GetAllDefs<TacticalNavigationComponentDef>().FirstOrDefault(a => a.name.Equals("Queen_NavigationDef"));
+            TacticalNavigationComponentDef scarabNav = Repo.GetAllDefs<TacticalNavigationComponentDef>().FirstOrDefault(a => a.name.Equals("PX_Scarab_NavigationDef"));
 
             fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
             fishArmsEliteParalyze.DamagePayload.DamageKeywords[1].Value = 16;
@@ -155,7 +157,8 @@ namespace Better_Enemies
             tacticalPerceptionEgg.PerceptionRange = 7;
             tacticalPerceptionHatchling.PerceptionRange = 18;
 
-
+            string walkableArmadillo = scarabNav.NavAreas[0];
+            queenNav.NavAreas = queenNav.NavAreas.AddToArray(walkableArmadillo);
             queenSpawner.Armor = 60;
             queenBelcher.Armor = 60;
 
