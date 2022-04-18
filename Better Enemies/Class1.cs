@@ -148,7 +148,47 @@ namespace Better_Enemies
             TacCharacterDef chironGooHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron8_GooHeavy_AlienMutationVariationDef"));
             TacticalNavigationComponentDef queenNav = Repo.GetAllDefs<TacticalNavigationComponentDef>().FirstOrDefault(a => a.name.Equals("Queen_NavigationDef"));
             TacticalNavigationComponentDef scarabNav = Repo.GetAllDefs<TacticalNavigationComponentDef>().FirstOrDefault(a => a.name.Equals("PX_Scarab_NavigationDef"));
+            AdditionalEffectShootAbilityDef queenBlast = Repo.GetAllDefs<AdditionalEffectShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef"));
+            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));
+            WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
+            WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
+            WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));
 
+            queenLeftBlastWeapon.Abilities = new AbilityDef[]
+            {
+                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef")),
+            };
+            queenRightBlastWeapon.Abilities = new AbilityDef[]
+            {
+                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef")),
+            };
+            queenBlastWeapon.Abilities = new AbilityDef[]
+            {
+                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef")),
+            };
+
+            
+
+            queenBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;
+            queenBlastWeapon.SpreadDegrees = 1.5f;
+            queenBlastWeapon.DamagePayload.Range = -1;
+            queenBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
+            queenBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;
+            
+            queenLeftBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;                      
+            queenLeftBlastWeapon.SpreadDegrees = 1.5f;
+            queenLeftBlastWeapon.DamagePayload.Range = -1;
+            queenLeftBlastWeapon.DamagePayload.OverrideAimIKSettings = true;
+            queenLeftBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
+            queenLeftBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;            
+          
+            queenRightBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;
+            queenRightBlastWeapon.DamagePayload.OverrideAimIKSettings = true;
+            queenRightBlastWeapon.SpreadDegrees = 1.5f;
+            queenRightBlastWeapon.DamagePayload.Range = -1;
+            queenRightBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
+            queenRightBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;            
+           
             fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
             fishArmsEliteParalyze.DamagePayload.DamageKeywords[1].Value = 16;
 
@@ -316,15 +356,26 @@ namespace Better_Enemies
             MindControlStatusDef mcStatus = Repo.GetAllDefs<MindControlStatusDef>().FirstOrDefault(a => a.name.Equals("MindControl_StatusDef"));
             StartPreparingShootAbilityDef queenBlastPrepare = Repo.GetAllDefs<StartPreparingShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_StartPreparing_AbilityDef"));
             PreparingStatusDef queenBlastPrepareStatus = Repo.GetAllDefs<PreparingStatusDef>().FirstOrDefault(a => a.name.Equals("Preparing_Queen_StatusDef"));
-            AdditionalEffectShootAbilityDef queenBlast = Repo.GetAllDefs<AdditionalEffectShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef"));
-            WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
-            WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
+            
             DeathBelcherAbilityDef facehuggerDeathSpawn = Repo.GetAllDefs<DeathBelcherAbilityDef>().FirstOrDefault(a => a.name.Equals("Mutoid_Die_Belcher_AbilityDef"));
             TacticalItemDef sirenLegsHeavy = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Heavy_BodyPartDef"));
             TacticalItemDef sirenLegsAgile = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Agile_BodyPartDef"));
             TacticalItemDef sirenLegsOrichalcum = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Orichalcum_BodyPartDef"));
             EquipmentDef crabmanEliteShield = Repo.GetAllDefs<EquipmentDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_EliteShield_EquipmentDef"));
             
+            //guardianBeam.UsableOnDisabledActor = true;
+            //guardianBeam.UsableOnNonInteractableActor = true;
+            //queenBlastWeapon.Tags = queenLeftBlastWeapon.Tags;
+            //queenBlastWeapon.HandsToUse = 0;
+            //queenBlastWeapon.WeakAddon = false;
+            //queenLeftBlastWeapon.HandsToUse = 0;
+            //queenLeftBlastWeapon.AimTransform = queenBlastWeapon.AimTransform;
+            //queenLeftBlastWeapon.Tags = queenBlastWeapon.Tags;
+            //queenLeftBlastWeapon.WeakAddon = true;
+            //queenRightBlastWeapon.HandsToUse = 0;
+            //queenRightBlastWeapon.AimTransform = queenBlastWeapon.AimTransform;
+            //queenRightBlastWeapon.Tags = queenBlastWeapon.Tags;
+            //queenRightBlastWeapon.WeakAddon = true;
             queenBlastPrepareStatus.DisablesActor = false;
             queenBlastPrepare.EndsTurn = false;  
             queenBlast.TraitsRequired[0] = "start";
@@ -340,6 +391,9 @@ namespace Better_Enemies
             queenBlast.SnapToBodyparts = true;
             queenBlast.CanUseFirstPersonCam = true;
             mcStatus.StartActorTurnOnApply = true;
+            AdditionalEffectShootAbilityDef queenBlast = Repo.GetAllDefs<AdditionalEffectShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef"));
+            WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
+            WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
             queenLeftBlastWeapon.Abilities = new AbilityDef[]
             {
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef")),
