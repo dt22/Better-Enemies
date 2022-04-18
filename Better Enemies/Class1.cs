@@ -168,7 +168,7 @@ namespace Better_Enemies
             };
 
             
-
+            /*
             queenBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;
             queenBlastWeapon.SpreadDegrees = 1.5f;
             queenBlastWeapon.DamagePayload.Range = -1;
@@ -187,8 +187,31 @@ namespace Better_Enemies
             queenRightBlastWeapon.SpreadDegrees = 1.5f;
             queenRightBlastWeapon.DamagePayload.Range = -1;
             queenRightBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
-            queenRightBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;            
-           
+            queenRightBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;
+            */
+
+            guardianBeam.TrackWithCamera = false;
+            guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
+            ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)guardianBeam.SceneViewElementDef;
+            guardianBeamSVE.HoverMarkerInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackConeNoTarget;
+            guardianBeamSVE.LineToCursorInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackLineNoTarget;
+            guardianBeam.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_StartPreparing_AbilityDef]"));
+            guardianBeam.SceneViewElementDef.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
+
+            /*
+            string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
+            ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
+            ShootAbilityDef BEGB = Clone.CreateDefFromClone(
+                source2,
+                "64ba51e9-c67b-4e5e-ad61-315e7f796ffa",
+                skillName2);
+            BEGB.ViewElementDef = Clone.CreateDefFromClone(
+                source2.ViewElementDef,
+                "20f5659c-890a-4f29-9968-07ea67b04c6b",
+                skillName2);
+            */
+
+
             fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
             fishArmsEliteParalyze.DamagePayload.DamageKeywords[1].Value = 16;
 
