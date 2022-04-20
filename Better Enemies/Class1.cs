@@ -130,6 +130,13 @@ namespace Better_Enemies
             TacCharacterDef crabEShielder2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman13_EliteShielder2_AlienMutationVariationDef"));
             TacCharacterDef crabEShielder3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
             TacCharacterDef crabUShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman15_UltraShielder_AlienMutationVariationDef"));
+            TacCharacterDef crabTyrant = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman24_Pretorian_AlienMutationVariationDef"));
+            TacCharacterDef crabTyrant2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman25_AdvancedPretorian_AlienMutationVariationDef"));
+            TacCharacterDef crabTyrant3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman26_AdvancedPretorian2_AlienMutationVariationDef"));
+            TacCharacterDef crabTyrant4 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman12_EliteShielder_AlienMutationVariationDef"));
+            TacCharacterDef crabTyrant5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman13_EliteShielder2_AlienMutationVariationDef"));
+            TacCharacterDef crabTyrant6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
+            TacCharacterDef crabTyrant7 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
             TacCharacterDef sirenBanshee = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren3_InjectorBuffer_AlienMutationVariationDef"));
             TacCharacterDef sirenHarbinger = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren4_SlasherBuffer_AlienMutationVariationDef"));
             TacticalPerceptionDef sirenPerception = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault(a => a.name.Equals("Siren_PerceptionDef"));
@@ -159,7 +166,7 @@ namespace Better_Enemies
             WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
             WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));
 
-                        /*
+            /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
             ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
             ShootAbilityDef BEGB = Clone.CreateDefFromClone(
@@ -168,8 +175,8 @@ namespace Better_Enemies
                 skillName2);
             BEGB.ViewElementDef = Clone.CreateDefFromClone(
                 source2.ViewElementDef,
-                "20f5659c-890a-4f29-9968-07ea67b04c6b",
-                skillName2);
+               "20f5659c-890a-4f29-9968-07ea67b04c6b",
+               skillName2);
             */
 
             queenLeftBlastWeapon.Abilities = new AbilityDef[]
@@ -265,8 +272,8 @@ namespace Better_Enemies
             fishSniper6.Data.Abilites = new TacticalAbilityDef[]
             {
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
-            };                      
-            
+            };
+
             //sirenInjectorArms.BodyPartAspectDef.Stealth = 0.4f;
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
@@ -274,9 +281,9 @@ namespace Better_Enemies
             sirenLegsAgile.Armor = 30;
             sirenLegsOrichalcum.Armor = 30;
             sirenPsychicScream.ActionPointCost = 0.25f;
-            sirenPsychicScream.UsesPerTurn = 1;           
-                  
-            if(Config.SameTurnMindControl == true)
+            sirenPsychicScream.UsesPerTurn = 1;
+
+            if (Config.SameTurnMindControl == true)
             {
                 mcStatus.StartActorTurnOnApply = true;
             }
@@ -294,7 +301,7 @@ namespace Better_Enemies
                 sirenArmis.Data.Abilites[0],
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("IgnorePain_AbilityDef")),
             };
-            
+
             crabmanHeavyHead.Abilities = new AbilityDef[]
             {
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("BloodLust_AbilityDef")),
@@ -339,6 +346,14 @@ namespace Better_Enemies
             crabUShielder.Data.Speed = 8;
             crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
             crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
+
+            foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman")))
+            {
+                if (character.name.Contains("Pretorian") || character.name.Contains("Tank"))
+                {
+                    character.Data.Speed = 6;
+                }
+            }
 
             chironFireHeavy.Data.Speed = 8;
             chironPoisonHeavy.Data.Speed = 8;
