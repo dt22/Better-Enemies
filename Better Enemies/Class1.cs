@@ -118,7 +118,6 @@ namespace Better_Enemies
             WeaponDef chironFireWormMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_FireWorm_Launcher_WeaponDef"));
             WeaponDef chironAcidWormMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_AcidWorm_Launcher_WeaponDef"));
             WeaponDef chironPoisonWormMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_PoisonWorm_Launcher_WeaponDef"));
-
             WeaponDef crabmanacidGrenadeAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_Grenade_WeaponDef"));
             WeaponDef crabmanadvancedacidGrenadeAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_EliteGrenade_WeaponDef"));
             TacticalItemDef sirenLegsHeavy = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Heavy_BodyPartDef"));
@@ -142,6 +141,12 @@ namespace Better_Enemies
             TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("EggFacehugger_PerceptionDef"));
             WeaponDef fishArmsParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Fishman_UpperArms_Paralyzing_BodyPartDef"));
             WeaponDef fishArmsEliteParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_Paralyzing_BodyPartDef"));
+            TacCharacterDef fishSniper = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman11_Sniper_AlienMutationVariationDef"));
+            TacCharacterDef fishSniper2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman12_FocusSniper_AlienMutationVariationDef"));
+            TacCharacterDef fishSniper3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman13_AgroSniper_AlienMutationVariationDef"));
+            TacCharacterDef fishSniper4 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman14_PiercerSniper_AlienMutationVariationDef"));
+            TacCharacterDef fishSniper5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_Shrowder_Sniper"));
+            TacCharacterDef fishSniper6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman_Shrowder_TacCharacterDef"));
             TacCharacterDef chironFireHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron2_FireWormHeavy_AlienMutationVariationDef"));
             TacCharacterDef chironPoisonHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron4_PoisonWormHeavy_AlienMutationVariationDef"));
             TacCharacterDef chironAcidHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron6_AcidWormHeavy_AlienMutationVariationDef"));
@@ -153,6 +158,19 @@ namespace Better_Enemies
             WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
             WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
             WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));
+
+                        /*
+            string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
+            ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
+            ShootAbilityDef BEGB = Clone.CreateDefFromClone(
+                source2,
+                "64ba51e9-c67b-4e5e-ad61-315e7f796ffa",
+                skillName2);
+            BEGB.ViewElementDef = Clone.CreateDefFromClone(
+                source2.ViewElementDef,
+                "20f5659c-890a-4f29-9968-07ea67b04c6b",
+                skillName2);
+            */
 
             queenLeftBlastWeapon.Abilities = new AbilityDef[]
             {
@@ -166,8 +184,18 @@ namespace Better_Enemies
             {
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef")),
             };
+            queenSpawner.Abilities = new AbilityDef[]
+            {
+                queenSpawner.Abilities[0],
+                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("AcidResistant_DamageMultiplierAbilityDef")),
+            };
+            queenBelcher.Abilities = new AbilityDef[]
+            {
+                queenBelcher.Abilities[0],
+                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("AcidResistant_DamageMultiplierAbilityDef")),
+            };
 
-            
+
             /*
             queenBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;
             queenBlastWeapon.SpreadDegrees = 1.5f;
@@ -190,6 +218,19 @@ namespace Better_Enemies
             queenRightBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;
             */
 
+            queenBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
+            queenBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;
+            queenLeftBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
+            queenLeftBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;
+            queenRightBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
+            queenRightBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;
+            queenNav.NavAreas = queenNav.NavAreas.AddToArray("WalkableArmadillo");
+            queenSpawner.Armor = 60;
+            queenBelcher.Armor = 60;
+            queenHeavyHead.WillPower = 175;
+            queenSpitterHead.WillPower = 165;
+            queenSonicHead.WillPower = 170;
+
             guardianBeam.TrackWithCamera = false;
             guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
             ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)guardianBeam.SceneViewElementDef;
@@ -198,37 +239,34 @@ namespace Better_Enemies
             guardianBeam.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_StartPreparing_AbilityDef]"));
             guardianBeam.SceneViewElementDef.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
 
-            /*
-            string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
-            ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
-            ShootAbilityDef BEGB = Clone.CreateDefFromClone(
-                source2,
-                "64ba51e9-c67b-4e5e-ad61-315e7f796ffa",
-                skillName2);
-            BEGB.ViewElementDef = Clone.CreateDefFromClone(
-                source2.ViewElementDef,
-                "20f5659c-890a-4f29-9968-07ea67b04c6b",
-                skillName2);
-            */
-
-
             fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
             fishArmsEliteParalyze.DamagePayload.DamageKeywords[1].Value = 16;
 
-            tacticalPerceptionMindFraggerEgg.PerceptionRange = 7;
-            tacticalPerceptionTerror.PerceptionRange = 18;
-            tacticalPerceptionEgg.PerceptionRange = 7;
-            tacticalPerceptionHatchling.PerceptionRange = 18;
-
+            fishSniper.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
+            };
+            fishSniper2.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
+            };
+            fishSniper3.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
+            };
+            fishSniper4.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
+            };
+            fishSniper5.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
+            };
+            fishSniper6.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
+            };                      
             
-            queenNav.NavAreas = queenNav.NavAreas.AddToArray("WalkableArmadillo");
-            queenSpawner.Armor = 60;
-            queenBelcher.Armor = 60;
-
-            queenHeavyHead.WillPower = 175;
-            queenSpitterHead.WillPower = 165;
-            queenSonicHead.WillPower = 170;
-
             //sirenInjectorArms.BodyPartAspectDef.Stealth = 0.4f;
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
@@ -236,26 +274,7 @@ namespace Better_Enemies
             sirenLegsAgile.Armor = 30;
             sirenLegsOrichalcum.Armor = 30;
             sirenPsychicScream.ActionPointCost = 0.25f;
-            sirenPsychicScream.UsesPerTurn = 1;
-
-            chironFireHeavy.Data.Speed = 8;
-            chironPoisonHeavy.Data.Speed = 8;
-            chironAcidHeavy.Data.Speed = 8;
-            chironGooHeavy.Data.Speed = 8;
-            chironAcidMortar.DamagePayload.DamageKeywords[0].Value = 20;
-            chironAcidMortar.ChargesMax = 18;
-            crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
-            crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
-            chironFireWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironFireWormMortar.ChargesMax = 18;    // 15            
-            chironAcidWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironAcidWormMortar.ChargesMax = 18;    // 15            
-            chironPoisonWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironPoisonWormMortar.ChargesMax = 18;    // 15            
-            chironBlastMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironBlastMortar.ChargesMax = 18;   // 12           
-            chironCristalMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironCristalMortar.ChargesMax = 30;    // 12
+            sirenPsychicScream.UsesPerTurn = 1;           
                   
             if(Config.SameTurnMindControl == true)
             {
@@ -275,18 +294,7 @@ namespace Better_Enemies
                 sirenArmis.Data.Abilites[0],
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("IgnorePain_AbilityDef")),
             };
-
-            queenSpawner.Abilities = new AbilityDef[]
-            {
-                queenSpawner.Abilities[0],
-                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("AcidResistant_DamageMultiplierAbilityDef")),
-            };
-            queenBelcher.Abilities = new AbilityDef[]
-            {
-                queenBelcher.Abilities[0],
-                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("AcidResistant_DamageMultiplierAbilityDef")),
-            };
-
+            
             crabmanHeavyHead.Abilities = new AbilityDef[]
             {
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("BloodLust_AbilityDef")),
@@ -329,6 +337,25 @@ namespace Better_Enemies
             crabEShielder2.Data.Speed = 8;
             crabEShielder3.Data.Speed = 8;
             crabUShielder.Data.Speed = 8;
+            crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
+            crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
+
+            chironFireHeavy.Data.Speed = 8;
+            chironPoisonHeavy.Data.Speed = 8;
+            chironAcidHeavy.Data.Speed = 8;
+            chironGooHeavy.Data.Speed = 8;
+            chironAcidMortar.DamagePayload.DamageKeywords[0].Value = 20;
+            chironAcidMortar.ChargesMax = 18;
+            chironFireWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
+            chironFireWormMortar.ChargesMax = 18;    // 15            
+            chironAcidWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
+            chironAcidWormMortar.ChargesMax = 18;    // 15            
+            chironPoisonWormMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
+            chironPoisonWormMortar.ChargesMax = 18;    // 15            
+            chironBlastMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
+            chironBlastMortar.ChargesMax = 18;   // 12           
+            chironCristalMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
+            chironCristalMortar.ChargesMax = 30;    // 12
 
             int faceHuggerBlastDamage = 1;
             int faceHuggerAcidDamage = 10;
@@ -369,7 +396,11 @@ namespace Better_Enemies
                 sAE,
             };
 
-    }
+            tacticalPerceptionMindFraggerEgg.PerceptionRange = 7;
+            tacticalPerceptionTerror.PerceptionRange = 18;
+            tacticalPerceptionEgg.PerceptionRange = 7;
+            tacticalPerceptionHatchling.PerceptionRange = 18;
+        }
         public static void MainMod(Func<string, object, object> api)
         {
             HarmonyInstance.Create("your.mod.id").PatchAll();
