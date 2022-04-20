@@ -165,6 +165,20 @@ namespace Better_Enemies
             WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
             WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
             WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));
+            TacCharacterDef fireworm = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fireworm_AlienMutationVariationDef"));
+            TacCharacterDef acidworm = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Acidworm_AlienMutationVariationDef"));
+            TacCharacterDef poisonworm = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Poisonworm_AlienMutationVariationDef"));
+            BodyPartAspectDef acidWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Acidworm_Torso_BodyPartDef]"));
+            BodyPartAspectDef fireWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Fireworm_Torso_BodyPartDef]"));
+            BodyPartAspectDef poisonWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Poisonworm_Torso_BodyPartDef]"));
+
+            int wormSpeed = 9;
+            fireworm.DeploymentCost = 10;    // 35
+            acidworm.DeploymentCost = 10;    // 35
+            poisonworm.DeploymentCost = 10;  // 35
+            acidWorm.Speed = wormSpeed;
+            fireWorm.Speed = wormSpeed;
+            poisonWorm.Speed = wormSpeed;
 
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
