@@ -107,22 +107,36 @@ namespace Better_Enemies
             BodyPartAspectDef queenHeavyHead = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Queen_Head_Heavy_BodyPartDef]"));
             BodyPartAspectDef queenSpitterHead = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Queen_Head_Spitter_Goo_WeaponDef]"));
             BodyPartAspectDef queenSonicHead = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Queen_Head_Sonic_WeaponDef]"));
+            TacticalNavigationComponentDef queenNav = Repo.GetAllDefs<TacticalNavigationComponentDef>().FirstOrDefault(a => a.name.Equals("Queen_NavigationDef"));
+            AdditionalEffectShootAbilityDef queenBlast = Repo.GetAllDefs<AdditionalEffectShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef"));
+            WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
+            WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
+            WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));
 
+            TacticalItemDef sirenLegsHeavy = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Heavy_BodyPartDef"));
+            TacticalItemDef sirenLegsAgile = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Agile_BodyPartDef"));
+            TacticalItemDef sirenLegsOrichalcum = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Orichalcum_BodyPartDef"));
             PsychicScreamAbilityDef sirenPsychicScream = Repo.GetAllDefs<PsychicScreamAbilityDef>().FirstOrDefault(a => a.name.Equals("Siren_PsychicScream_AbilityDef"));
-
-            TacticalItemDef crabmanHeavyHead = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Crabman_Head_EliteHumanoid_BodyPartDef"));
-            MindControlStatusDef mcStatus = Repo.GetAllDefs<MindControlStatusDef>().FirstOrDefault(a => a.name.Equals("MindControl_StatusDef"));
+            TacCharacterDef sirenBanshee = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren3_InjectorBuffer_AlienMutationVariationDef"));
+            TacCharacterDef sirenHarbinger = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren4_SlasherBuffer_AlienMutationVariationDef"));
+            TacticalPerceptionDef sirenPerception = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault(a => a.name.Equals("Siren_PerceptionDef"));
+            TacCharacterDef sirenArmis = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren5_Orichalcum_AlienMutationVariationDef"));
+            WeaponDef sirenInjectorArms = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Siren_Arms_Injector_WeaponDef"));
+          
             WeaponDef chironBlastMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_Mortar_WeaponDef"));
             WeaponDef chironCristalMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_Crystal_Mortar_WeaponDef"));
             WeaponDef chironAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_Acid_Mortar_WeaponDef"));
             WeaponDef chironFireWormMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_FireWorm_Launcher_WeaponDef"));
             WeaponDef chironAcidWormMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_AcidWorm_Launcher_WeaponDef"));
             WeaponDef chironPoisonWormMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_PoisonWorm_Launcher_WeaponDef"));
+            TacCharacterDef chironFireHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron2_FireWormHeavy_AlienMutationVariationDef"));
+            TacCharacterDef chironPoisonHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron4_PoisonWormHeavy_AlienMutationVariationDef"));
+            TacCharacterDef chironAcidHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron6_AcidWormHeavy_AlienMutationVariationDef"));
+            TacCharacterDef chironGooHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron8_GooHeavy_AlienMutationVariationDef"));
+            
             WeaponDef crabmanacidGrenadeAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_Grenade_WeaponDef"));
-            WeaponDef crabmanadvancedacidGrenadeAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_EliteGrenade_WeaponDef"));
-            TacticalItemDef sirenLegsHeavy = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Heavy_BodyPartDef"));
-            TacticalItemDef sirenLegsAgile = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Agile_BodyPartDef"));
-            TacticalItemDef sirenLegsOrichalcum = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Orichalcum_BodyPartDef"));
+            WeaponDef crabmanadvancedacidGrenadeAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_EliteGrenade_WeaponDef"));           
+            TacticalItemDef crabmanHeavyHead = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Crabman_Head_EliteHumanoid_BodyPartDef"));
             TacCharacterDef crabShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman9_Shielder_AlienMutationVariationDef"));
             TacCharacterDef crabAShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman10_AdvancedShielder_AlienMutationVariationDef"));
             TacCharacterDef crabAShielder2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman11_AdvancedShielder2_AlienMutationVariationDef"));
@@ -137,15 +151,7 @@ namespace Better_Enemies
             TacCharacterDef crabTyrant5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman13_EliteShielder2_AlienMutationVariationDef"));
             TacCharacterDef crabTyrant6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
             TacCharacterDef crabTyrant7 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
-            TacCharacterDef sirenBanshee = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren3_InjectorBuffer_AlienMutationVariationDef"));
-            TacCharacterDef sirenHarbinger = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren4_SlasherBuffer_AlienMutationVariationDef"));
-            TacticalPerceptionDef sirenPerception = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault(a => a.name.Equals("Siren_PerceptionDef"));
-            TacCharacterDef sirenArmis = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren5_Orichalcum_AlienMutationVariationDef"));
-            WeaponDef sirenInjectorArms = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Siren_Arms_Injector_WeaponDef"));
-            TacticalPerceptionDef tacticalPerceptionEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("Fireworm_Egg_PerceptionDef"));
-            TacticalPerceptionDef tacticalPerceptionHatchling = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelHatching_PerceptionDef"));
-            TacticalPerceptionDef tacticalPerceptionTerror = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelTerror_PerceptionDef"));
-            TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("EggFacehugger_PerceptionDef"));
+                      
             WeaponDef fishArmsParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Fishman_UpperArms_Paralyzing_BodyPartDef"));
             WeaponDef fishArmsEliteParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_Paralyzing_BodyPartDef"));
             TacCharacterDef fishSniper = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman11_Sniper_AlienMutationVariationDef"));
@@ -154,23 +160,20 @@ namespace Better_Enemies
             TacCharacterDef fishSniper4 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman14_PiercerSniper_AlienMutationVariationDef"));
             TacCharacterDef fishSniper5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_Shrowder_Sniper"));
             TacCharacterDef fishSniper6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman_Shrowder_TacCharacterDef"));
-            TacCharacterDef chironFireHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron2_FireWormHeavy_AlienMutationVariationDef"));
-            TacCharacterDef chironPoisonHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron4_PoisonWormHeavy_AlienMutationVariationDef"));
-            TacCharacterDef chironAcidHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron6_AcidWormHeavy_AlienMutationVariationDef"));
-            TacCharacterDef chironGooHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron8_GooHeavy_AlienMutationVariationDef"));
-            TacticalNavigationComponentDef queenNav = Repo.GetAllDefs<TacticalNavigationComponentDef>().FirstOrDefault(a => a.name.Equals("Queen_NavigationDef"));
+
+            MindControlStatusDef mcStatus = Repo.GetAllDefs<MindControlStatusDef>().FirstOrDefault(a => a.name.Equals("MindControl_StatusDef"));
             TacticalNavigationComponentDef scarabNav = Repo.GetAllDefs<TacticalNavigationComponentDef>().FirstOrDefault(a => a.name.Equals("PX_Scarab_NavigationDef"));
-            AdditionalEffectShootAbilityDef queenBlast = Repo.GetAllDefs<AdditionalEffectShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef"));
-            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));
-            WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
-            WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
-            WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));
+            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));            
             TacCharacterDef fireworm = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fireworm_AlienMutationVariationDef"));
             TacCharacterDef acidworm = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Acidworm_AlienMutationVariationDef"));
             TacCharacterDef poisonworm = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Poisonworm_AlienMutationVariationDef"));
             BodyPartAspectDef acidWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Acidworm_Torso_BodyPartDef]"));
             BodyPartAspectDef fireWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Fireworm_Torso_BodyPartDef]"));
             BodyPartAspectDef poisonWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Poisonworm_Torso_BodyPartDef]"));
+            TacticalPerceptionDef tacticalPerceptionEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("Fireworm_Egg_PerceptionDef"));
+            TacticalPerceptionDef tacticalPerceptionHatchling = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelHatching_PerceptionDef"));
+            TacticalPerceptionDef tacticalPerceptionTerror = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelTerror_PerceptionDef"));
+            TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("EggFacehugger_PerceptionDef"));
 
             int wormSpeed = 9;
             fireworm.DeploymentCost = 10;    // 35
@@ -180,6 +183,119 @@ namespace Better_Enemies
             fireWorm.Speed = wormSpeed;
             poisonWorm.Speed = wormSpeed;
 
+            foreach(TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_")))
+            {
+                if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
+                {
+                    taccharacter.AvailableForGenericDeployment = false;
+                }
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_")))
+            {
+                if (taccharacter.name.Contains("3"))
+                {
+                    taccharacter.DeploymentCost = 100;
+                }
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("FK_")))
+            {
+                if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
+                {
+                    taccharacter.AvailableForGenericDeployment = false;
+                }
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("FK_")))
+            {
+                if (taccharacter.name.Contains("3") && !taccharacter.name.Contains("Priest"))
+                {
+                    taccharacter.DeploymentCost = 110;
+                }
+                if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Priest"))
+                {
+                    taccharacter.DeploymentCost = 140;
+                } 
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("AN_")))
+            {
+                if (!taccharacter.name.Contains("Mutog"))
+                {
+                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
+                    {
+                        taccharacter.AvailableForGenericDeployment = false;
+                    }
+                }
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("AN_")))
+            {
+                if (taccharacter.name.Contains("3") && !taccharacter.name.Contains("Priest"))
+                {
+                    taccharacter.DeploymentCost = 90;
+                }
+                if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Priest"))
+                {
+                    taccharacter.DeploymentCost = 140;
+                }
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("SY_")))
+            {
+                if (!taccharacter.name.Contains("Aspida"))
+                {
+                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
+                    {
+                        taccharacter.AvailableForGenericDeployment = false;
+                    }
+                }                
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("SY_")))
+            {
+                if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
+                {
+                    taccharacter.DeploymentCost = 90;
+                }
+                if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Sniper"))
+                {
+                    taccharacter.DeploymentCost = 160;
+                }
+                if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Infiltrator"))
+                {
+                    taccharacter.DeploymentCost = 140;
+                }
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("NJ_")))
+            {
+                if (!taccharacter.name.Contains("Armadillo"))
+                {
+                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
+                    {
+                        taccharacter.AvailableForGenericDeployment = false;
+                    }
+                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
+                    {
+                        taccharacter.DeploymentCost = 90;
+                    }
+                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Sniper"))
+                    {
+                        taccharacter.DeploymentCost = 160;
+                    }
+                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Heavy"))
+                    {
+                        taccharacter.DeploymentCost = 120;
+                    }
+                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Technician"))
+                    {
+                        taccharacter.DeploymentCost = 100;
+                    }
+                }
+            }
+           
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
             ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
@@ -252,12 +368,20 @@ namespace Better_Enemies
             queenSpitterHead.WillPower = 165;
             queenSonicHead.WillPower = 170;
 
+            foreach(TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("Queen")))
+            {
+                taccharacter.Data.Abilites = new TacticalAbilityDef[]
+                {
+                    Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CaterpillarMoveAbilityDef")),
+                };
+            }
+
             guardianBeam.TrackWithCamera = false;
             guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
             ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)guardianBeam.SceneViewElementDef;
             guardianBeamSVE.HoverMarkerInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackConeNoTarget;
             guardianBeamSVE.LineToCursorInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackLineNoTarget;
-            guardianBeam.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_StartPreparing_AbilityDef]"));
+            guardianBeam.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_GunsFire_ShootAbilityDef]"));
             guardianBeam.SceneViewElementDef.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
 
             fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
@@ -288,12 +412,15 @@ namespace Better_Enemies
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
             };
 
-            //sirenInjectorArms.BodyPartAspectDef.Stealth = 0.4f;
+            sirenInjectorArms.BodyPartAspectDef = new BodyPartAspectDef()
+            {
+                Perception = 0.4f,
+            };
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
             sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
             sirenLegsAgile.Armor = 30;
-            sirenLegsOrichalcum.Armor = 30;
+            //sirenLegsOrichalcum.Armor = 30;
             sirenPsychicScream.ActionPointCost = 0.25f;
             sirenPsychicScream.UsesPerTurn = 1;
 
@@ -305,6 +432,8 @@ namespace Better_Enemies
             sirenBanshee.Data.Abilites = new TacticalAbilityDef[]
             {
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Siren_PsychicScream_AbilityDef")),
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Thief_AbilityDef")),
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("StealthSpecialist_AbilityDef"))
             };
             sirenHarbinger.Data.Abilites = new TacticalAbilityDef[]
             {
