@@ -399,7 +399,7 @@ namespace Better_Enemies
             */
 
             queenBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
-            queenBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;
+            queenBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;            
             queenLeftBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
             queenLeftBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;
             queenRightBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
@@ -418,6 +418,31 @@ namespace Better_Enemies
                     Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CaterpillarMoveAbilityDef")),
                 };
             }
+
+            queenBlastWeapon.Tags = new GameTagsList()
+            {
+                queenBlastWeapon.Tags[0],
+                queenBlastWeapon.Tags[1],
+                queenBlastWeapon.Tags[2],
+                queenBlastWeapon.Tags[3],
+                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+            };
+
+            queenLeftBlastWeapon.Tags = new GameTagsList()
+            {
+                queenLeftBlastWeapon.Tags[0],
+                queenLeftBlastWeapon.Tags[1],
+                queenLeftBlastWeapon.Tags[2],
+                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+            };
+
+            queenBlastWeapon.Tags = new GameTagsList()
+            {
+                queenRightBlastWeapon.Tags[0],
+                queenRightBlastWeapon.Tags[1],
+                queenRightBlastWeapon.Tags[2],
+                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+            };
 
             guardianBeam.TrackWithCamera = false;
             guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
