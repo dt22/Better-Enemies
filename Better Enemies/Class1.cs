@@ -102,6 +102,8 @@ namespace Better_Enemies
             api?.Invoke("log verbose", "Mod Initialised.");
 
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
+            SharedData Shared = GameUtl.GameComponent<SharedData>();
+
             TacticalItemDef queenSpawner = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Queen_Abdomen_Spawner_BodyPartDef"));
             TacticalItemDef queenBelcher = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Queen_Abdomen_Belcher_BodyPartDef"));
             BodyPartAspectDef queenHeavyHead = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Queen_Head_Heavy_BodyPartDef]"));
@@ -170,12 +172,21 @@ namespace Better_Enemies
             BodyPartAspectDef acidWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Acidworm_Torso_BodyPartDef]"));
             BodyPartAspectDef fireWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Fireworm_Torso_BodyPartDef]"));
             BodyPartAspectDef poisonWorm = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Poisonworm_Torso_BodyPartDef]"));
+            ApplyDamageEffectAbilityDef aWormDamage = Repo.GetAllDefs<ApplyDamageEffectAbilityDef>().FirstOrDefault(a => a.name.Equals("AcidwormExplode_AbilityDef"));
+            ApplyDamageEffectAbilityDef fWormDamage = Repo.GetAllDefs<ApplyDamageEffectAbilityDef>().FirstOrDefault(a => a.name.Equals("FirewormExplode_AbilityDef"));
+            ApplyDamageEffectAbilityDef pWormDamage = Repo.GetAllDefs<ApplyDamageEffectAbilityDef>().FirstOrDefault(a => a.name.Equals("PoisonwormExplode_AbilityDef"));
             TacticalPerceptionDef tacticalPerceptionEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("Fireworm_Egg_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionHatchling = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelHatching_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionTerror = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelTerror_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("EggFacehugger_PerceptionDef"));
 
             int wormSpeed = 9;
+            int wormShredDamage = 3;
+            int aWormAcidDamage = 30;
+            int aWormBlastDamage = 10;
+            int fWormFireDamage = 40;
+            int pWormBlastDamage = 25;
+            int pWormPoisonDamage = 50;
             fireworm.DeploymentCost = 10;    // 35
             acidworm.DeploymentCost = 10;    // 35
             poisonworm.DeploymentCost = 10;  // 35
@@ -183,7 +194,27 @@ namespace Better_Enemies
             fireWorm.Speed = wormSpeed;
             poisonWorm.Speed = wormSpeed;
 
-            foreach(TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_")))
+            aWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
+                {
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BlastKeyword, Value = aWormBlastDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.AcidKeyword, Value = aWormAcidDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
+                };
+
+            fWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
+                {
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BurningKeyword, Value = fWormFireDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
+                };
+
+            pWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
+                {
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BlastKeyword, Value = pWormBlastDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword, Value = pWormPoisonDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
+                };
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_")))
             {
                 if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
                 {
