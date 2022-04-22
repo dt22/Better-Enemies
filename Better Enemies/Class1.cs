@@ -9,6 +9,8 @@ using Base.UI;
 using Base.Utils.Maths;
 using Harmony;
 using PhoenixPoint.Common.Core;
+using PhoenixPoint.Common.Entities;
+using PhoenixPoint.Common.Entities.Characters;
 using PhoenixPoint.Common.Entities.GameTags;
 using PhoenixPoint.Common.Entities.GameTagsTypes;
 using PhoenixPoint.Common.UI;
@@ -178,7 +180,10 @@ namespace Better_Enemies
             TacticalPerceptionDef tacticalPerceptionEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("Fireworm_Egg_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionHatchling = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelHatching_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionTerror = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelTerror_PerceptionDef"));
-            TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("EggFacehugger_PerceptionDef"));
+            TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("MutoidSpecializationDef"));
+           
+
+            
 
             int wormSpeed = 9;
             int wormShredDamage = 3;
@@ -213,7 +218,7 @@ namespace Better_Enemies
                 new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword, Value = pWormPoisonDamage },
                 new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
                 };
-
+            
             foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_")))
             {
                 if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
@@ -338,7 +343,7 @@ namespace Better_Enemies
                         taccharacter.DeploymentCost = 160;
                     }             
             }
-
+            
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
             ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
@@ -419,7 +424,7 @@ namespace Better_Enemies
                 };
             }
 
-            queenBlastWeapon.Tags = new GameTagsList()
+            queenBlastWeapon.Tags = new GameTagsList
             {
                 queenBlastWeapon.Tags[0],
                 queenBlastWeapon.Tags[1],
@@ -428,7 +433,7 @@ namespace Better_Enemies
                 Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
             };
 
-            queenLeftBlastWeapon.Tags = new GameTagsList()
+            queenLeftBlastWeapon.Tags = new GameTagsList
             {
                 queenLeftBlastWeapon.Tags[0],
                 queenLeftBlastWeapon.Tags[1],
@@ -436,7 +441,7 @@ namespace Better_Enemies
                 Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
             };
 
-            queenBlastWeapon.Tags = new GameTagsList()
+            queenBlastWeapon.Tags = new GameTagsList
             {
                 queenRightBlastWeapon.Tags[0],
                 queenRightBlastWeapon.Tags[1],
