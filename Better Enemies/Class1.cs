@@ -218,7 +218,7 @@ namespace Better_Enemies
                 new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword, Value = pWormPoisonDamage },
                 new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
                 };
-            
+            /*
             foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_")))
             {
                 if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
@@ -343,7 +343,7 @@ namespace Better_Enemies
                         taccharacter.DeploymentCost = 160;
                     }             
             }
-            
+            */
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
             ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
@@ -485,10 +485,10 @@ namespace Better_Enemies
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
             };
 
-            sirenInjectorArms.BodyPartAspectDef = new BodyPartAspectDef()
-            {
-                Perception = 0.4f,
-            };
+            //sirenInjectorArms.BodyPartAspectDef = new BodyPartAspectDef()
+            //{
+            //    Perception = 0.4f,
+            //};
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
             sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
