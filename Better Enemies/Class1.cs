@@ -218,17 +218,12 @@ namespace Better_Enemies
                 new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword, Value = pWormPoisonDamage },
                 new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
                 };
-            
+            /*
             foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_")))
             {
-                foreach (TacCharacterDef lvl1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1")))
+                if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
                 {
-                    lvl1.AvailableForGenericDeployment = false;
-                }
-
-                foreach (TacCharacterDef lvl2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2")))
-                {
-                    lvl2.AvailableForGenericDeployment = false;
+                    taccharacter.AvailableForGenericDeployment = false;
                 }
                 if (taccharacter.name.Contains("3"))
                 {
@@ -238,14 +233,9 @@ namespace Better_Enemies
 
             foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("FK_")))
             {
-                foreach (TacCharacterDef lvl1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1")))
+                if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
                 {
-                    lvl1.AvailableForGenericDeployment = false;
-                }
-
-                foreach (TacCharacterDef lvl2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2")))
-                {
-                    lvl2.AvailableForGenericDeployment = false;
+                    taccharacter.AvailableForGenericDeployment = false;
                 }
                 if (taccharacter.name.Contains("3") && !taccharacter.name.Contains("Priest"))
                 {
@@ -261,14 +251,9 @@ namespace Better_Enemies
             {
                 if (!taccharacter.name.Contains("Mutog"))
                 {
-                    foreach (TacCharacterDef lvl1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1")))
+                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
                     {
-                        lvl1.AvailableForGenericDeployment = false;
-                    }
-
-                    foreach (TacCharacterDef lvl2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2")))
-                    {
-                        lvl2.AvailableForGenericDeployment = false;
+                        taccharacter.AvailableForGenericDeployment = false;
                     }
                     if (taccharacter.name.Contains("3") && !taccharacter.name.Contains("Priest"))
                     {
@@ -285,14 +270,9 @@ namespace Better_Enemies
             {
                 if (!taccharacter.name.Contains("Aspida"))
                 {
-                    foreach (TacCharacterDef lvl1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1")))
+                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
                     {
-                        lvl1.AvailableForGenericDeployment = false;
-                    }
-
-                    foreach (TacCharacterDef lvl2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2")))
-                    {
-                        lvl2.AvailableForGenericDeployment = false;
+                        taccharacter.AvailableForGenericDeployment = false;
                     }
                     if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
                     {
@@ -313,16 +293,10 @@ namespace Better_Enemies
             {
                 if (!taccharacter.name.Contains("Armadillo"))
                 {
-                    foreach (TacCharacterDef lvl1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1")))
+                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
                     {
-                        lvl1.AvailableForGenericDeployment = false;
+                        taccharacter.AvailableForGenericDeployment = false;
                     }
-
-                    foreach (TacCharacterDef lvl2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2")))
-                    {
-                        lvl2.AvailableForGenericDeployment = false;
-                    }
-
                     if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
                     {
                         taccharacter.DeploymentCost = 90;
@@ -343,45 +317,33 @@ namespace Better_Enemies
             }
 
             foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("PU_")))
-            {         
-                
-                foreach (TacCharacterDef lvl1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1")))
-                {
-                    lvl1.AvailableForGenericDeployment = false;                   
-                }
-
-                foreach (TacCharacterDef lvl2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2")))
-                {
-                    lvl2.AvailableForGenericDeployment = false;
-                }
-
-                if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
+            {               
+                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
+                    {
+                        taccharacter.AvailableForGenericDeployment = false;
+                    }
+                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
                     {
                         taccharacter.DeploymentCost = 140;
-                        taccharacter.DaysBeforeAvailable = 0;
                     }
                     if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Sniper"))
                     {
                         taccharacter.DeploymentCost = 180;
-                        taccharacter.DaysBeforeAvailable = 0;
                     }
                     if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Heavy"))
                     {
                         taccharacter.DeploymentCost = 140;
-                        taccharacter.DaysBeforeAvailable = 0;
                     }
                     if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Technician"))
                     {
                         taccharacter.DeploymentCost = 130;
-                        taccharacter.DaysBeforeAvailable = 0;
                     }
                     if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Infiltrator"))
                     {
                         taccharacter.DeploymentCost = 160;
-                        taccharacter.DaysBeforeAvailable = 0;
                     }             
             }
-            
+            */
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
             ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
@@ -742,6 +704,101 @@ namespace Better_Enemies
                 crabmanEliteShield.Abilities[0],
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
             };
+
+            foreach (TacCharacterDef ban1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("BAN_")))
+            {
+                ban1.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef ban2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("BAN_")))
+            {
+                ban2.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_") && a.name.Contains("3")))
+            {
+                taccharacter.DeploymentCost = 100;
+            }          
+
+            foreach (TacCharacterDef fk1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("FK_")))
+            {
+                fk1.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef fk2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("FK_")))
+            {
+                fk2.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("FK_") && a.name.Contains("3")))
+            {
+                taccharacter.DeploymentCost = 115;
+            }
+           
+            foreach (TacCharacterDef an1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("AN_")))
+            {
+                an1.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef an2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("AN_")))
+            {
+                an2.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("AN_") && a.name.Contains("3") && !a.name.Contains("Mutog")))
+            {
+                taccharacter.DeploymentCost = 115;
+            }
+            
+            foreach (TacCharacterDef sy1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("SY_")))
+            {
+                sy1.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef sy2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("SY_")))
+            {
+                sy2.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("SY_") && a.name.Contains("3") && !a.name.Contains("Aspida")))
+            {
+                taccharacter.DeploymentCost = 120;
+            }
+
+            foreach (TacCharacterDef nj1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("NJ_")))
+            {
+                nj1.AvailableForGenericDeployment = false;              
+            }
+
+            foreach (TacCharacterDef nj2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("NJ_")))
+            {
+                nj2.AvailableForGenericDeployment = false;
+            }
+
+            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("NJ_") && a.name.Contains("3") && !a.name.Contains("Armadillo")))
+            {
+                taccharacter.DeploymentCost = 120;
+            }
+
+            foreach (TacCharacterDef pulvl1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("PU_")))
+            {
+                if (pulvl1.name.Contains("1") && pulvl1.name.Contains("PU_"))
+                {
+                    pulvl1.AvailableForGenericDeployment = false;
+                }                  
+            }
+            foreach (TacCharacterDef pulvl2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("PU_")))
+            {
+                if (pulvl2.name.Contains("2") && pulvl2.name.Contains("PU_"))
+                {
+                    pulvl2.AvailableForGenericDeployment = false;
+                }
+            }
+
+            foreach (TacCharacterDef pu3 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("PU_") && a.name.Contains("3")))
+            {
+                pu3.DeploymentCost = 155;           
+            }
             */
         }
     }
