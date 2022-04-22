@@ -181,169 +181,91 @@ namespace Better_Enemies
             TacticalPerceptionDef tacticalPerceptionHatchling = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelHatching_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionTerror = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("SentinelTerror_PerceptionDef"));
             TacticalPerceptionDef tacticalPerceptionMindFraggerEgg = Repo.GetAllDefs<TacticalPerceptionDef>().FirstOrDefault((TacticalPerceptionDef a) => a.name.Equals("MutoidSpecializationDef"));
-           
 
-            
+            TacCharacterDef syass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Assault1_CharacterTemplateDef"));
+            TacCharacterDef sysniper1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Sniper1_CharacterTemplateDef"));
+            TacCharacterDef syinf1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Infiltrator1_CharacterTemplateDef"));
+            TacCharacterDef syass3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Assault3_CharacterTemplateDef"));
+            TacCharacterDef sysniper3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Sniper3_CharacterTemplateDef"));
+            TacCharacterDef syinf3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Infiltrator3_CharacterTemplateDef"));
 
-            int wormSpeed = 9;
-            int wormShredDamage = 3;
-            int aWormAcidDamage = 30;
-            int aWormBlastDamage = 10;
-            int fWormFireDamage = 40;
-            int pWormBlastDamage = 25;
-            int pWormPoisonDamage = 50;
-            fireworm.DeploymentCost = 10;    // 35
-            acidworm.DeploymentCost = 10;    // 35
-            poisonworm.DeploymentCost = 10;  // 35
-            acidWorm.Speed = wormSpeed;
-            fireWorm.Speed = wormSpeed;
-            poisonWorm.Speed = wormSpeed;
+            TacCharacterDef anass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault1_CharacterTemplateDef"));
+            TacCharacterDef anzerker1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker1_CharacterTemplateDef"));
+            TacCharacterDef anpriestJ1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_JudgementPriest1_CharacterTemplateDef"));
+            TacCharacterDef anass3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault3_CharacterTemplateDef"));
+            TacCharacterDef anzerker3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker3_CharacterTemplateDef"));
+            TacCharacterDef anpriestJ3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_JudgementPriest3_CharacterTemplateDef"));
+            TacCharacterDef anpriestSC1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_ScreamingPriest1_CharacterTemplateDef"));
+            TacCharacterDef anpriestSC3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_ScreamingPriest3_CharacterTemplateDef"));
+            TacCharacterDef anpriestSY1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_SynodPriest1_CharacterTemplateDef"));
+            TacCharacterDef anpriestSY3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_SynodPriest3_CharacterTemplateDef"));
 
-            aWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
-                {
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BlastKeyword, Value = aWormBlastDamage },
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.AcidKeyword, Value = aWormAcidDamage },
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
-                };
+            TacCharacterDef njass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("NJ_Assault1_CharacterTemplateDef"));
+            TacCharacterDef njheavy1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("NJ_Heavy1_CharacterTemplateDef"));
+            TacCharacterDef njsniper1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("NJ_Sniper1_CharacterTemplateDef"));
+            TacCharacterDef njtech1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("NJ_Technician1_CharacterTemplateDef"));
+            TacCharacterDef njass3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("NJ_Assault3_CharacterTemplateDef"));
+            TacCharacterDef njheavy3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("NJ_Heavy3_CharacterTemplateDef"));
+            TacCharacterDef njsniper3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("NJ_Sniper3_CharacterTemplateDef"));
+            TacCharacterDef njtech3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("NJ_Technician3_CharacterTemplateDef"));
 
-            fWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
-                {
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BurningKeyword, Value = fWormFireDamage },
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
-                };
+            TacCharacterDef fkass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_Assault1_CharacterTemplateDef"));
+            TacCharacterDef fkzerker1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_Berserker1_CharacterTemplateDef"));
+            TacCharacterDef fkpriestJ1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_JudgementPriest1_CharacterTemplateDef"));
+            TacCharacterDef fkpriestSC1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_ScreamingPriest1_CharacterTemplateDef"));
+            TacCharacterDef fkpriestSY1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_SynodPriest1_CharacterTemplateDef"));
+            TacCharacterDef fkass3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_Assault3_CharacterTemplateDef"));
+            TacCharacterDef fkzerker3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_Berserker3_CharacterTemplateDef"));
+            TacCharacterDef fkpriestJ3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_JudgementPriest3_CharacterTemplateDef"));
+            TacCharacterDef fkpriestSC3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_ScreamingPriest3_CharacterTemplateDef"));
+            TacCharacterDef fkpriestSY3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FK_SynodPriest3_CharacterTemplateDef"));
 
-            pWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
-                {
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BlastKeyword, Value = pWormBlastDamage },
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword, Value = pWormPoisonDamage },
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
-                };
-            /*
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_")))
-            {
-                if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
-                {
-                    taccharacter.AvailableForGenericDeployment = false;
-                }
-                if (taccharacter.name.Contains("3"))
-                {
-                    taccharacter.DeploymentCost = 100;
-                }
-            }            
+            TacCharacterDef banass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("BAN_Assault1_CharacterTemplateDef"));
+            TacCharacterDef banass3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("BAN_Assault3_CharacterTemplateDef"));
+            TacCharacterDef bansniper1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("BAN_Sniper1_CharacterTemplateDef"));
+            TacCharacterDef bansniper3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("BAN_Sniper3_CharacterTemplateDef"));
+            TacCharacterDef banheavy1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("BAN_Heavy1_CharacterTemplateDef"));
+            TacCharacterDef banheavy3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("BAN_Heavy3_CharacterTemplateDef"));
 
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("FK_")))
-            {
-                if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
-                {
-                    taccharacter.AvailableForGenericDeployment = false;
-                }
-                if (taccharacter.name.Contains("3") && !taccharacter.name.Contains("Priest"))
-                {
-                    taccharacter.DeploymentCost = 110;
-                }
-                if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Priest"))
-                {
-                    taccharacter.DeploymentCost = 140;
-                }
-            }
+            TacCharacterDef puass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Assault1_CharacterTemplateDef"));
+            TacCharacterDef puheavy1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Heavy1_CharacterTemplateDef"));
+            TacCharacterDef pusniper1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Sniper1_CharacterTemplateDef"));
+            TacCharacterDef puinf1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Infiltrator1_CharacterTemplateDef"));
+            TacCharacterDef putech1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Technician1_CharacterTemplateDef"));
+            TacCharacterDef puass3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Assault3_Jugg_CharacterTemplateDef"));
+            TacCharacterDef puheavy3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Heavy3_Jugg_CharacterTemplateDef"));
+            TacCharacterDef pusniper3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Sniper3_Exo_CharacterTemplateDef"));
+            TacCharacterDef puinf4 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Infiltrator4_Shin_CharacterTemplateDef"));
+            TacCharacterDef putech3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Technician3_Jugg_CharacterTemplateDef"));
 
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("AN_")))
-            {
-                if (!taccharacter.name.Contains("Mutog"))
-                {
-                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
-                    {
-                        taccharacter.AvailableForGenericDeployment = false;
-                    }
-                    if (taccharacter.name.Contains("3") && !taccharacter.name.Contains("Priest"))
-                    {
-                        taccharacter.DeploymentCost = 90;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Priest"))
-                    {
-                        taccharacter.DeploymentCost = 140;
-                    }
-                }
-            }
-            
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("SY_")))
-            {
-                if (!taccharacter.name.Contains("Aspida"))
-                {
-                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
-                    {
-                        taccharacter.AvailableForGenericDeployment = false;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
-                    {
-                        taccharacter.DeploymentCost = 90;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Sniper"))
-                    {
-                        taccharacter.DeploymentCost = 160;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Infiltrator"))
-                    {
-                        taccharacter.DeploymentCost = 140;
-                    }
-                }                
-            }
-            
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("NJ_")))
-            {
-                if (!taccharacter.name.Contains("Armadillo"))
-                {
-                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
-                    {
-                        taccharacter.AvailableForGenericDeployment = false;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
-                    {
-                        taccharacter.DeploymentCost = 90;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Sniper"))
-                    {
-                        taccharacter.DeploymentCost = 160;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Heavy"))
-                    {
-                        taccharacter.DeploymentCost = 120;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Technician"))
-                    {
-                        taccharacter.DeploymentCost = 100;
-                    }
-                }
-            }
 
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("PU_")))
-            {               
-                    if (taccharacter.name.Contains("1") || taccharacter.name.Contains("2"))
-                    {
-                        taccharacter.AvailableForGenericDeployment = false;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Assault"))
-                    {
-                        taccharacter.DeploymentCost = 140;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Sniper"))
-                    {
-                        taccharacter.DeploymentCost = 180;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Heavy"))
-                    {
-                        taccharacter.DeploymentCost = 140;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Technician"))
-                    {
-                        taccharacter.DeploymentCost = 130;
-                    }
-                    if (taccharacter.name.Contains("3") && taccharacter.name.Contains("Infiltrator"))
-                    {
-                        taccharacter.DeploymentCost = 160;
-                    }             
-            }
-            */
+            syass1.Data = syass3.Data;
+            sysniper1.Data = sysniper3.Data;
+            syinf1.Data = syinf3.Data;
+            anass1.Data = anass3.Data;
+            anzerker1.Data = anzerker3.Data;
+            anpriestJ1.Data = anpriestJ3.Data;
+            anpriestSC1.Data = anpriestSC3.Data;
+            anpriestSY1.Data = anpriestSY3.Data;
+            njass1.Data = njass3.Data;
+            njheavy1.Data = njheavy3.Data;
+            njsniper1.Data = njsniper3.Data;
+            njtech1.Data = njtech3.Data;
+            fkass1.Data = fkass3.Data;
+            fkzerker1.Data = fkzerker3.Data;
+            fkpriestJ1.Data = fkpriestJ3.Data;
+            fkpriestSC1.Data = fkpriestSC3.Data;
+            fkpriestSY1.Data = fkpriestSY3.Data;
+            banass1.Data = banass3.Data;
+            banheavy1.Data = banheavy3.Data;
+            bansniper1.Data = bansniper3.Data;
+
+            puass1.Data = puass3.Data;          
+            puheavy1.Data = puheavy3.Data;          
+            pusniper1.Data = pusniper3.Data;         
+            puinf1.Data = puinf4.Data;           
+            putech1.Data = putech3.Data;         
+
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
             ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
@@ -378,30 +300,7 @@ namespace Better_Enemies
             {
                 queenBelcher.Abilities[0],
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("AcidResistant_DamageMultiplierAbilityDef")),
-            };
-
-
-            /*
-            queenBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;
-            queenBlastWeapon.SpreadDegrees = 1.5f;
-            queenBlastWeapon.DamagePayload.Range = -1;
-            queenBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
-            queenBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;
-            
-            queenLeftBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;                      
-            queenLeftBlastWeapon.SpreadDegrees = 1.5f;
-            queenLeftBlastWeapon.DamagePayload.Range = -1;
-            queenLeftBlastWeapon.DamagePayload.OverrideAimIKSettings = true;
-            queenLeftBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
-            queenLeftBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;            
-          
-            queenRightBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;
-            queenRightBlastWeapon.DamagePayload.OverrideAimIKSettings = true;
-            queenRightBlastWeapon.SpreadDegrees = 1.5f;
-            queenRightBlastWeapon.DamagePayload.Range = -1;
-            queenRightBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
-            queenRightBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;
-            */
+            };            
 
             queenBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
             queenBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;            
@@ -484,16 +383,11 @@ namespace Better_Enemies
             {
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
             };
-
-            //sirenInjectorArms.BodyPartAspectDef = new BodyPartAspectDef()
-            //{
-            //    Perception = 0.4f,
-            //};
+            
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
             sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
-            sirenLegsAgile.Armor = 30;
-            //sirenLegsOrichalcum.Armor = 30;
+            sirenLegsAgile.Armor = 30;          
             sirenPsychicScream.ActionPointCost = 0.25f;
             sirenPsychicScream.UsesPerTurn = 1;
 
@@ -631,6 +525,40 @@ namespace Better_Enemies
             tacticalPerceptionTerror.PerceptionRange = 18;
             tacticalPerceptionEgg.PerceptionRange = 7;
             tacticalPerceptionHatchling.PerceptionRange = 18;
+
+            int wormSpeed = 9;
+            int wormShredDamage = 3;
+            int aWormAcidDamage = 30;
+            int aWormBlastDamage = 10;
+            int fWormFireDamage = 40;
+            int pWormBlastDamage = 25;
+            int pWormPoisonDamage = 50;
+            fireworm.DeploymentCost = 10;    // 35
+            acidworm.DeploymentCost = 10;    // 35
+            poisonworm.DeploymentCost = 10;  // 35
+            acidWorm.Speed = wormSpeed;
+            fireWorm.Speed = wormSpeed;
+            poisonWorm.Speed = wormSpeed;
+
+            aWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
+                {
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BlastKeyword, Value = aWormBlastDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.AcidKeyword, Value = aWormAcidDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
+                };
+
+            fWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
+                {
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BurningKeyword, Value = fWormFireDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
+                };
+
+            pWormDamage.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
+                {
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BlastKeyword, Value = pWormBlastDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword, Value = pWormPoisonDamage },
+                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
+                };
         }
         public static void MainMod(Func<string, object, object> api)
         {
@@ -679,6 +607,26 @@ namespace Better_Enemies
             AdditionalEffectShootAbilityDef queenBlast = Repo.GetAllDefs<AdditionalEffectShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef"));
             WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
             WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
+            /*
+            queenBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;
+            queenBlastWeapon.SpreadDegrees = 1.5f;
+            queenBlastWeapon.DamagePayload.Range = -1;
+            queenBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
+            queenBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;
+            
+            queenLeftBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;                      
+            queenLeftBlastWeapon.SpreadDegrees = 1.5f;
+            queenLeftBlastWeapon.DamagePayload.Range = -1;
+            queenLeftBlastWeapon.DamagePayload.OverrideAimIKSettings = true;
+            queenLeftBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
+            queenLeftBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;            
+          
+            queenRightBlastWeapon.DamagePayload.DamageDeliveryType = DamageDeliveryType.DirectLine;
+            queenRightBlastWeapon.DamagePayload.OverrideAimIKSettings = true;
+            queenRightBlastWeapon.SpreadDegrees = 1.5f;
+            queenRightBlastWeapon.DamagePayload.Range = -1;
+            queenRightBlastWeapon.TargetBodyPartsOrder = TargetOrderType.FixedOrder;
+            queenRightBlastWeapon.TargetBodyPartGroup = BodyPartGroup.None;
             queenLeftBlastWeapon.Abilities = new AbilityDef[]
             {
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef")),
@@ -704,101 +652,17 @@ namespace Better_Enemies
                 crabmanEliteShield.Abilities[0],
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
             };
-
-            foreach (TacCharacterDef ban1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("BAN_")))
-            {
-                ban1.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef ban2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("BAN_")))
-            {
-                ban2.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("BAN_") && a.name.Contains("3")))
-            {
-                taccharacter.DeploymentCost = 100;
-            }          
-
-            foreach (TacCharacterDef fk1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("FK_")))
-            {
-                fk1.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef fk2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("FK_")))
-            {
-                fk2.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("FK_") && a.name.Contains("3")))
-            {
-                taccharacter.DeploymentCost = 115;
-            }
-           
-            foreach (TacCharacterDef an1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("AN_")))
-            {
-                an1.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef an2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("AN_")))
-            {
-                an2.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("AN_") && a.name.Contains("3") && !a.name.Contains("Mutog")))
-            {
-                taccharacter.DeploymentCost = 115;
-            }
-            
-            foreach (TacCharacterDef sy1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("SY_")))
-            {
-                sy1.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef sy2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("SY_")))
-            {
-                sy2.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("SY_") && a.name.Contains("3") && !a.name.Contains("Aspida")))
-            {
-                taccharacter.DeploymentCost = 120;
-            }
-
-            foreach (TacCharacterDef nj1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("NJ_")))
-            {
-                nj1.AvailableForGenericDeployment = false;              
-            }
-
-            foreach (TacCharacterDef nj2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("NJ_")))
-            {
-                nj2.AvailableForGenericDeployment = false;
-            }
-
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("NJ_") && a.name.Contains("3") && !a.name.Contains("Armadillo")))
-            {
-                taccharacter.DeploymentCost = 120;
-            }
-
-            foreach (TacCharacterDef pulvl1 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("1") && a.name.Contains("PU_")))
-            {
-                if (pulvl1.name.Contains("1") && pulvl1.name.Contains("PU_"))
-                {
-                    pulvl1.AvailableForGenericDeployment = false;
-                }                  
-            }
-            foreach (TacCharacterDef pulvl2 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("2") && a.name.Contains("PU_")))
-            {
-                if (pulvl2.name.Contains("2") && pulvl2.name.Contains("PU_"))
-                {
-                    pulvl2.AvailableForGenericDeployment = false;
-                }
-            }
-
-            foreach (TacCharacterDef pu3 in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("PU_") && a.name.Contains("3")))
-            {
-                pu3.DeploymentCost = 155;           
-            }
+            */
+            /*
+            //puass1.Data.InventoryItems = puass3.Data.InventoryItems;
+           //puass1.Data.EquipmentItems = puass3.Data.EquipmentItems;
+           //puass1.Data.LevelProgression = puass3.Data.LevelProgression;
+           //puass1.Data.LevelProgression.Def = puass3.Data.LevelProgression.Def;
+           //puass1.Data.Speed = puass3.Data.Speed;
+           //puass1.Data.Strength = puass3.Data.Strength;
+           //puass1.Data.Will = puass3.Data.Will;
+           //puass1.ComponentSetDef.Equals(puass3.ComponentSetDef);
+           //puass1.TacticalActorBaseDef.Equals(puass3.TacticalActorBaseDef);
             */
         }
     }
