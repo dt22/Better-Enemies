@@ -118,6 +118,7 @@ namespace Better_Enemies
             WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
             WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
             WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));
+            AIActionsTemplateDef queenAITemplate = Repo.GetAllDefs<AIActionsTemplateDef>().FirstOrDefault(a => a.name.Equals("Queen_AIActionsTemplateDef"));
 
             TacticalItemDef sirenLegsHeavy = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Heavy_BodyPartDef"));
             TacticalItemDef sirenLegsAgile = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Agile_BodyPartDef"));
@@ -358,6 +359,22 @@ namespace Better_Enemies
             queenHeavyHead.WillPower = 175;
             queenSpitterHead.WillPower = 165;
             queenSonicHead.WillPower = 170;
+            queenAITemplate.ActionDefs = new AIActionDef[]
+            {
+                queenAITemplate.ActionDefs[0],
+                queenAITemplate.ActionDefs[1],
+                queenAITemplate.ActionDefs[2],
+                queenAITemplate.ActionDefs[3],
+                queenAITemplate.ActionDefs[4],
+                queenAITemplate.ActionDefs[5],
+                queenAITemplate.ActionDefs[6],
+                queenAITemplate.ActionDefs[7],
+                queenAITemplate.ActionDefs[8],
+                queenAITemplate.ActionDefs[9],
+                queenAITemplate.ActionDefs[10],
+                queenAITemplate.ActionDefs[12],
+                queenAITemplate.ActionDefs[13],
+            };
 
             foreach(TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("Queen")))
             {
