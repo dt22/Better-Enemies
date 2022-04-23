@@ -249,10 +249,10 @@ namespace Better_Enemies
             ResearchDef fishBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanBasic_ResearchDef"));
             ResearchDef fishFootpadResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("Fishman3_Assault_AlienMutationVariationDef"));
 
-            crabGunResearch.UnlockRequirements = crabBasicResearch.UnlockRequirements;
-            crabGunResearch.InitialStates[4].State = ResearchState.Completed;
-            fishWretchResearch.InitialStates[4].State = ResearchState.Completed;
-            fishFootpadResearch.InitialStates[4].State = ResearchState.Completed;
+            
+            //crabGunResearch.InitialStates[4].State = ResearchState.Completed;
+            //fishWretchResearch.InitialStates[4].State = ResearchState.Completed;
+            //fishFootpadResearch.InitialStates[4].State = ResearchState.Completed;
 
             syass1.Data = syass3.Data;
             sysniper1.Data = sysniper3.Data;
@@ -304,15 +304,15 @@ namespace Better_Enemies
 
             queenLeftBlastWeapon.Abilities = new AbilityDef[]
             {
-                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef")),
+                guardianBeam,
             };
             queenRightBlastWeapon.Abilities = new AbilityDef[]
             {
-                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef")),
+                guardianBeam,
             };
             queenBlastWeapon.Abilities = new AbilityDef[]
             {
-                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef")),
+                guardianBeam,
             };
             queenSpawner.Abilities = new AbilityDef[]
             {
@@ -330,21 +330,21 @@ namespace Better_Enemies
                 queenBlastWeapon.Tags[1],
                 queenBlastWeapon.Tags[2],
                 queenBlastWeapon.Tags[3],
-                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+                Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
             };
             queenLeftBlastWeapon.Tags = new GameTagsList
             {
                 queenLeftBlastWeapon.Tags[0],
                 queenLeftBlastWeapon.Tags[1],
                 queenLeftBlastWeapon.Tags[2],
-                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+                Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
             };
             queenBlastWeapon.Tags = new GameTagsList
             {
                 queenRightBlastWeapon.Tags[0],
                 queenRightBlastWeapon.Tags[1],
                 queenRightBlastWeapon.Tags[2],
-                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+                Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
             };
 
             queenBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
