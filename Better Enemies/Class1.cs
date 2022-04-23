@@ -15,6 +15,7 @@ using PhoenixPoint.Common.Entities.GameTags;
 using PhoenixPoint.Common.Entities.GameTagsTypes;
 using PhoenixPoint.Common.UI;
 using PhoenixPoint.Geoscape.Entities.DifficultySystem;
+using PhoenixPoint.Geoscape.Entities.Research;
 using PhoenixPoint.Geoscape.Events.Eventus;
 using PhoenixPoint.Tactical;
 using PhoenixPoint.Tactical.AI;
@@ -241,6 +242,16 @@ namespace Better_Enemies
             TacCharacterDef puinf4 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Infiltrator4_Shin_CharacterTemplateDef"));
             TacCharacterDef putech3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Technician3_Jugg_CharacterTemplateDef"));
 
+            ResearchDef crabGunResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_CrabmanGunner_ResearchDef"));
+            ResearchDef crabBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_CrabmanBasic_ResearchDef"));
+            ResearchDef fishWretchResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanSneaker_ResearchDef"));
+            ResearchDef fishBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanBasic_ResearchDef"));
+            ResearchDef fishFootpadResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("Fishman3_Assault_AlienMutationVariationDef"));
+
+            crabGunResearch.UnlockRequirements = crabBasicResearch.UnlockRequirements;
+            crabGunResearch.InitialStates[4].State = ResearchState.Completed;
+            fishWretchResearch.InitialStates[4].State = ResearchState.Completed;
+            fishFootpadResearch.InitialStates[4].State = ResearchState.Completed;
 
             syass1.Data = syass3.Data;
             sysniper1.Data = sysniper3.Data;
