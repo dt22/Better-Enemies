@@ -278,7 +278,7 @@ namespace Better_Enemies
             puheavy1.Data = puheavy3.Data;          
             pusniper1.Data = pusniper3.Data;         
             puinf1.Data = puinf4.Data;           
-            putech1.Data = putech3.Data;         
+            putech1.Data = putech3.Data;
 
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
@@ -292,6 +292,14 @@ namespace Better_Enemies
                "20f5659c-890a-4f29-9968-07ea67b04c6b",
                skillName2);
             */
+
+            guardianBeam.TrackWithCamera = false;
+            guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
+            ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)guardianBeam.SceneViewElementDef;
+            guardianBeamSVE.HoverMarkerInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackConeNoTarget;
+            guardianBeamSVE.LineToCursorInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackLineNoTarget;
+            guardianBeam.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_GunsFire_ShootAbilityDef]"));
+            guardianBeam.SceneViewElementDef.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
 
             queenLeftBlastWeapon.Abilities = new AbilityDef[]
             {
@@ -314,7 +322,29 @@ namespace Better_Enemies
             {
                 queenBelcher.Abilities[0],
                 Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("AcidResistant_DamageMultiplierAbilityDef")),
-            };            
+            };
+            queenBlastWeapon.Tags = new GameTagsList
+            {
+                queenBlastWeapon.Tags[0],
+                queenBlastWeapon.Tags[1],
+                queenBlastWeapon.Tags[2],
+                queenBlastWeapon.Tags[3],
+                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+            };
+            queenLeftBlastWeapon.Tags = new GameTagsList
+            {
+                queenLeftBlastWeapon.Tags[0],
+                queenLeftBlastWeapon.Tags[1],
+                queenLeftBlastWeapon.Tags[2],
+                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+            };
+            queenBlastWeapon.Tags = new GameTagsList
+            {
+                queenRightBlastWeapon.Tags[0],
+                queenRightBlastWeapon.Tags[1],
+                queenRightBlastWeapon.Tags[2],
+                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
+            };
 
             queenBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
             queenBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;            
@@ -335,40 +365,7 @@ namespace Better_Enemies
                 {
                     Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CaterpillarMoveAbilityDef")),
                 };
-            }
-
-            queenBlastWeapon.Tags = new GameTagsList
-            {
-                queenBlastWeapon.Tags[0],
-                queenBlastWeapon.Tags[1],
-                queenBlastWeapon.Tags[2],
-                queenBlastWeapon.Tags[3],
-                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
-            };
-
-            queenLeftBlastWeapon.Tags = new GameTagsList
-            {
-                queenLeftBlastWeapon.Tags[0],
-                queenLeftBlastWeapon.Tags[1],
-                queenLeftBlastWeapon.Tags[2],
-                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
-            };
-
-            queenBlastWeapon.Tags = new GameTagsList
-            {
-                queenRightBlastWeapon.Tags[0],
-                queenRightBlastWeapon.Tags[1],
-                queenRightBlastWeapon.Tags[2],
-                Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef"))
-            };
-
-            guardianBeam.TrackWithCamera = false;
-            guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
-            ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)guardianBeam.SceneViewElementDef;
-            guardianBeamSVE.HoverMarkerInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackConeNoTarget;
-            guardianBeamSVE.LineToCursorInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackLineNoTarget;
-            guardianBeam.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_GunsFire_ShootAbilityDef]"));
-            guardianBeam.SceneViewElementDef.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
+            }                    
 
             fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
             fishArmsEliteParalyze.DamagePayload.DamageKeywords[1].Value = 16;
