@@ -157,7 +157,12 @@ namespace Better_Enemies
             TacCharacterDef crabTyrant5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman13_EliteShielder2_AlienMutationVariationDef"));
             TacCharacterDef crabTyrant6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
             TacCharacterDef crabTyrant7 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
-                      
+            ResearchDef crabGunResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_CrabmanGunner_ResearchDef"));
+            ResearchDef crabBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_CrabmanBasic_ResearchDef"));
+            ResearchDef fishWretchResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanSneaker_ResearchDef"));
+            ResearchDef fishBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanBasic_ResearchDef"));
+            ResearchDef fishFootpadResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("Fishman3_Assault_AlienMutationVariationDef"));
+
             WeaponDef fishArmsParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Fishman_UpperArms_Paralyzing_BodyPartDef"));
             WeaponDef fishArmsEliteParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_Paralyzing_BodyPartDef"));
             TacCharacterDef fishSniper = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman11_Sniper_AlienMutationVariationDef"));
@@ -240,14 +245,7 @@ namespace Better_Enemies
             TacCharacterDef puheavy3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Heavy3_Jugg_CharacterTemplateDef"));
             TacCharacterDef pusniper3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Sniper3_Exo_CharacterTemplateDef"));
             TacCharacterDef puinf4 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Infiltrator4_Shin_CharacterTemplateDef"));
-            TacCharacterDef putech3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Technician3_Jugg_CharacterTemplateDef"));
-
-            ResearchDef crabGunResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_CrabmanGunner_ResearchDef"));
-            ResearchDef crabBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_CrabmanBasic_ResearchDef"));
-            ResearchDef fishWretchResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanSneaker_ResearchDef"));
-            ResearchDef fishBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanBasic_ResearchDef"));
-            ResearchDef fishFootpadResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("Fishman3_Assault_AlienMutationVariationDef"));
-
+            TacCharacterDef putech3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("PU_Technician3_Jugg_CharacterTemplateDef"));         
             
             //crabGunResearch.InitialStates[4].State = ResearchState.Completed;
             //fishWretchResearch.InitialStates[4].State = ResearchState.Completed;
