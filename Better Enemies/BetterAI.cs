@@ -130,6 +130,9 @@ namespace Better_Enemies
             AIActionMoveToPositionDef moveNoShield = Repo.GetAllDefs<AIActionMoveToPositionDef>().FirstOrDefault(a => a.name.Equals("Crabman_Advance_Normal_WithoutShield_AIActionDef"));
             AIActionMoveAndEscapeDef flee = Repo.GetAllDefs<AIActionMoveAndEscapeDef>().FirstOrDefault(a => a.name.Equals("Flee_AIActionDef"));       
             AIActionOverwatchDef overwatch = Repo.GetAllDefs<AIActionOverwatchDef>().FirstOrDefault(a => a.name.Equals("Overwatch_AIActionDef"));
+            AIActionMoveAndExecuteAbilityDef moveAndQuickAimAI = Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(a => a.name.Equals("MoveAndQuickAim_AIActionDef"));
+
+            moveAndQuickAimAI.Weight = 75;
 
             soldierAI.ActionDefs[7].Weight = 2;
             soldierAI.ActionDefs[26].Weight = 350;
