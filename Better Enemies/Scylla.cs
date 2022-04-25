@@ -77,6 +77,7 @@ namespace Better_Enemies
                skillName2);
             */
 
+            guardianBeam.UsesPerTurn = 1
             guardianBeam.TrackWithCamera = false;
             guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
             ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)guardianBeam.SceneViewElementDef;
@@ -148,11 +149,12 @@ namespace Better_Enemies
              }
 
             queenBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
-            queenBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;
+            queenBlastWeapon.DamagePayload.DamageKeywords[1].Value = 3;
             queenLeftBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
-            queenLeftBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;
+            queenLeftBlastWeapon.DamagePayload.DamageKeywords[1].Value = 3;
             queenRightBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
-            queenRightBlastWeapon.DamagePayload.DamageKeywords[1].Value = 10;           
+            queenRightBlastWeapon.DamagePayload.DamageKeywords[1].Value = 3;           
+            
             queenSpawner.Armor = 60;
             queenBelcher.Armor = 60;
             queenHeavyHead.WillPower = 175;
