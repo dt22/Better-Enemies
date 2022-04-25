@@ -49,6 +49,7 @@ namespace Better_Enemies
             TacticalItemDef sirenLegsHeavy = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Heavy_BodyPartDef"));
             TacticalItemDef sirenLegsAgile = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Agile_BodyPartDef"));
             TacticalItemDef sirenLegsOrichalcum = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Orichalcum_BodyPartDef"));
+            TacticalItemDef sirenScremingHead = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Head_Screamer_BodyPartDef"));
             PsychicScreamAbilityDef sirenPsychicScream = Repo.GetAllDefs<PsychicScreamAbilityDef>().FirstOrDefault(a => a.name.Equals("Siren_PsychicScream_AbilityDef"));
             MindControlAbilityDef sirenMC = Repo.GetAllDefs<MindControlAbilityDef>().FirstOrDefault(a => a.name.Equals("Priest_MindControl_AbilityDef"));
             TacCharacterDef sirenBanshee = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren3_InjectorBuffer_AlienMutationVariationDef"));
@@ -72,6 +73,7 @@ namespace Better_Enemies
 
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
+            sirenBanshee.Data.BodypartItems[0] = sirenScremingHead;
             sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
             sirenLegsAgile.Armor = 30;
             sirenPsychicScream.ActionPointCost = 0.25f;
@@ -79,7 +81,7 @@ namespace Better_Enemies
 
             sirenBanshee.Data.Abilites = new TacticalAbilityDef[]
             {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Siren_PsychicScream_AbilityDef")),
+                //Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Siren_PsychicScream_AbilityDef")),
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Thief_AbilityDef")),
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("StealthSpecialist_AbilityDef"))
             };

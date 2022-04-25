@@ -52,7 +52,7 @@ namespace Better_Enemies
             ResearchDef crabBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_CrabmanBasic_ResearchDef"));
             ResearchDef fishWretchResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanSneaker_ResearchDef"));
             ResearchDef fishBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanBasic_ResearchDef"));
-            ResearchDef fishFootpadResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("Fishman3_Assault_AlienMutationVariationDef"));
+            ResearchDef fishFootpadResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanAssault_ResearchDef"));
 
 
             TacCharacterDef syass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Assault1_CharacterTemplateDef"));
@@ -216,9 +216,10 @@ namespace Better_Enemies
             puinf2.Data = puinf4.Data;
             putech2.Data = putech3.Data;
 
-            //crabGunResearch.InitialStates[4].State = ResearchState.Completed;
-            //fishWretchResearch.InitialStates[4].State = ResearchState.Completed;
-            //fishFootpadResearch.InitialStates[4].State = ResearchState.Completed;
+            crabGunResearch.InitialStates[4].State = ResearchState.Completed;
+            fishWretchResearch.InitialStates[4].State = ResearchState.Completed;
+            fishFootpadResearch.InitialStates[4].State = ResearchState.Completed;
+            fishBasicResearch.Unlocks = new PhoenixPoint.Geoscape.Entities.Research.Reward.ResearchRewardDef[0];
         }
     }
 }
