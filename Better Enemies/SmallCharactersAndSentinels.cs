@@ -95,7 +95,7 @@ namespace Better_Enemies
                 }
             }
         }
-        
+
         public static void Change_SmallCharactersAndSentinels()
         {
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
@@ -118,6 +118,8 @@ namespace Better_Enemies
 
             TacCharacterDef faceHuggerTac = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(p => p.name.Equals("Facehugger_TacCharacterDef"));
             TacCharacterDef faceHuggerVariation = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(p => p.name.Equals("Facehugger_AlienMutationVariationDef"));
+
+            GameTagDef damagedByCaterpillar = Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("DamageByCaterpillarTracks_TagDef"));
 
             int faceHuggerBlastDamage = 1;
             int faceHuggerAcidDamage = 10;
@@ -203,7 +205,11 @@ namespace Better_Enemies
                 new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword, Value = pWormPoisonDamage },
                 new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword, Value = wormShredDamage },
                 };
-        }
 
+            foreach (TacticalActorDef actor in Repo.GetAllDefs<TacticalActorDef>().Where(a => a.name.Contains("worm") || a.name.Contains("SpiderDrone")))
+            {
+                actor.GameTags.Add(damagedByCaterpillar);
+            }
+        }
     }
 }

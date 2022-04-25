@@ -62,7 +62,7 @@ namespace Better_Enemies
             AdditionalEffectShootAbilityDef queenBlast = Repo.GetAllDefs<AdditionalEffectShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef"));
             ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));
 
-            
+
 
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
@@ -77,7 +77,7 @@ namespace Better_Enemies
                skillName2);
             */
 
-            guardianBeam.UsesPerTurn = 1
+            guardianBeam.UsesPerTurn = 1;
             guardianBeam.TrackWithCamera = false;
             guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
             ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)guardianBeam.SceneViewElementDef;
