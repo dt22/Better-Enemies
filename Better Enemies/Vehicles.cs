@@ -51,6 +51,8 @@ namespace Better_Enemies
             SharedData Shared = GameUtl.GameComponent<SharedData>();
 
             GroundVehicleWeaponDef ArmadilloFT = Repo.GetAllDefs<GroundVehicleWeaponDef>().FirstOrDefault(a => a.name.Equals("NJ_Armadillo_Mephistopheles_GroundVehicleWeaponDef"));
+            AIActionsTemplateDef AspidaAI = Repo.GetAllDefs<AIActionsTemplateDef>().FirstOrDefault(a => a.name.Equals("Aspida_AIActionsTemplateDef"));
+            AIActionMoveAndAttackDef VehicleShoot = Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(a => a.name.Equals("MoveAndShoot3x3_AIActionDef"));
 
             ArmadilloFT.Tags = new GameTagsList
             {
@@ -62,6 +64,17 @@ namespace Better_Enemies
                 ArmadilloFT.Tags[5],
                 ArmadilloFT.Tags[6],
                 Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("GunWeapon_TagDef")),
+            };
+
+            AspidaAI.ActionDefs = new AIActionDef[]
+            {
+                AspidaAI.ActionDefs[0],
+                AspidaAI.ActionDefs[1],
+                AspidaAI.ActionDefs[2],
+                AspidaAI.ActionDefs[3],
+                AspidaAI.ActionDefs[4],
+                AspidaAI.ActionDefs[5],
+                VehicleShoot,
             };
         }
     }
