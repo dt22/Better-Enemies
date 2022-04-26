@@ -48,18 +48,8 @@ namespace Better_Enemies
         {
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
             SharedData Shared = GameUtl.GameComponent<SharedData>();
-
-            ApplyDamageEffectAbilityDef StomperLegs = Repo.GetAllDefs<ApplyDamageEffectAbilityDef>().FirstOrDefault(a => a.name.Equals("StomperLegs_Stomp_AbilityDef"));
-            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));
-
-            StomperLegs.TargetingDataDef.Origin.TargetFriendlies = false;
-            StomperLegs.UsableOnDisabledActor = true;
-            StomperLegs.UsableOnNonInteractableActor = true;
-            StomperLegs.DamagePayload.DamageKeywords = new List<DamageKeywordPair>()
-            {
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.BlastKeyword, Value = 50},
-                new DamageKeywordPair{DamageKeywordDef = Shared.SharedDamageKeywords.ShockKeyword, Value = 200},
-            };
+           
+            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));         
 
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
