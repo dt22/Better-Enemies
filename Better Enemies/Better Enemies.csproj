@@ -63,6 +63,7 @@
     <Compile Include="SirenChiron.cs" />
     <Compile Include="SmallCharactersAndSentinels.cs" />
     <Compile Include="SoldierDeployment.cs" />
+    <Compile Include="Vehicles.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
