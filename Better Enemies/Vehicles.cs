@@ -48,8 +48,7 @@ namespace Better_Enemies
         public static void Change_Vehicles()
         {
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
-            SharedData Shared = GameUtl.GameComponent<SharedData>();
-
+            
             GroundVehicleWeaponDef ArmadilloFT = Repo.GetAllDefs<GroundVehicleWeaponDef>().FirstOrDefault(a => a.name.Equals("NJ_Armadillo_Mephistopheles_GroundVehicleWeaponDef"));
             AIActionsTemplateDef AspidaAI = Repo.GetAllDefs<AIActionsTemplateDef>().FirstOrDefault(a => a.name.Equals("Aspida_AIActionsTemplateDef"));
             AIActionMoveAndAttackDef VehicleShoot = Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(a => a.name.Equals("MoveAndShoot3x3_AIActionDef"));

@@ -122,6 +122,7 @@ namespace Better_Enemies
             BetterAI.Change_AI();
             Perception.Change_Perception();
             AbilityChanges.Change_Abilities();
+            Vehicles.Change_Vehicles();
 
             MindControlStatusDef mcStatus = Repo.GetAllDefs<MindControlStatusDef>().FirstOrDefault(a => a.name.Equals("MindControl_StatusDef"));                                 
             AISettingsDef aiSettings = Repo.GetAllDefs<AISettingsDef>().FirstOrDefault(a => a.name.Equals("AISettingsDef"));
