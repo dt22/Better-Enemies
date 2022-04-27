@@ -135,6 +135,27 @@ namespace Better_Enemies
             AIActionOverwatchDef overwatch = Repo.GetAllDefs<AIActionOverwatchDef>().FirstOrDefault(a => a.name.Equals("Overwatch_AIActionDef"));
             AIActionMoveAndExecuteAbilityDef moveAndQuickAimAI = Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(a => a.name.Equals("MoveAndQuickAim_AIActionDef"));
 
+            AIActionMoveAndAttackDef mAShoot = AIChanges.CreateDefFromClone(
+                    Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(t => t.name.Equals("MoveAndShoot_AIActionDef")),
+                    "3fd2dfd1-3cc0-4c71-b427-22afd020b45d",
+                    "BC_MoveAndShoot_AIActionDef");
+            AIActionMoveAndAttackDef mAStrike = AIChanges.CreateDefFromClone(
+                Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(a => a.name.Equals("MoveAndStrike_AIActionDef")),
+                "78c28fb8-0573-467a-a1c3-94b40673ef47",
+                "VC_MoveAndStrike_AIActionDef");
+
+
+            fishmanAI.ActionDefs[2] = mAShoot;
+            fishmanAI.ActionDefs[3] = mAStrike;
+            fishmanAI.ActionDefs[2].Weight = 500;
+            mAShoot.Weight = 500;
+            fishmanAI.ActionDefs[3].Weight = 300;
+
+            //fishmanAI.ActionDefs[4].Weight = 200;
+            //fishmanAI.ActionDefs[5].Weight = 1000;
+            //fishmanSafeAI.NoneCoverProtection = 0.5f;
+            //fishmanSafeAI.VisionScoreWhenVisibleByAllEnemies = 0.1f;
+
             moveAndQuickAimAI.Weight = 75;
 
             soldierAI.ActionDefs[7].Weight = 2;
@@ -174,7 +195,7 @@ namespace Better_Enemies
                 SirenAITemplate.ActionDefs[7],
                 SirenAITemplate.ActionDefs[8],
                 SirenAITemplate.ActionDefs[9],
-                moveAndShoot,
+                mAShoot,
             };
 
             sirenArmisAcidTorso.Tags = new GameTagsList
@@ -188,27 +209,7 @@ namespace Better_Enemies
             };
 
             chironStrikeAvailable.IgnoredStates = new string[0];
-            chironStrikeTargetDef.MaxRange = 99;
-
-            AIActionMoveAndAttackDef mAShoot = AIChanges.CreateDefFromClone(
-                    Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(t => t.name.Equals("MoveAndShoot_AIActionDef")),
-                    "3fd2dfd1-3cc0-4c71-b427-22afd020b45d",
-                    "BC_MoveAndShoot_AIActionDef");
-            AIActionMoveAndAttackDef mAStrike = AIChanges.CreateDefFromClone(
-                Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(a => a.name.Equals("MoveAndStrike_AIActionDef")),
-                "78c28fb8-0573-467a-a1c3-94b40673ef47",
-                "VC_MoveAndStrike_AIActionDef");
-
-
-            fishmanAI.ActionDefs[2] = mAShoot;
-            fishmanAI.ActionDefs[3] = mAStrike;
-            fishmanAI.ActionDefs[2].Weight = 500;
-            fishmanAI.ActionDefs[3].Weight = 300;
-
-            //fishmanAI.ActionDefs[4].Weight = 200;
-            //fishmanAI.ActionDefs[5].Weight = 1000;
-            //fishmanSafeAI.NoneCoverProtection = 0.5f;
-            //fishmanSafeAI.VisionScoreWhenVisibleByAllEnemies = 0.1f;
+            chironStrikeTargetDef.MaxRange = 99;            
         }
     }
 }
