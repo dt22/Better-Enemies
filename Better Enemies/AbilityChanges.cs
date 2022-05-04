@@ -49,7 +49,10 @@ namespace Better_Enemies
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
             SharedData Shared = GameUtl.GameComponent<SharedData>();
            
-            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));         
+            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));
+            ApplyStatusAbilityDef coCorruption = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(a => a.name.Equals("Acheron_CoCorruption_AbilityDef"));
+            TacCharacterDef pool = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SpawningPoolCrabman_TacCharacterDef"));
+            TacCharacterDef node = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("CorruptionNode_TacCharacterDef"));
 
             /*
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
@@ -72,6 +75,16 @@ namespace Better_Enemies
             guardianBeamSVE.LineToCursorInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackLineNoTarget;
             guardianBeam.SceneViewElementDef.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
             guardianBeam.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_StartPreparing_AbilityDef]"));
+
+            pool.Data.Abilites = new TacticalAbilityDef[]
+            {
+                coCorruption,
+            };
+
+            node.Data.Abilites = new TacticalAbilityDef[]
+            {
+                coCorruption,
+            };
         }
     }
 }
