@@ -65,14 +65,20 @@ namespace Better_Enemies
             TacCharacterDef sysniper3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Sniper3_CharacterTemplateDef"));
             TacCharacterDef syinf3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Infiltrator3_CharacterTemplateDef"));
 
-            TacCharacterDef anass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault1_CharacterTemplateDef"));
+            TacCharacterDef anass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault_CharacterTemplateDef"));
+            TacCharacterDef anassault1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault1_CharacterTemplateDef"));
             TacCharacterDef anzerker1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker1_CharacterTemplateDef"));
+            TacCharacterDef anBerzerker1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker_CharacterTemplateDef"));
             TacCharacterDef anpriestJ1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_JudgementPriest1_CharacterTemplateDef"));
             TacCharacterDef anass2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault2_CharacterTemplateDef"));
+            TacCharacterDef anass2one = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault2_1_CharacterTemplateDef"));
+            TacCharacterDef anass2two = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault2_2_CharacterTemplateDef"));
             TacCharacterDef anzerker2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker2_CharacterTemplateDef"));
+            TacCharacterDef anzerker21 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker2_1_CharacterTemplateDef"));
+            TacCharacterDef anzerker22 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker2_2_CharacterTemplateDef"));
             TacCharacterDef anpriestJ2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_JudgementPriest2_CharacterTemplateDef"));
-            TacCharacterDef anass3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault3_CharacterTemplateDef"));
-            TacCharacterDef anzerker3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker3_CharacterTemplateDef"));
+            TacCharacterDef anass3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Assault3_1_CharacterTemplateDef"));
+            TacCharacterDef anzerker3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_Berserker3_1_CharacterTemplateDef"));
             TacCharacterDef anpriestJ3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_JudgementPriest3_CharacterTemplateDef"));
             TacCharacterDef anpriestSC1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_ScreamingPriest1_CharacterTemplateDef"));
             TacCharacterDef anpriestSC2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("AN_ScreamingPriest2_CharacterTemplateDef"));
@@ -156,7 +162,13 @@ namespace Better_Enemies
             syinf2.Data = syinf3.Data;
 
             anass1.Data = anass3.Data;
+            anassault1.Data = anass3.Data;
+            anass2one.Data = anass3.Data;
+            anass2two.Data = anass3.Data;
+            anBerzerker1.Data = anzerker3.Data;
             anzerker1.Data = anzerker3.Data;
+            anzerker21.Data = anzerker3.Data;
+            anzerker22.Data = anzerker3.Data;
             anpriestJ1.Data = anpriestJ3.Data;
             anpriestSC1.Data = anpriestSC3.Data;
             anpriestSY1.Data = anpriestSY3.Data;
