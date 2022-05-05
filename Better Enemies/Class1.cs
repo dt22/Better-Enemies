@@ -99,7 +99,7 @@ namespace Better_Enemies
     {
         public bool SameTurnMindControl = false;
         public bool DoubleTheTimeAICanThink = false;
-        public bool AdjustHumanPerception = false;
+        public bool AdjustHumanPerception = true;
         public float Human_Soldier_Perception = 30;
     }
     public static class MyMod
