@@ -1,6 +1,13 @@
-﻿using Base.Core;
+﻿using Base;
+using Base.Core;
 using Base.Defs;
+using PhoenixPoint.Common.Core;
+using PhoenixPoint.Common.Entities.GameTags;
+using PhoenixPoint.Common.Entities.Items;
 using PhoenixPoint.Common.Levels.Missions;
+using PhoenixPoint.Geoscape.Levels;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Better_Enemies
@@ -25,7 +32,7 @@ namespace Better_Enemies
                ambush.MissionData.MissionParticipants[2],
                ambush.MissionData.MissionParticipants[0],
             };
-            */
+            */          
         }
-    }
+    }       
 }
