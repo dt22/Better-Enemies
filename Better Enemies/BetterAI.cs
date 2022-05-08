@@ -165,6 +165,23 @@ namespace Better_Enemies
             
             QueenAI.ActionDefs[9].Weight = 0.01f;
             queenNav.NavAreas = queenNav.NavAreas.AddToArray("WalkableArmadillo");
+           
+            queenNav.NavMeshAreasDef.Areas = new Base.Entities.NavAreaData[]
+            {
+               new Base.Entities.NavAreaData
+               {
+                   Name = "WalkableBigMonster",
+                   SpeedBase = 0,
+                   SpeedFactor = 1,
+               },
+
+               new Base.Entities.NavAreaData
+               {
+                   Name = "WalkableArmadillo",
+                   SpeedBase = 1,
+                   SpeedFactor = 1,
+               },
+            };
 
             queenAITemplate.ActionDefs = new AIActionDef[]
             {
