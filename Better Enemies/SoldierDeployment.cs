@@ -370,7 +370,7 @@ namespace Better_Enemies
             ResearchDef mutationTech2 = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ANU_MutationTech2_ResearchDef"));
             ResearchDef anuWarfareTech = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ANU_AnuWarfare_ResearchDef"));
             ResearchDef anuAcidTech = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ANU_AcidTech_ResearchDef"));
-            ResearchDef mutationTech3 = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ANU_MutationTech3_ResearchDef_UnitTemplateResearchRewardDef_6"));
+            ResearchDef mutationTech3 = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ANU_MutationTech3_ResearchDef"));
             ResearchDef stimTech = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ANU_StimTech_ResearchDef"));
 
             anuWarfareTech.Unlocks = new ResearchRewardDef[]
