@@ -265,7 +265,7 @@ namespace Better_Enemies
            //    nightVision.Unlocks[7],
            //};
         }
-        public static void Change_PureDeployment()
+        public static void Change_NewJerichoAndPureDeployment()
         {
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
 
@@ -363,7 +363,7 @@ namespace Better_Enemies
                 njGuidanceTech.Unlocks[25],
             };
         }
-    public static void Change_ForsakenDeployment()
+    public static void Change_AnuAndForsakenDeployment()
         {
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
 
@@ -455,6 +455,37 @@ namespace Better_Enemies
                 stimTech.Unlocks[27],
                 stimTech.Unlocks[28],
                 stimTech.Unlocks[29],
+            };
+        }
+    public static void Change_SynerdrionDeployment()
+        {
+            DefRepository Repo = GameUtl.GameComponent<DefRepository>();
+
+            ResearchDef syArmorTech = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_BattleTechArmor_ResearchDef"));
+            ResearchDef poisonWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_PoisonWeapons_ResearchDef"));
+            ResearchDef venomBolt = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef"));
+            ResearchDef nightVision = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_NightVision_ResearchDef"));
+            ResearchDef paralyzeTech = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_AdvancedDisableTech_ResearchDef"));
+
+            syArmorTech.Unlocks = new ResearchRewardDef[]
+            {
+                syArmorTech.Unlocks[0],
+                syArmorTech.Unlocks[1],
+                syArmorTech.Unlocks[2],
+                poisonWeapons.Unlocks[1],
+                poisonWeapons.Unlocks[2],
+                poisonWeapons.Unlocks[3],
+                venomBolt.Unlocks[1],
+                venomBolt.Unlocks[2],
+                venomBolt.Unlocks[3],
+                nightVision.Unlocks[1],
+                nightVision.Unlocks[2],
+                nightVision.Unlocks[3],
+                nightVision.Unlocks[4],
+                paralyzeTech.Unlocks[1],
+                paralyzeTech.Unlocks[2],
+                paralyzeTech.Unlocks[3],
+                paralyzeTech.Unlocks[4],
             };
         }
     }
