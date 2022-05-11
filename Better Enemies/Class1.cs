@@ -115,6 +115,9 @@ namespace Better_Enemies
             SharedData Shared = GameUtl.GameComponent<SharedData>();
 
             SoldierDeployment.Change_Deployment();
+            SoldierDeployment.Change_NewJerichoAndPureDeployment();
+            SoldierDeployment.Change_AnuAndForsakenDeployment();
+            SoldierDeployment.Change_SynerdrionDeployment();
             Scylla.Chnage_Queen();                                   
             SirenChiron.Chnage_SirenChiron(); 
             ArthronsTriotons.Change_ArthronsTritons();
