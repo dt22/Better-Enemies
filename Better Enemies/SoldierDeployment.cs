@@ -17,6 +17,7 @@ using PhoenixPoint.Common.Entities.GameTagsTypes;
 using PhoenixPoint.Common.UI;
 using PhoenixPoint.Geoscape.Entities.DifficultySystem;
 using PhoenixPoint.Geoscape.Entities.Research;
+using PhoenixPoint.Geoscape.Entities.Research.Reward;
 using PhoenixPoint.Geoscape.Events.Eventus;
 using PhoenixPoint.Tactical;
 using PhoenixPoint.Tactical.AI;
@@ -232,6 +233,37 @@ namespace Better_Enemies
             fishWretchResearch.InitialStates[4].State = ResearchState.Completed;
             fishFootpadResearch.InitialStates[4].State = ResearchState.Completed;
             fishBasicResearch.Unlocks = new PhoenixPoint.Geoscape.Entities.Research.Reward.ResearchRewardDef[0];
+
+           //ResearchDef venomBolt = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef"));
+           //ResearchDef laserWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_LaserWeapons_ResearchDef"));
+           //ResearchDef poisonWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_PoisonWeapons_ResearchDef"));
+           //ResearchDef nightVision = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_NightVision_ResearchDef"));
+           //UnitTemplateResearchRewardDef thief1 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_InfiltratorTech_ResearchDef_UnitTemplateResearchRewardDef_2"));
+           //UnitTemplateResearchRewardDef thief2 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_InfiltratorTech_ResearchDef_UnitTemplateResearchRewardDef_3"));
+           //UnitTemplateResearchRewardDef sy_assault_4 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef_UnitTemplateResearchRewardDef_3"));
+           //
+           //laserWeapons.Unlocks = new ResearchRewardDef[]
+           //{
+           //    laserWeapons.Unlocks[0],
+           //    laserWeapons.Unlocks[1],
+           //    laserWeapons.Unlocks[2],
+           //    venomBolt.Unlocks[4],
+           //    venomBolt.Unlocks[5],
+           //};
+           //
+           //thief1.Add = false;
+           //thief2.Add = false;
+           //
+           //poisonWeapons.Unlocks = new ResearchRewardDef[]
+           //{
+           //    poisonWeapons.Unlocks[0],
+           //    poisonWeapons.Unlocks[1],
+           //    poisonWeapons.Unlocks[2],
+           //    poisonWeapons.Unlocks[3],
+           //    nightVision.Unlocks[5],
+           //    nightVision.Unlocks[6],
+           //    nightVision.Unlocks[7],
+           //};
         }
     }
 }
