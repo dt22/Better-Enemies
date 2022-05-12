@@ -108,7 +108,7 @@ namespace Better_Enemies
         public static void HomeMod(Func<string, object, object> api = null)
         {
             MyMod.Config = ((api("config", null) as ModConfig) ?? new ModConfig());
-            HarmonyInstance.Create("your.mod.id").PatchAll();
+            HarmonyInstance.Create("Better_Enemies").PatchAll();
             api?.Invoke("log verbose", "Mod Initialised.");
 
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
