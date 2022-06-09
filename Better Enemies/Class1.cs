@@ -107,7 +107,7 @@ namespace Better_Enemies
         internal static ModConfig Config;
         internal static readonly DefRepository Repo = GameUtl.GameComponent<DefRepository>();
         internal static readonly SharedData Shared = GameUtl.GameComponent<SharedData>();
-        public static void HomeMod(Func<string, object, object> api = null)
+        public static void GameMod(Func<string, object, object> api = null)
         {
             MyMod.Config = ((api("config", null) as ModConfig) ?? new ModConfig());
             HarmonyInstance.Create("Better_Enemies").PatchAll();

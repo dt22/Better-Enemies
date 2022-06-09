@@ -12,6 +12,7 @@ using PhoenixPoint.Common.Entities;
 using PhoenixPoint.Common.Entities.Characters;
 using PhoenixPoint.Common.Entities.GameTags;
 using PhoenixPoint.Common.Entities.GameTagsTypes;
+using PhoenixPoint.Common.Entities.Items;
 using PhoenixPoint.Common.UI;
 using PhoenixPoint.Geoscape.Entities.DifficultySystem;
 using PhoenixPoint.Geoscape.Entities.Research;
@@ -47,132 +48,150 @@ namespace Better_Enemies
         public static void Change_ArthronsTritons()
         {     
             TacticalItemDef crabmanHeavyHead = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Crabman_Head_EliteHumanoid_BodyPartDef"));
-            TacCharacterDef crabShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman9_Shielder_AlienMutationVariationDef"));
-            TacCharacterDef crabAShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman10_AdvancedShielder_AlienMutationVariationDef"));
-            TacCharacterDef crabAShielder2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman11_AdvancedShielder2_AlienMutationVariationDef"));
-            TacCharacterDef crabEShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman12_EliteShielder_AlienMutationVariationDef"));
-            TacCharacterDef crabEShielder2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman13_EliteShielder2_AlienMutationVariationDef"));
-            TacCharacterDef crabEShielder3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
-            TacCharacterDef crabUShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman15_UltraShielder_AlienMutationVariationDef"));
-            TacCharacterDef crabTyrant = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman24_Pretorian_AlienMutationVariationDef"));
-            TacCharacterDef crabTyrant2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman25_AdvancedPretorian_AlienMutationVariationDef"));
-            TacCharacterDef crabTyrant3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman26_AdvancedPretorian2_AlienMutationVariationDef"));
-            TacCharacterDef crabTyrant4 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman12_EliteShielder_AlienMutationVariationDef"));
-            TacCharacterDef crabTyrant5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman13_EliteShielder2_AlienMutationVariationDef"));
-            TacCharacterDef crabTyrant6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
-            TacCharacterDef crabTyrant7 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
             
+            TacCharacterDef crab9 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman9_Shielder_AlienMutationVariationDef"));
+            TacCharacterDef crab10 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman10_AdvancedShielder_AlienMutationVariationDef"));
+            TacCharacterDef crab11 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman11_AdvancedShielder2_AlienMutationVariationDef"));
+            TacCharacterDef crab12 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman12_EliteShielder_AlienMutationVariationDef"));
+            TacCharacterDef crab13 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman13_EliteShielder2_AlienMutationVariationDef"));
+            TacCharacterDef crab14 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
+            TacCharacterDef crab15 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman15_UltraShielder_AlienMutationVariationDef"));            
+            TacCharacterDef crab24 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman24_Pretorian_AlienMutationVariationDef"));
+            TacCharacterDef crab25= Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman25_AdvancedPretorian_AlienMutationVariationDef"));
+            TacCharacterDef crab26 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman26_AdvancedPretorian2_AlienMutationVariationDef"));           
+            TacCharacterDef crab30 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman30_UltraPretorian_AlienMutationVariationDef"));         
+            TacCharacterDef crab38 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman38_UltraAcidRanger_AlienMutationVariationDef"));
+            TacCharacterDef crab34 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman34_UltraRanger_AlienMutationVariationDef"));
+
             WeaponDef arthronGL = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Grenade_WeaponDef"));
             WeaponDef arthronEliteGL = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_EliteGrenade_WeaponDef"));
             WeaponDef arthronAcidGL = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_Grenade_WeaponDef"));
             WeaponDef arthronAcidEliteGL = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_EliteGrenade_WeaponDef"));
             
             WeaponDef fishArmsParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Fishman_UpperArms_Paralyzing_BodyPartDef"));
-            WeaponDef fishArmsEliteParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_Paralyzing_BodyPartDef"));          
-            
-            TacCharacterDef fishSniper = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman11_Sniper_AlienMutationVariationDef"));
-            TacCharacterDef fishSniper2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman12_FocusSniper_AlienMutationVariationDef"));
-            TacCharacterDef fishSniper3 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman13_AgroSniper_AlienMutationVariationDef"));
-            TacCharacterDef fishSniper4 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman14_PiercerSniper_AlienMutationVariationDef"));
+            WeaponDef fishArmsEliteParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_Paralyzing_BodyPartDef"));
+
+            TacCharacterDef fish7 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman7_EliteStriker_AlienMutationVariationDef"));
+            TacCharacterDef fish8 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman8_PiercerAssault_AlienMutationVariationDef"));
+            TacCharacterDef fish11 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman11_Sniper_AlienMutationVariationDef"));
+            TacCharacterDef fish12 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman12_FocusSniper_AlienMutationVariationDef"));
+            TacCharacterDef fish13 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman13_AgroSniper_AlienMutationVariationDef"));
+            TacCharacterDef fish14 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman14_PiercerSniper_AlienMutationVariationDef"));
+            TacCharacterDef fish15 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman15_ViralAssault_AlienMutationVariationDef"));
+            TacCharacterDef fish17 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman15_ViralAssault_AlienMutationVariationDef"));
             TacCharacterDef fishSniper5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_Shrowder_Sniper"));
             TacCharacterDef fishSniper6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman_Shrowder_TacCharacterDef"));
 
             fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
             fishArmsEliteParalyze.DamagePayload.DamageKeywords[1].Value = 16;
-           
-            fishSniper.Data.Abilites = new TacticalAbilityDef[]
+
+            fish7.Data.EquipmentItems = new ItemDef[]
             {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
-            };
-            
-            fishSniper2.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
-            };
-            
-            fishSniper3.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
-            };
-            
-            fishSniper4.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
-            };
-            
-            fishSniper5.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
-            };
-            
-            fishSniper6.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
+                Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("KS_Redemptor_WeaponDef")),
             };
 
-
-            crabmanHeavyHead.Abilities = new AbilityDef[]
+            fish8.Data.EquipmentItems = new ItemDef[]
             {
-                //Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("BloodLust_AbilityDef")),
-            };
-            
-            crabShielder.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-            };
-           
-            crabAShielder.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-            };
-            
-            crabAShielder2.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-            };
-            
-            crabEShielder.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-            };
-            
-            crabEShielder2.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-            };
-            
-            crabEShielder3.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-            };
-            
-            crabUShielder.Data.Abilites = new TacticalAbilityDef[]
-            {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-                //Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Regeneration_Torso_Passive_AbilityDef")),
-
+                Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("KS_Obliterator_WeaponDef")),
             };
 
-            foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") && (aad.name.Contains("Pretorian") || aad.name.Contains("Tank"))))
+            fish14.Data.EquipmentItems = new ItemDef[]
+            {
+                Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("KS_Subjector_WeaponDef")),
+            };
+
+            fish15.Data.BodypartItems[3] = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_BloodSucker_BodyPartDef"));
+            fish17.Data.BodypartItems[3] = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_BloodSucker_BodyPartDef"));
+
+            arthronAcidGL.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
+            arthronAcidEliteGL.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
+
+            crab38.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Dash_AbilityDef")),
+            };
+
+            crab30.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("MasterMarksman_AbilityDef")),
+            };
+
+            foreach (TacCharacterDef TriotonSniper in Repo.GetAllDefs<TacActorDef>().Where(a => a.name.Contains("Fishman") && a.name.Contains("Sniper")))
+            {
+                TriotonSniper.Data.Abilites = new TacticalAbilityDef[]
+                {
+                    Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
+                };
+            }
+
+            foreach (TacCharacterDef crab in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") && aad.name.Contains("Shielder")))
+            {
+                crab.Data.Abilites = new TacticalAbilityDef[]
+                {
+                    Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
+                };
+            }
+
+            foreach (TacticalAbilityDef ability in Repo.GetAllDefs<TacticalAbilityDef>())
+            {
+                if (ability.name.Contains("Skirmisher_AbilityDef"))
+                {
+                    crab15.Data.Abilites = new TacticalAbilityDef[]
+                    {
+                        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
+                        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Skirmisher_AbilityDef")),
+
+                    };
+                } 
+            }
+
+            foreach (TacticalAbilityDef ability in Repo.GetAllDefs<TacticalAbilityDef>())
+            {
+                if (ability.name.Contains("Paranoid_AbilityDef"))
+                {
+                    foreach (TacCharacterDef crabMyr in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") && aad.name.Contains("EliteRanger")))
+                    {
+                        crabMyr.Data.Abilites = new TacticalAbilityDef[]
+                        {
+                            Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Paranoid_AbilityDef")),
+                        };
+                    }
+
+                    crab34.Data.Abilites = new TacticalAbilityDef[]
+                    {
+                        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Paranoid_AbilityDef")),
+                        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("EnhancedVision_AbilityDef")),
+                    };
+                }
+                else
+                crab34.Data.Abilites = new TacticalAbilityDef[]
+                {
+                    Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("EnhancedVision_AbilityDef")),
+                };
+            }
+
+            foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") &&( aad.name.Contains("Pretorian") || aad.name.Contains("Tank"))))
             {               
                character.Data.Speed = 6;             
             }
 
-            crabShielder.Data.Speed = 8;
-            crabAShielder.Data.Speed = 8;
-            crabAShielder2.Data.Speed = 8;
-            crabEShielder.Data.Speed = 8;
-            crabEShielder2.Data.Speed = 8;
-            crabEShielder3.Data.Speed = 8;
-            crabUShielder.Data.Speed = 8;
-            arthronAcidGL.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
-            arthronAcidEliteGL.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
+            foreach (TacCharacterDef crabShield in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") && aad.name.Contains("Shielder")))
+            {
+                crabShield.Data.Speed = 8;
+            }            
 
             foreach(WeaponDef crabmanGl in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Crabman_LeftHand_") && a.name.Contains("Grenade_WeaponDef")))
             {
                 crabmanGl.DamagePayload.Range = 20;
             }
 
+            foreach(TacCharacterDef commando in Repo.GetAllDefs<TacActorDef>().Where(a => a.name.Contains("Crabman") && a.name.Contains("Commando")))
+            {
+                commando.Data.Abilites = new TacticalAbilityDef[]
+                {
+                    Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("BloodLust_AbilityDef")),
+                };
+            }
         }
     }
 }
