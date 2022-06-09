@@ -127,7 +127,12 @@ namespace Better_Enemies
             chironBlastMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
             chironBlastMortar.ChargesMax = 18;   // 12           
             chironCristalMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
-            chironCristalMortar.ChargesMax = 30;    // 12           
+            chironCristalMortar.ChargesMax = 30;    // 12
+                                                    // 
+            foreach(WeaponDef ChironWormLauncher in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Chiron_Abdomen_") && a.name.Contains("Worm_Launcher_WeaponDef")))
+            {
+                ChironWormLauncher.DamagePayload.DamageKeywords[0].Value = 240;
+            }
         }
     }
 }

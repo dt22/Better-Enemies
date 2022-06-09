@@ -98,9 +98,7 @@ namespace Better_Enemies
         public static void Change_ArthronsTritons()
         {
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
-
-            WeaponDef crabmanacidGrenadeAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_Grenade_WeaponDef"));
-            WeaponDef crabmanadvancedacidGrenadeAcidMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_EliteGrenade_WeaponDef"));
+          
             TacticalItemDef crabmanHeavyHead = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Crabman_Head_EliteHumanoid_BodyPartDef"));
             TacCharacterDef crabShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman9_Shielder_AlienMutationVariationDef"));
             TacCharacterDef crabAShielder = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman10_AdvancedShielder_AlienMutationVariationDef"));
@@ -116,9 +114,14 @@ namespace Better_Enemies
             TacCharacterDef crabTyrant5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman13_EliteShielder2_AlienMutationVariationDef"));
             TacCharacterDef crabTyrant6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
             TacCharacterDef crabTyrant7 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Crabman14_EliteShielder3_AlienMutationVariationDef"));
-
+            
+            WeaponDef arthronGL = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Grenade_WeaponDef"));
+            WeaponDef arthronEliteGL = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_EliteGrenade_WeaponDef"));
+            WeaponDef arthronAcidGL = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_Grenade_WeaponDef"));
+            WeaponDef arthronAcidEliteGL = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Crabman_LeftHand_Acid_EliteGrenade_WeaponDef"));
+            
             WeaponDef fishArmsParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Fishman_UpperArms_Paralyzing_BodyPartDef"));
-            WeaponDef fishArmsEliteParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_Paralyzing_BodyPartDef"));
+            WeaponDef fishArmsEliteParalyze = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_Paralyzing_BodyPartDef"));          
             
             TacCharacterDef fishSniper = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman11_Sniper_AlienMutationVariationDef"));
             TacCharacterDef fishSniper2 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman12_FocusSniper_AlienMutationVariationDef"));
@@ -163,7 +166,7 @@ namespace Better_Enemies
 
             crabmanHeavyHead.Abilities = new AbilityDef[]
             {
-                Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("BloodLust_AbilityDef")),
+                //Repo.GetAllDefs<AbilityDef>().FirstOrDefault(a => a.name.Equals("BloodLust_AbilityDef")),
             };
             
             crabShielder.Data.Abilites = new TacticalAbilityDef[]
@@ -199,7 +202,7 @@ namespace Better_Enemies
             crabUShielder.Data.Abilites = new TacticalAbilityDef[]
             {
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Regeneration_Torso_Passive_AbilityDef")),
+                //Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Regeneration_Torso_Passive_AbilityDef")),
 
             };
 
@@ -215,8 +218,13 @@ namespace Better_Enemies
             crabEShielder2.Data.Speed = 8;
             crabEShielder3.Data.Speed = 8;
             crabUShielder.Data.Speed = 8;
-            crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
-            crabmanacidGrenadeAcidMortar.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
+            arthronAcidGL.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
+            arthronAcidEliteGL.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
+
+            foreach(WeaponDef crabmanGl in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Crabman_LeftHand_") && a.name.Contains("Grenade_WeaponDef")))
+            {
+                crabmanGl.DamagePayload.Range = 20;
+            }
 
         }
     }
