@@ -78,5 +78,51 @@ namespace Better_Enemies
             guardianBeamSVE.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
             BEGB.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_GunsFire_ShootAbilityDef]"));
         }
+        public static void CoPoison()
+        {
+            string skillName2 = "Acheron_CoPoison_AbilityDef";
+            ApplyStatusAbilityDef source2 = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(p => p.name.Equals("Acheron_CoCorruption_AbilityDef"));
+            ApplyStatusAbilityDef CoPoison = Helper.CreateDefFromClone(
+                source2,
+                "41da7c7f-277c-4fd7-bed2-4e44a90a82a0",
+                skillName2);
+            CoPoison.ViewElementDef = Helper.CreateDefFromClone(
+                source2.ViewElementDef,
+               "51981712-5036-427c-950c-4cb017d42fce",
+               skillName2);
+            CoPoison.StatusDef = Helper.CreateDefFromClone(
+                source2.StatusDef,
+               "1dd0c460-a017-48a3-8e77-43a7684b0655",
+               skillName2);
+
+            AddAttackBoostStatusDef CoPoisonStatus = (AddAttackBoostStatusDef)CoPoison.StatusDef;
+            CoPoisonStatus.DamageKeywordPairs[0].DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword;
+            CoPoisonStatus.DamageKeywordPairs[0].Value = 10f;
+            CoPoison.ViewElementDef.DisplayName1 = new LocalizedTextBind("CoPoison", true);
+            CoPoison.ViewElementDef.Description = new LocalizedTextBind("<b>All Pandorans in battle gain +10 Poison Damage.</b>", true);
+        }
+        public static void CoShred()
+        {
+            string skillName2 = "Acheron_CoShred_AbilityDef";
+            ApplyStatusAbilityDef source2 = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(p => p.name.Equals("Acheron_CoCorruption_AbilityDef"));
+            ApplyStatusAbilityDef CoShred = Helper.CreateDefFromClone(
+                source2,
+                "e862d864-eb59-4a93-bafa-700672e6ae69",
+                skillName2);
+            CoShred.ViewElementDef = Helper.CreateDefFromClone(
+                source2.ViewElementDef,
+               "2c1547ce-ad5b-44ef-9e03-56d6327a884a",
+               skillName2);
+            CoShred.StatusDef = Helper.CreateDefFromClone(
+                source2.StatusDef,
+               "e115d4c7-44af-4b30-a537-f7aa880a29db",
+               skillName2);
+
+            AddAttackBoostStatusDef CoShredStatus = (AddAttackBoostStatusDef)CoShred.StatusDef;
+            CoShredStatus.DamageKeywordPairs[0].DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword;
+            CoShredStatus.DamageKeywordPairs[0].Value = 3f;
+            CoShred.ViewElementDef.DisplayName1 = new LocalizedTextBind("CoShred", true);
+            CoShred.ViewElementDef.Description = new LocalizedTextBind("<b>All Pandorans in battle gain +3 Shred Damage.</b>", true);
+        }
     }
 }

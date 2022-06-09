@@ -46,6 +46,7 @@ namespace Better_Enemies
         private static readonly SharedData Shared = MyMod.Shared;
         public static void Chnage_SirenChiron()
         {
+
             TacticalItemDef sirenLegsHeavy = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Heavy_BodyPartDef"));
             TacticalItemDef sirenLegsAgile = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Agile_BodyPartDef"));
             TacticalItemDef sirenLegsOrichalcum = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Legs_Orichalcum_BodyPartDef"));
@@ -72,8 +73,6 @@ namespace Better_Enemies
             TacCharacterDef chironPoisonHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron4_PoisonWormHeavy_AlienMutationVariationDef"));
             TacCharacterDef chironAcidHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron6_AcidWormHeavy_AlienMutationVariationDef"));
             TacCharacterDef chironGooHeavy = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Chiron8_GooHeavy_AlienMutationVariationDef"));
-            
-            
 
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
@@ -128,11 +127,22 @@ namespace Better_Enemies
             chironBlastMortar.ChargesMax = 18;   // 12           
             chironCristalMortar.DamagePayload.ProjectilesPerShot = 3;    // 3
             chironCristalMortar.ChargesMax = 30;    // 12
-                                                    // 
-            foreach(WeaponDef ChironWormLauncher in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Chiron_Abdomen_") && a.name.Contains("Worm_Launcher_WeaponDef")))
+
+            chironPoisonHeavy.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Acheron_CoPoison_AbilityDef")),
+            };
+            
+            chironAcidHeavy.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Acheron_CoShred_AbilityDef")),
+            };
+            
+            foreach (WeaponDef ChironWormLauncher in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Chiron_Abdomen_") && a.name.Contains("Worm_Launcher_WeaponDef")))
             {
                 ChironWormLauncher.DamagePayload.DamageKeywords[0].Value = 240;
             }
         }
+        
     }
 }
