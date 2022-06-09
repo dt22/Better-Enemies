@@ -58,8 +58,10 @@ namespace Better_Enemies
             ResearchDef fishWretchResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanSneaker_ResearchDef"));
             ResearchDef fishBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanBasic_ResearchDef"));
             ResearchDef fishFootpadResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanAssault_ResearchDef"));
-            ResearchDef Chiron8 = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_Chiron8_ResearchDef"));
-
+            
+            ResearchDef Chiron8 = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_Chiron8_ResearchDef")); 
+            ResearchDef Chiron13 = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_Chiron13_ResearchDef"));
+            ResearchDef siren5 = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_Siren5_ResearchDef"));
 
             TacCharacterDef syass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Assault1_CharacterTemplateDef"));
             TacCharacterDef sysniper1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Sniper1_CharacterTemplateDef"));
@@ -244,12 +246,19 @@ namespace Better_Enemies
             ExistingResearchRequirementDef Chiron9Requirements = Helper.CreateDefFromClone(
                 source2,
                 "1aef5152-c6d6-435f-959e-0ac368dcf248",
-                skillName2);         
+                skillName2);
 
-            
+            string skillName3 = "BE_ALN_Chiron13OrSiren5_ResearchDef_ExistingResearchRequirementDef_0";
+            ExistingResearchRequirementDef source3 = Repo.GetAllDefs<ExistingResearchRequirementDef>().FirstOrDefault(p => p.name.Equals("ALN_Chiron8_ResearchDef_ExistingResearchRequirementDef_0"));
+            ExistingResearchRequirementDef Chiron13OrSiren5 = Helper.CreateDefFromClone(
+                source3,
+                "1aef5152-c6d6-435f-959e-0ac368dcf248",
+                skillName3);
+
+            Chiron8.ResearchCost = 0;
             ExistingResearchRequirementDef Chiron8Requirements = (ExistingResearchRequirementDef)Chiron8.RevealRequirements.Container[0].Requirements[0];
             Chiron8Requirements.ResearchID = "NJ_PurificationTech_ResearchDef";
-            Chiron8.Faction = Repo.GetAllDefs<GeoFactionDef>().FirstOrDefault(a => a.name.Equals("Phoenix_GeoPhoenixFactionDef"));
+            Chiron8Requirements.Faction = Repo.GetAllDefs<GeoFactionDef>().FirstOrDefault(a => a.name.Equals("Phoenix_GeoPhoenixFactionDef"));
         
             Chiron9Requirements.ResearchID = "PX_NJ_IncindieryGrenade_WeaponDef_ResearchDef";
             Chiron9Requirements.Faction = Repo.GetAllDefs<GeoFactionDef>().FirstOrDefault(a => a.name.Equals("NewJericho_GeoFactionDef"));
@@ -260,7 +269,40 @@ namespace Better_Enemies
                 Chiron9Requirements,
             };
 
-           
+            Chiron13OrSiren5.ResearchID = "PX_AdvancedLaserTech_ResearchDef";
+            Chiron13OrSiren5.Faction = Repo.GetAllDefs<GeoFactionDef>().FirstOrDefault(a => a.name.Equals("Phoenix_GeoPhoenixFactionDef"));
+
+            Chiron13.RevealRequirements.Operation = ResearchContainerOperation.ANY;
+            Chiron13.RevealRequirements.Container = new ReseachRequirementDefOpContainer[]
+            {
+                Chiron13.RevealRequirements.Container[0],
+                Chiron13.RevealRequirements.Container[1],
+                new ReseachRequirementDefOpContainer()
+                {
+                    Requirements = new ResearchRequirementDef[]
+                    {
+                        Chiron13OrSiren5,
+                    },
+                    Operation = ResearchContainerOperation.ANY,
+                },
+            };
+
+            siren5.RevealRequirements.Operation = ResearchContainerOperation.ANY;
+            siren5.RevealRequirements.Container = new ReseachRequirementDefOpContainer[]
+            {
+                siren5.RevealRequirements.Container[0],
+                siren5.RevealRequirements.Container[1],
+                new ReseachRequirementDefOpContainer()
+                {
+                    Requirements = new ResearchRequirementDef[]
+                    {
+                        Chiron13OrSiren5,
+                    },
+                    Operation = ResearchContainerOperation.ANY,
+                },
+            };
+
+
 
             //ResearchDef venomBolt = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef"));
             //ResearchDef laserWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_LaserWeapons_ResearchDef"));
