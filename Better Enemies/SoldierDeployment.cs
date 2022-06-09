@@ -45,6 +45,8 @@ namespace Better_Enemies
 {
     internal class SoldierDeployment
     {
+        private static readonly DefRepository Repo = MyMod.Repo;
+        private static readonly SharedData Shared = MyMod.Shared;
         public static void Change_Deployment()
         {
             DefRepository Repo = GameUtl.GameComponent<DefRepository>();
