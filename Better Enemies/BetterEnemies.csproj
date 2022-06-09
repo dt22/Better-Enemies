@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbilityChanges.cs" />
-    <Compile Include="AmbushMissions.cs" />
+    <Compile Include="Missions.cs" />
     <Compile Include="ArthronsTriotons.cs" />
     <Compile Include="BetterAI.cs" />
     <Compile Include="Class1.cs" />
