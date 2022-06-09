@@ -58,6 +58,9 @@ namespace Better_Enemies
             TacCharacterDef sirenArmis = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Siren5_Orichalcum_AlienMutationVariationDef"));
             WeaponDef sirenInjectorArms = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Siren_Arms_Injector_WeaponDef"));
             TacticalItemDef sirenArmisHead = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Siren_Head_Orichalcum_BodyPartDef"));
+            WeaponDef sirenAcidTorso = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Siren_Torso_AcidSpitter_WeaponDef"));
+            WeaponDef sirenArmisAcidTorso = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Siren_Torso_Orichalcum_WeaponDef"));
+            ShootAbilityDef AcidSpray = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Siren_SpitAcid_AbilityDef"));
 
             WeaponDef chironBlastMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_Mortar_WeaponDef"));
             WeaponDef chironCristalMortar = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Chiron_Abdomen_Crystal_Mortar_WeaponDef"));
@@ -78,7 +81,10 @@ namespace Better_Enemies
             sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
             sirenLegsAgile.Armor = 30;
             sirenPsychicScream.ActionPointCost = 0.25f;
-            sirenPsychicScream.UsesPerTurn = 1;            
+            sirenPsychicScream.UsesPerTurn = 1;
+            sirenAcidTorso.APToUsePerc = 25;
+            sirenArmisAcidTorso.APToUsePerc = 25;
+            AcidSpray.UsesPerTurn = 1;
 
             sirenBanshee.Data.Abilites = new TacticalAbilityDef[]
             {
