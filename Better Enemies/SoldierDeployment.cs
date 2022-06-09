@@ -17,8 +17,10 @@ using PhoenixPoint.Common.Entities.GameTagsTypes;
 using PhoenixPoint.Common.UI;
 using PhoenixPoint.Geoscape.Entities.DifficultySystem;
 using PhoenixPoint.Geoscape.Entities.Research;
+using PhoenixPoint.Geoscape.Entities.Research.Requirement;
 using PhoenixPoint.Geoscape.Entities.Research.Reward;
 using PhoenixPoint.Geoscape.Events.Eventus;
+using PhoenixPoint.Geoscape.Levels;
 using PhoenixPoint.Tactical;
 using PhoenixPoint.Tactical.AI;
 using PhoenixPoint.Tactical.AI.Actions;
@@ -56,6 +58,7 @@ namespace Better_Enemies
             ResearchDef fishWretchResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanSneaker_ResearchDef"));
             ResearchDef fishBasicResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanBasic_ResearchDef"));
             ResearchDef fishFootpadResearch = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_FishmanAssault_ResearchDef"));
+            ResearchDef Chiron8 = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("ALN_Chiron8_ResearchDef"));
 
 
             TacCharacterDef syass1 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SY_Assault1_CharacterTemplateDef"));
@@ -234,38 +237,61 @@ namespace Better_Enemies
             crabGunResearch.InitialStates[4].State = ResearchState.Completed;
             fishWretchResearch.InitialStates[4].State = ResearchState.Completed;
             fishFootpadResearch.InitialStates[4].State = ResearchState.Completed;
-            fishBasicResearch.Unlocks = new PhoenixPoint.Geoscape.Entities.Research.Reward.ResearchRewardDef[0];
+            fishBasicResearch.Unlocks = new ResearchRewardDef[0];
 
-           //ResearchDef venomBolt = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef"));
-           //ResearchDef laserWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_LaserWeapons_ResearchDef"));
-           //ResearchDef poisonWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_PoisonWeapons_ResearchDef"));
-           //ResearchDef nightVision = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_NightVision_ResearchDef"));
-           //UnitTemplateResearchRewardDef thief1 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_InfiltratorTech_ResearchDef_UnitTemplateResearchRewardDef_2"));
-           //UnitTemplateResearchRewardDef thief2 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_InfiltratorTech_ResearchDef_UnitTemplateResearchRewardDef_3"));
-           //UnitTemplateResearchRewardDef sy_assault_4 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef_UnitTemplateResearchRewardDef_3"));
-           //
-           //laserWeapons.Unlocks = new ResearchRewardDef[]
-           //{
-           //    laserWeapons.Unlocks[0],
-           //    laserWeapons.Unlocks[1],
-           //    laserWeapons.Unlocks[2],
-           //    venomBolt.Unlocks[4],
-           //    venomBolt.Unlocks[5],
-           //};
-           //
-           //thief1.Add = false;
-           //thief2.Add = false;
-           //
-           //poisonWeapons.Unlocks = new ResearchRewardDef[]
-           //{
-           //    poisonWeapons.Unlocks[0],
-           //    poisonWeapons.Unlocks[1],
-           //    poisonWeapons.Unlocks[2],
-           //    poisonWeapons.Unlocks[3],
-           //    nightVision.Unlocks[5],
-           //    nightVision.Unlocks[6],
-           //    nightVision.Unlocks[7],
-           //};
+            string skillName2 = "BE_ALN_Chiron8_ResearchDef_ExistingResearchRequirementDef_0";
+            ExistingResearchRequirementDef source2 = Repo.GetAllDefs<ExistingResearchRequirementDef>().FirstOrDefault(p => p.name.Equals("ALN_Chiron8_ResearchDef_ExistingResearchRequirementDef_0"));
+            ExistingResearchRequirementDef Chiron9Requirements = Helper.CreateDefFromClone(
+                source2,
+                "1aef5152-c6d6-435f-959e-0ac368dcf248",
+                skillName2);         
+
+            
+            ExistingResearchRequirementDef Chiron8Requirements = (ExistingResearchRequirementDef)Chiron8.RevealRequirements.Container[0].Requirements[0];
+            Chiron8Requirements.ResearchID = "NJ_PurificationTech_ResearchDef";
+            Chiron8.Faction = Repo.GetAllDefs<GeoFactionDef>().FirstOrDefault(a => a.name.Equals("Phoenix_GeoPhoenixFactionDef"));
+        
+            Chiron9Requirements.ResearchID = "PX_NJ_IncindieryGrenade_WeaponDef_ResearchDef";
+            Chiron9Requirements.Faction = Repo.GetAllDefs<GeoFactionDef>().FirstOrDefault(a => a.name.Equals("NewJericho_GeoFactionDef"));
+
+            Chiron8.RevealRequirements.Container[0].Requirements = new ResearchRequirementDef[]
+            {
+                Chiron8Requirements,
+                Chiron9Requirements,
+            };
+
+           
+
+            //ResearchDef venomBolt = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef"));
+            //ResearchDef laserWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_LaserWeapons_ResearchDef"));
+            //ResearchDef poisonWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_PoisonWeapons_ResearchDef"));
+            //ResearchDef nightVision = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_NightVision_ResearchDef"));
+            //UnitTemplateResearchRewardDef thief1 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_InfiltratorTech_ResearchDef_UnitTemplateResearchRewardDef_2"));
+            //UnitTemplateResearchRewardDef thief2 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_InfiltratorTech_ResearchDef_UnitTemplateResearchRewardDef_3"));
+            //UnitTemplateResearchRewardDef sy_assault_4 = Repo.GetAllDefs<UnitTemplateResearchRewardDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef_UnitTemplateResearchRewardDef_3"));
+            //
+            //laserWeapons.Unlocks = new ResearchRewardDef[]
+            //{
+            //    laserWeapons.Unlocks[0],
+            //    laserWeapons.Unlocks[1],
+            //    laserWeapons.Unlocks[2],
+            //    venomBolt.Unlocks[4],
+            //    venomBolt.Unlocks[5],
+            //};
+            //
+            //thief1.Add = false;
+            //thief2.Add = false;
+            //
+            //poisonWeapons.Unlocks = new ResearchRewardDef[]
+            //{
+            //    poisonWeapons.Unlocks[0],
+            //    poisonWeapons.Unlocks[1],
+            //    poisonWeapons.Unlocks[2],
+            //    poisonWeapons.Unlocks[3],
+            //    nightVision.Unlocks[5],
+            //    nightVision.Unlocks[6],
+            //    nightVision.Unlocks[7],
+            //};
         }
         public static void Change_NewJerichoAndPureDeployment()
         {
