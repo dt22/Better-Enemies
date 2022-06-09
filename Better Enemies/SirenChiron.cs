@@ -137,6 +137,16 @@ namespace Better_Enemies
             {
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Acheron_CoShred_AbilityDef")),
             };
+
+            chironFireHeavy.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("FireWard_AbilityDef")),
+            };
+
+            chironGooHeavy.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Aura_LivingCrystal_AbilityDef")),
+            };
             
             foreach (WeaponDef ChironWormLauncher in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Chiron_Abdomen_") && a.name.Contains("Worm_Launcher_WeaponDef")))
             {

@@ -49,6 +49,9 @@ namespace Better_Enemies
         public static void Change_Abilities()
         {
             Clone_GuardianBeam();
+            CoPoison();
+            CoShred();
+            FireWard();
         }
         public static void Clone_GuardianBeam()
         {
@@ -123,6 +126,35 @@ namespace Better_Enemies
             CoShredStatus.DamageKeywordPairs[0].Value = 3f;
             CoShred.ViewElementDef.DisplayName1 = new LocalizedTextBind("CoShred", true);
             CoShred.ViewElementDef.Description = new LocalizedTextBind("<b>All Pandorans in battle gain +3 Shred Damage.</b>", true);
+        }
+        public static void FireWard()
+        {
+            string skillName2 = "FireWard_AbilityDef";
+            ApplyStatusAbilityDef source2 = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(p => p.name.Equals("PsychicWard_AbilityDef"));
+            ApplyStatusAbilityDef FireWard = Helper.CreateDefFromClone(
+                source2,
+                "dc48c977-2ee8-46b6-aa4f-890f613d1f86",
+                skillName2);
+            FireWard.ViewElementDef = Helper.CreateDefFromClone(
+                source2.ViewElementDef,
+               "3e1cd50a-ca4c-4b50-9d46-cec71bb480a7",
+               skillName2);
+            FireWard.StatusDef = Helper.CreateDefFromClone(
+                source2.StatusDef,
+               "fc0c0bb8-b0a8-41e0-9314-394242d168aa",
+               skillName2);
+
+            FireWard.TargetingDataDef.Origin.Range = -1f;
+            DamageMultiplierStatusDef FireWardStatus = (DamageMultiplierStatusDef)FireWard.StatusDef;
+            FireWardStatus.ApplicationConditions = new Base.Entities.Effects.ApplicationConditions.EffectConditionDef[0];
+            FireWardStatus.Multiplier = 0.5f;
+            FireWardStatus.DamageTypeDefs = new DamageTypeBaseEffectDef[]
+            {
+                Repo.GetAllDefs<DamageTypeBaseEffectDef>().FirstOrDefault(p => p.name.Equals("Fire_DamageTypeBaseEffectDef"))
+            };
+            
+            FireWard.ViewElementDef.DisplayName1 = new LocalizedTextBind("FIRE WARD", true);
+            FireWard.ViewElementDef.Description = new LocalizedTextBind("<b>All Pandorans in battle gain Fire resistance.</b>", true);
         }
     }
 }
