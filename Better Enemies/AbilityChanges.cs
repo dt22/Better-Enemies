@@ -44,47 +44,39 @@ namespace Better_Enemies
 {
     internal class AbilityChanges
     {
+        private static readonly DefRepository Repo = MyMod.Repo;
+        private static readonly SharedData Shared = MyMod.Shared;
         public static void Change_Abilities()
         {
-            DefRepository Repo = GameUtl.GameComponent<DefRepository>();
-            SharedData Shared = GameUtl.GameComponent<SharedData>();
-           
-            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));
-            ApplyStatusAbilityDef coCorruption = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(a => a.name.Equals("Acheron_CoCorruption_AbilityDef"));
-            TacCharacterDef pool = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("SpawningPoolCrabman_TacCharacterDef"));
-            TacCharacterDef node = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("CorruptionNode_TacCharacterDef"));
-
-            /*
+            Clone_GuardianBeam();
+        }
+        public static void Clone_GuardianBeam()
+        {
+            //ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Guardian_Beam_ShootAbilityDef"));
             string skillName2 = "BE_Guardian_Beam_ShootAbilityDef";
             ShootAbilityDef source2 = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(p => p.name.Equals("Guardian_Beam_ShootAbilityDef"));
-            ShootAbilityDef BEGB = Clone.CreateDefFromClone(
+            ShootAbilityDef BEGB = Helper.CreateDefFromClone(
                 source2,
-                "64ba51e9-c67b-4e5e-ad61-315e7f796ffa",
+                "cfc8f607-2dac-40e3-bdfb-842f7e1ce71c",
                 skillName2);
-            BEGB.ViewElementDef = Clone.CreateDefFromClone(
-                source2.ViewElementDef,
-               "20f5659c-890a-4f29-9968-07ea67b04c6b",
+            BEGB.SceneViewElementDef = Helper.CreateDefFromClone(
+                source2.SceneViewElementDef,
+               "0bdef0ee-7070-4d21-972e-b2d1f07710ae",
                skillName2);
-            */
+            BEGB.TargetingDataDef = Helper.CreateDefFromClone(
+                source2.TargetingDataDef,
+               "be53f499-9627-44b3-9cd8-87410b51f008",
+               skillName2);
 
-            guardianBeam.UsesPerTurn = 1;
-            guardianBeam.TrackWithCamera = false;
-            guardianBeam.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
-            ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)guardianBeam.SceneViewElementDef;
+
+            BEGB.UsesPerTurn = 1;
+            BEGB.TrackWithCamera = false;
+            BEGB.ShownModeToTrack = PhoenixPoint.Tactical.Levels.KnownState.Revealed;
+            ShootAbilitySceneViewDef guardianBeamSVE = (ShootAbilitySceneViewDef)BEGB.SceneViewElementDef;
             guardianBeamSVE.HoverMarkerInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackConeNoTarget;
             guardianBeamSVE.LineToCursorInvalidTarget = PhoenixPoint.Tactical.View.GroundMarkerType.AttackLineNoTarget;
-            guardianBeam.SceneViewElementDef.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
-            guardianBeam.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_StartPreparing_AbilityDef]"));
-
-            pool.Data.Abilites = new TacticalAbilityDef[]
-            {
-                coCorruption,
-            };
-
-            node.Data.Abilites = new TacticalAbilityDef[]
-            {
-                coCorruption,
-            };
+            guardianBeamSVE.HoverMarker = PhoenixPoint.Tactical.View.GroundMarkerType.AttackCone;
+            BEGB.TargetingDataDef = Repo.GetAllDefs<TacticalTargetingDataDef>().FirstOrDefault(a => a.name.Equals("E_TargetingData [Queen_GunsFire_ShootAbilityDef]"));
         }
     }
 }

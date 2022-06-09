@@ -44,10 +44,10 @@ namespace Better_Enemies
 {
     internal class Scylla
     {
+        private static readonly DefRepository Repo = MyMod.Repo;
+        private static readonly SharedData Shared = MyMod.Shared;
         public static void Chnage_Queen()
         {
-            DefRepository Repo = GameUtl.GameComponent<DefRepository>();
-
             TacticalItemDef queenSpawner = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Queen_Abdomen_Spawner_BodyPartDef"));
             TacticalItemDef queenBelcher = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Queen_Abdomen_Belcher_BodyPartDef"));
             

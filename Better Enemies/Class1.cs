@@ -42,7 +42,7 @@ using UnityEngine;
 
 namespace Better_Enemies
 {
-    internal class Clone
+    internal class Helper
     {
         public static T CreateDefFromClone<T>(T source, string guid, string name) where T : BaseDef
         {
@@ -105,14 +105,13 @@ namespace Better_Enemies
     public static class MyMod
     {
         internal static ModConfig Config;
+        internal static readonly DefRepository Repo = GameUtl.GameComponent<DefRepository>();
+        internal static readonly SharedData Shared = GameUtl.GameComponent<SharedData>();
         public static void HomeMod(Func<string, object, object> api = null)
         {
             MyMod.Config = ((api("config", null) as ModConfig) ?? new ModConfig());
             HarmonyInstance.Create("Better_Enemies").PatchAll();
-            api?.Invoke("log verbose", "Mod Initialised.");
-
-            DefRepository Repo = GameUtl.GameComponent<DefRepository>();
-            SharedData Shared = GameUtl.GameComponent<SharedData>();
+            api?.Invoke("log verbose", "Mod Initialised.");         
 
             SoldierDeployment.Change_Deployment();
             SoldierDeployment.Change_NewJerichoAndPureDeployment();
@@ -125,7 +124,7 @@ namespace Better_Enemies
             BetterAI.Change_AI();
             Perception.Change_Perception();
             AbilityChanges.Change_Abilities();
-            Vehicles.Change_Vehicles();
+            //Vehicles.Change_Vehicles();
             Missions.Change_Ambush();
 
             MindControlStatusDef mcStatus = Repo.GetAllDefs<MindControlStatusDef>().FirstOrDefault(a => a.name.Equals("MindControl_StatusDef"));                                 

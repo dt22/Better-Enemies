@@ -45,10 +45,10 @@ namespace Better_Enemies
 {
     internal class Vehicles
     {
+        private static readonly DefRepository Repo = MyMod.Repo;
+        private static readonly SharedData Shared = MyMod.Shared;
         public static void Change_Vehicles()
-        {
-            DefRepository Repo = GameUtl.GameComponent<DefRepository>();
-            
+        {      
             GroundVehicleWeaponDef ArmadilloFT = Repo.GetAllDefs<GroundVehicleWeaponDef>().FirstOrDefault(a => a.name.Equals("NJ_Armadillo_Mephistopheles_GroundVehicleWeaponDef"));
             AIActionsTemplateDef AspidaAI = Repo.GetAllDefs<AIActionsTemplateDef>().FirstOrDefault(a => a.name.Equals("Aspida_AIActionsTemplateDef"));
             AIActionMoveAndAttackDef VehicleShoot = Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(a => a.name.Equals("MoveAndShoot3x3_AIActionDef"));
