@@ -77,6 +77,7 @@ namespace Better_Enemies
             sirenPerception.PerceptionRange = 38;
             sirenBanshee.Data.Will = 14;
             sirenBanshee.Data.BodypartItems[0] = sirenScremingHead;
+            sirenBanshee.Data.Speed += 5;
             sirenInjectorArms.DamagePayload.DamageKeywords[2].Value = 10;
             sirenLegsAgile.Armor = 30;
             sirenPsychicScream.ActionPointCost = 0.25f;
