@@ -107,12 +107,14 @@ namespace Better_Enemies
         internal static ModConfig Config;
         internal static readonly DefRepository Repo = GameUtl.GameComponent<DefRepository>();
         internal static readonly SharedData Shared = GameUtl.GameComponent<SharedData>();
-        public static void GameMod(Func<string, object, object> api = null)
+        public static void HomeMod(Func<string, object, object> api = null)
         {
             MyMod.Config = ((api("config", null) as ModConfig) ?? new ModConfig());
             HarmonyInstance.Create("Better_Enemies").PatchAll();
-            api?.Invoke("log verbose", "Mod Initialised.");         
-
+            api?.Invoke("log verbose", "Mod Initialised.");
+            
+            AbilityChanges.Change_Abilities();
+            BetterAI.Change_AI();
             SoldierDeployment.Change_Deployment();
             SoldierDeployment.Change_NewJerichoAndPureDeployment();
             SoldierDeployment.Change_AnuAndForsakenDeployment();
@@ -120,10 +122,8 @@ namespace Better_Enemies
             Scylla.Chnage_Queen();                                   
             SirenChiron.Chnage_SirenChiron(); 
             ArthronsTriotons.Change_ArthronsTritons();
-            SmallCharactersAndSentinels.Change_SmallCharactersAndSentinels();
-            BetterAI.Change_AI();
-            Perception.Change_Perception();
-            AbilityChanges.Change_Abilities();
+            SmallCharactersAndSentinels.Change_SmallCharactersAndSentinels();          
+            Perception.Change_Perception();            
             //Vehicles.Change_Vehicles();
             Missions.Change_Ambush();
             ResearchRequirements.Create_ResearchRequirements();
