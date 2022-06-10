@@ -126,6 +126,7 @@ namespace Better_Enemies
             AbilityChanges.Change_Abilities();
             //Vehicles.Change_Vehicles();
             Missions.Change_Ambush();
+            ResearchRequirements.Create_ResearchRequirements();
 
             MindControlStatusDef mcStatus = Repo.GetAllDefs<MindControlStatusDef>().FirstOrDefault(a => a.name.Equals("MindControl_StatusDef"));                                 
             AISettingsDef aiSettings = Repo.GetAllDefs<AISettingsDef>().FirstOrDefault(a => a.name.Equals("AISettingsDef"));
