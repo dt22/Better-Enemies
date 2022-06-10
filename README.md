@@ -8,7 +8,7 @@ Various Enemy and AI adjustments aimed at making tactical combat more challengin
 
 Full Changelog here: https://docs.google.com/spreadsheets/d/1gCB-EpteJEuEnSTggOaF49PVPYjxTwc0cuZHbBUIIy4/
 
-**AI Changes	**
+**AI Changes**
 
 1. **Humans Obsessed with healing themself**	_Adjusted AI so they will only heal when have nothing else to do_
 2. **Tritons with Bloodsucking arms use them over shooting weapons**	Adjusted AI so they will prioritise shooting instead
@@ -21,7 +21,7 @@ Full Changelog here: https://docs.google.com/spreadsheets/d/1gCB-EpteJEuEnSTggOa
 9. **Armadillo**	Fixed a bug with AI where it could not use Mephistopheles FT weapon (if Kaos Engines was activated)
 10. **AI time to think**	Given an option in config (default: off) to double the time AI can think, increasing turn length but slightly improving decision making
 	
-**General Changes	**
+**General Changes**
 
 Pandoran Evolution	Add Arthon Gunner, Triton Wretch and Triton Footman to starting enemies. Removed Triton Strangler. (warning, this may lead to slightly faster than usual enemy evolutions)
 Human Enemies	Human Enemies will deploy minimum of lvl 3 Troops, this also affect Haven Recruits and Defenders. Deployment points for lvl3 enemies decreased.
@@ -41,7 +41,7 @@ Arthon Dragon Prime	Dash
 Arthon Myrmidon Prime	Nightvision
 Arthon Tyrant Prime	Master Marksman
 	
-**Tritons	**
+**Tritons**
 
 Triton Paralysing Arms	Paralysis value Increased 4 -> 8
 Triton Evolved Paralysing Arm	Paralysis value 6 Increased -> 16
@@ -51,7 +51,7 @@ Triton Marksman Alpha	Replaced Raven SR with Subjector (KE) , removed research r
 Triton Maniac Alpha	Replaced Pirranha AR with Obliterator (KE) , removed research requirements (Piercing Tech), Increased deployment cost by ~30%
 Trtion Ghoul and Ghoul Alpha	Improve Bloodsucking Arms to Evolved Bloodsucking Arms, adjusted AI 
 	
-**Chirons	**
+**Chirons**
 
 Worm Abdomen Chirons	"Ammo Increased 15 ->18 
 Increased Shock Value when operative is hit by worm launcher 120 -> 240"
@@ -65,7 +65,7 @@ Chiron Fuji (Evolved Fireworm)	Fire Ward (all enemies gain Fire Resistance), Unl
 Chiron Phthsis (Evolved Acidworm)	Armour Bane (all enemies deal additional 3 shred)
 Chiron Smaragdus	Unlocks instantly if the player has researched Advanced Laser Weapons
 	
-**Sirens	**
+**Sirens**
 
 Siren Psychic Scream Ability	Psychic Scream AP reduced to 1 and can only be used once per turn
 Siren Acid Spray	Adjusted cost and priority so it is used more often
@@ -76,14 +76,14 @@ Siren Banshee	Replaced Buffing Head (Frenzy) with Screaming Head (Psychic Scream
 Siren Armis	Gains Ignore Pain. Unlocks instantly if the player has researched Advanced Laser Weapons
 Siren Injector Arms	Viral Value Increased 6 -> 10
 	
-**Skyllas	**
+**Skyllas**
 
 Skylla	All abdomen armor value increased to 60, Gains Acid Resistance, WP increased by +150, Can now trample over small enemies (worms, spider drones etc) various AI adjustments to match
 Skylla with Blaster Weapon	Attack is changed to instant, damage 80 - > 40, Shred 30 -> 3, can only be used once per turn, various tweaks to AI to make this behaviour possible
 Skylla Smasher	Gained 8 Paralysis damage
 Skylla Smaragdus	Gained Mind Control
 	
-**Other Enemies	**
+**Other Enemies**
 
 Mindfragger	Gains Acid explosion (acid value = 10) with 1 tile radius
 Worms	All worms speed increased to 9 (from 6), worm explosion gets Shred 3, Food and Mutagen reward when processing captured worms decreased significantly
@@ -93,7 +93,7 @@ All Eggs	Surveillance radius Increased 4 -> 7
 Lair	Gains Co-corruption, 
 Corruption Node	Gains Co-Corruption
 	
-**Human Perception Changed (Default off)	**
+**Human Perception Changed (Default off)**
 
 All Humans Perception 	reduced to 30 (from 35). This can be adjusted in Config
 Acheron Helmet	Pecception +7 -> +4
