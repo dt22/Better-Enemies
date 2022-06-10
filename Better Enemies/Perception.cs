@@ -79,6 +79,8 @@ namespace Better_Enemies
 			bodyPartAspectDef13.Perception = 8f;
 			BodyPartAspectDef bodyPartAspectDef14 = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [SY_Infiltrator_Helmet_BodyPartDef]"));
 			bodyPartAspectDef14.Perception = 5f;
+			TacticalItemDef styxHelmet = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("SY_Infiltrator_Helmet_BodyPartDef"));
+			styxHelmet.BodyPartAspectDef.Perception = 5f;
 			BodyPartAspectDef bodyPartAspectDef15 = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [AN_Berserker_Watcher_Torso_BodyPartDef]"));
 			bodyPartAspectDef15.Perception = 3f;
 			BodyPartAspectDef bodyPartAspectDef16 = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [NJ_Exo_BIO_Helmet_BodyPartDef]"));

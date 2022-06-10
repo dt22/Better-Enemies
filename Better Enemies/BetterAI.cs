@@ -127,6 +127,7 @@ namespace Better_Enemies
                 queenAITemplate.ActionDefs[10],
                 queenAITemplate.ActionDefs[12],
                 queenAITemplate.ActionDefs[13],
+                SirenAITemplate.ActionDefs[9],
             };
 
             SirenAITemplate.ActionDefs = new AIActionDef[]

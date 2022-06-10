@@ -50,17 +50,21 @@ namespace Better_Enemies
         {
             TacticalItemDef queenSpawner = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Queen_Abdomen_Spawner_BodyPartDef"));
             TacticalItemDef queenBelcher = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("Queen_Abdomen_Belcher_BodyPartDef"));
-            
+            TacCharacterDef queenCrystal = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Queen_Crystal_TacCharacterDef"));
+           
             BodyPartAspectDef queenHeavyHead = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Queen_Head_Heavy_BodyPartDef]"));
             BodyPartAspectDef queenSpitterHead = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Queen_Head_Spitter_Goo_WeaponDef]"));
             BodyPartAspectDef queenSonicHead = Repo.GetAllDefs<BodyPartAspectDef>().FirstOrDefault(a => a.name.Equals("E_BodyPartAspect [Queen_Head_Sonic_WeaponDef]"));
             
             WeaponDef queenLeftBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_LeftArmGun_WeaponDef"));
             WeaponDef queenRightBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_RightArmGun_WeaponDef"));
-            WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));            
-            
+            WeaponDef queenBlastWeapon = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Gun_WeaponDef"));
+            WeaponDef queenSmasher = Repo.GetAllDefs<WeaponDef>().FirstOrDefault(a => a.name.Equals("Queen_Arms_Smashers_WeaponDef"));
+
             AdditionalEffectShootAbilityDef queenBlast = Repo.GetAllDefs<AdditionalEffectShootAbilityDef>().FirstOrDefault(a => a.name.Equals("Queen_GunsFire_ShootAbilityDef"));
-            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("BE_Guardian_Beam_ShootAbilityDef"));      
+            ShootAbilityDef guardianBeam = Repo.GetAllDefs<ShootAbilityDef>().FirstOrDefault(a => a.name.Equals("BE_Guardian_Beam_ShootAbilityDef"));
+            MindControlAbilityDef MindControl = Repo.GetAllDefs<MindControlAbilityDef>().FirstOrDefault(a => a.name.Equals("Priest_MindControl_AbilityDef"));
+            
 
             queenLeftBlastWeapon.Abilities = new AbilityDef[]
             {
@@ -123,6 +127,31 @@ namespace Better_Enemies
                     Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CaterpillarMoveAbilityDef")),
                 };
              }
+
+            queenCrystal.Data.Abilites = new TacticalAbilityDef[]
+            {
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CaterpillarMoveAbilityDef")),
+                MindControl,
+            };
+
+            foreach (TacActorSimpleAbilityAnimActionDef animActionDef in Repo.GetAllDefs<TacActorSimpleAbilityAnimActionDef>().Where(aad => aad.name.Contains("Queen_AnimActionsDef")))
+            {
+                if (animActionDef.AbilityDefs != null && !animActionDef.AbilityDefs.Contains(MindControl))
+                {
+                    animActionDef.AbilityDefs = animActionDef.AbilityDefs.Append(MindControl).ToArray();
+                }
+            }
+
+            queenSmasher.DamagePayload.DamageKeywords = new List<DamageKeywordPair>
+            {
+                queenSmasher.DamagePayload.DamageKeywords[0],
+                queenSmasher.DamagePayload.DamageKeywords[1],
+                new DamageKeywordPair()
+                {
+                    DamageKeywordDef = Shared.SharedDamageKeywords.ParalysingKeyword,
+                    Value = 8,
+                },
+            };
 
             queenBlastWeapon.DamagePayload.DamageKeywords[0].Value = 40;
             queenBlastWeapon.DamagePayload.DamageKeywords[1].Value = 3;

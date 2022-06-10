@@ -302,7 +302,10 @@ namespace Better_Enemies
                 },
             };
 
-
+            foreach(TacCharacterDef actor in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("PU_") || a.name.Contains("FK_")))
+            {
+                actor.DeploymentCost /= 2;
+            }
 
             //ResearchDef venomBolt = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_VenomBolt_ResearchDef"));
             //ResearchDef laserWeapons = Repo.GetAllDefs<ResearchDef>().FirstOrDefault(a => a.name.Equals("SYN_LaserWeapons_ResearchDef"));
