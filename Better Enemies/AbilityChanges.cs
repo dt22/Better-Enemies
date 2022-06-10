@@ -85,6 +85,7 @@ namespace Better_Enemies
         {
             string skillName2 = "Acheron_CoPoison_AbilityDef";
             ApplyStatusAbilityDef source2 = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(p => p.name.Equals("Acheron_CoCorruption_AbilityDef"));
+            AddAttackBoostStatusDef source2Status = (AddAttackBoostStatusDef)source2.StatusDef;
             ApplyStatusAbilityDef CoPoison = Helper.CreateDefFromClone(
                 source2,
                 "41da7c7f-277c-4fd7-bed2-4e44a90a82a0",
@@ -93,14 +94,21 @@ namespace Better_Enemies
                 source2.ViewElementDef,
                "51981712-5036-427c-950c-4cb017d42fce",
                skillName2);
-            CoPoison.StatusDef = Helper.CreateDefFromClone(
-                source2.StatusDef,
+            AddAttackBoostStatusDef CoPoisonStatusDef = Helper.CreateDefFromClone(
+            CoPoison.StatusDef as AddAttackBoostStatusDef,
                "1dd0c460-a017-48a3-8e77-43a7684b0655",
-               skillName2);
+               "CoPoison_StatusDef");
+            CoPoisonStatusDef.Visuals = Helper.CreateDefFromClone(
+            source2Status.Visuals,
+               "61e44215-fc05-4383-b9e4-17f384e3d003",
+               "E_Visuals [CoPoison_StatusDef]");
 
-            AddAttackBoostStatusDef CoPoisonStatus = (AddAttackBoostStatusDef)CoPoison.StatusDef;
-            CoPoisonStatus.DamageKeywordPairs[0].DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword;
-            CoPoisonStatus.DamageKeywordPairs[0].Value = 10f;
+            CoPoison.StatusDef = CoPoisonStatusDef;
+
+            CoPoisonStatusDef.DamageKeywordPairs[0].DamageKeywordDef = Shared.SharedDamageKeywords.PoisonousKeyword;
+            CoPoisonStatusDef.DamageKeywordPairs[0].Value = 10f;
+            CoPoisonStatusDef.Visuals.DisplayName1 = new LocalizedTextBind("Poison Attack", true);
+            CoPoisonStatusDef.Visuals.Description = new LocalizedTextBind("Successful attacks deal +10 Poison", true);
             CoPoison.ViewElementDef.DisplayName1 = new LocalizedTextBind("CoPoison", true);
             CoPoison.ViewElementDef.Description = new LocalizedTextBind("<b>All Pandorans in battle gain +10 Poison Damage.</b>", true);
         }
@@ -108,6 +116,7 @@ namespace Better_Enemies
         {
             string skillName2 = "Acheron_CoShred_AbilityDef";
             ApplyStatusAbilityDef source2 = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(p => p.name.Equals("Acheron_CoCorruption_AbilityDef"));
+            AddAttackBoostStatusDef source2Status = (AddAttackBoostStatusDef)source2.StatusDef;
             ApplyStatusAbilityDef CoShred = Helper.CreateDefFromClone(
                 source2,
                 "e862d864-eb59-4a93-bafa-700672e6ae69",
@@ -116,14 +125,20 @@ namespace Better_Enemies
                 source2.ViewElementDef,
                "2c1547ce-ad5b-44ef-9e03-56d6327a884a",
                skillName2);
-            CoShred.StatusDef = Helper.CreateDefFromClone(
-                source2.StatusDef,
+            AddAttackBoostStatusDef CoShredStatusDef = Helper.CreateDefFromClone(
+            CoShred.StatusDef as AddAttackBoostStatusDef,
                "e115d4c7-44af-4b30-a537-f7aa880a29db",
-               skillName2);
+               "CoShred_StatusDef");
+            CoShredStatusDef.Visuals = Helper.CreateDefFromClone(
+            source2Status.Visuals,
+               "aaead24e-9dba-4ef7-ba2d-8df142cb9105",
+               "E_Visuals [CoShred_StatusDef]");
 
-            AddAttackBoostStatusDef CoShredStatus = (AddAttackBoostStatusDef)CoShred.StatusDef;
-            CoShredStatus.DamageKeywordPairs[0].DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword;
-            CoShredStatus.DamageKeywordPairs[0].Value = 3f;
+            CoShred.StatusDef = CoShredStatusDef;
+            CoShredStatusDef.DamageKeywordPairs[0].DamageKeywordDef = Shared.SharedDamageKeywords.ShreddingKeyword;
+            CoShredStatusDef.DamageKeywordPairs[0].Value = 3f;            
+            CoShredStatusDef.Visuals.DisplayName1 = new LocalizedTextBind("Shred Attack", true);
+            CoShredStatusDef.Visuals.Description = new LocalizedTextBind("Successful attacks deal +3 Shred", true);
             CoShred.ViewElementDef.DisplayName1 = new LocalizedTextBind("CoShred", true);
             CoShred.ViewElementDef.Description = new LocalizedTextBind("<b>All Pandorans in battle gain +3 Shred Damage.</b>", true);
         }
@@ -143,15 +158,23 @@ namespace Better_Enemies
                 source2.StatusDef,
                "fc0c0bb8-b0a8-41e0-9314-394242d168aa",
                skillName2);
+            FireWard.CharacterProgressionData = Helper.CreateDefFromClone(
+                source2.CharacterProgressionData,
+               "ccd66e53-6258-4fa6-a185-66ba0f5bc4b7",
+               skillName2);
 
-            FireWard.TargetingDataDef.Origin.Range = -1f;
+            FireWard.CharacterProgressionData = new AbilityCharacterProgressionDef();
+            FireWard.TargetingDataDef.Origin.Range = 99f;
             DamageMultiplierStatusDef FireWardStatus = (DamageMultiplierStatusDef)FireWard.StatusDef;
             FireWardStatus.ApplicationConditions = new Base.Entities.Effects.ApplicationConditions.EffectConditionDef[0];
             FireWardStatus.Multiplier = 0.5f;
+            FireWardStatus.EffectName = "FireWard";
+            FireWardStatus.Visuals = FireWard.ViewElementDef;
             FireWardStatus.DamageTypeDefs = new DamageTypeBaseEffectDef[]
             {
                 Repo.GetAllDefs<DamageTypeBaseEffectDef>().FirstOrDefault(p => p.name.Equals("Fire_DamageTypeBaseEffectDef"))
             };
+            
             
             FireWard.ViewElementDef.DisplayName1 = new LocalizedTextBind("FIRE WARD", true);
             FireWard.ViewElementDef.Description = new LocalizedTextBind("<b>All Pandorans in battle gain Fire resistance.</b>", true);

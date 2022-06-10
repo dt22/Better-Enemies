@@ -102,6 +102,14 @@ namespace Better_Enemies
 
             fish15.Data.BodypartItems[3] = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_BloodSucker_BodyPartDef"));
             fish17.Data.BodypartItems[3] = Repo.GetAllDefs<TacticalItemDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_UpperArms_BloodSucker_BodyPartDef"));
+            
+            //foreach (TacActorSimpleAbilityAnimActionDef animActionDef in Repo.GetAllDefs<TacActorSimpleAbilityAnimActionDef>().Where(aad => aad.name.Contains("Queen_AnimActionsDef")))
+            //{
+            //    if (animActionDef.AbilityDefs != null && !animActionDef.AbilityDefs.Contains(MindControl))
+            //    {
+            //        animActionDef.AbilityDefs = animActionDef.AbilityDefs.Append(MindControl).ToArray();
+            //    }
+            //}
 
             arthronAcidGL.DamagePayload.DamageKeywords[1].Value = 20; //this is second the first being the blast           
             arthronAcidEliteGL.DamagePayload.DamageKeywords[1].Value = 30; //this is second the first being the blast
