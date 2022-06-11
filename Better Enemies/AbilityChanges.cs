@@ -163,7 +163,7 @@ namespace Better_Enemies
                "3efc6f6b-8c57-405b-afe4-f20491336bd5",
                skillName2);
 
-            FireWard.CharacterProgressionData = new AbilityCharacterProgressionDef();
+            FireWard.CharacterProgressionData = null;
             FireWard.TargetingDataDef.Origin.Range = 99f;
             DamageMultiplierStatusDef FireWardStatus = (DamageMultiplierStatusDef)FireWard.StatusDef;
             FireWardStatus.ApplicationConditions = new Base.Entities.Effects.ApplicationConditions.EffectConditionDef[0];
