@@ -109,4 +109,4 @@ Full Changelog here: https://docs.google.com/spreadsheets/d/1gCB-EpteJEuEnSTggOa
 13. **Perceptor Head**.................._Pecerption +14 -> +8_
 14. **Styx Helmet**....................._Perception +10 -> +5_
 15. **Tentacle Torso**.................._Peception +6 -> +3_
-16. **Disruptor Head**.................._Perception +5 -> +3_
+16. **Disruptor Head**.................._Perception +5 -> +3_ 
