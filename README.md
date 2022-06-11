@@ -43,13 +43,13 @@ Full Changelog here: https://docs.google.com/spreadsheets/d/1gCB-EpteJEuEnSTggOa
 	
 **Tritons**
 
-1.**Triton Paralysing Arms**..........._Paralysis value Increased 4 -> 8_
-2.**Triton Evolved Paralysing Arm**...._Paralysis value 6 Increased -> 16_
-3.**Triton Hitman and Marksamen**......_Gain Extreme Focus_
-4.**Triton Thug Alpha**................_Replaced Harrower with Redemptor (KE), removed research requirements (Shredding Tech), Increased deployment cost by ~30%_
-5.**Triton Marksman Alpha**............_Replaced Raven SR with Subjector (KE) , removed research requirements (Piercing Tech), Increased deployment cost by ~30%_
-6.**Triton Maniac Alpha**.............._Replaced Pirranha AR with Obliterator (KE) , removed research requirements (Piercing Tech), Increased deployment cost by ~30%_
-7.**Trtion Ghoul and Ghoul Alpha**....._Improve Bloodsucking Arms to Evolved Bloodsucking Arms, adjusted AI_ 
+1. **Triton Paralysing Arms**..........._Paralysis value Increased 4 -> 8_
+2. **Triton Evolved Paralysing Arm**...._Paralysis value 6 Increased -> 16_
+3. **Triton Hitman and Marksamen**......_Gain Extreme Focus_
+4. **Triton Thug Alpha**................_Replaced Harrower with Redemptor (KE), removed research requirements (Shredding Tech), Increased deployment cost by ~30%_
+5. **Triton Marksman Alpha**............_Replaced Raven SR with Subjector (KE) , removed research requirements (Piercing Tech), Increased deployment cost by ~30%_
+6. **Triton Maniac Alpha**.............._Replaced Pirranha AR with Obliterator (KE) , removed research requirements (Piercing Tech), Increased deployment cost by ~30%_
+7. **Trtion Ghoul and Ghoul Alpha**....._Improve Bloodsucking Arms to Evolved Bloodsucking Arms, adjusted AI_ 
 	
 **Chirons**
 
@@ -110,4 +110,3 @@ Full Changelog here: https://docs.google.com/spreadsheets/d/1gCB-EpteJEuEnSTggOa
 14. **Styx Helmet**....................._Perception +10 -> +5_
 15. **Tentacle Torso**.................._Peception +6 -> +3_
 16. **Disruptor Head**.................._Perception +5 -> +3_
-_
