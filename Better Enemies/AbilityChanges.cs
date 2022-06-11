@@ -160,7 +160,7 @@ namespace Better_Enemies
                skillName2);
             FireWard.CharacterProgressionData = Helper.CreateDefFromClone(
                 source2.CharacterProgressionData,
-               "ccd66e53-6258-4fa6-a185-66ba0f5bc4b7",
+               "ff35f9ef-ad67-42ff-9dcd-0288dba4d636",
                skillName2);
 
             FireWard.CharacterProgressionData = new AbilityCharacterProgressionDef();

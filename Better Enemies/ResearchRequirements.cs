@@ -88,14 +88,14 @@ namespace Better_Enemies
             ExistingResearchRequirementDef source2 = Repo.GetAllDefs<ExistingResearchRequirementDef>().FirstOrDefault(p => p.name.Equals("ALN_Chiron8_ResearchDef_ExistingResearchRequirementDef_0"));
             ExistingResearchRequirementDef Chiron9Requirements = Helper.CreateDefFromClone(
                 source2,
-                "1aef5152-c6d6-435f-959e-0ac368dcf248",
+                "75660746-2f27-41d1-97e3-f0d6340e96b7",
                 skillName2);
 
             string skillName3 = "BE_ALN_Chiron13OrSiren5_ResearchDef_ExistingResearchRequirementDef_0";
             ExistingResearchRequirementDef source3 = Repo.GetAllDefs<ExistingResearchRequirementDef>().FirstOrDefault(p => p.name.Equals("ALN_Chiron8_ResearchDef_ExistingResearchRequirementDef_0"));
             ExistingResearchRequirementDef Chiron13OrSiren5 = Helper.CreateDefFromClone(
                 source3,
-                "1aef5152-c6d6-435f-959e-0ac368dcf248",
+                "1135128c-a10d-4285-9d03-d93a4afd6733",
                 skillName3);
 
             Chiron8.ResearchCost = 0;
