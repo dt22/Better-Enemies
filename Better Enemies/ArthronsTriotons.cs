@@ -172,10 +172,13 @@ namespace Better_Enemies
                     };
                 }
                 else
-                crab34.Data.Abilites = new TacticalAbilityDef[]
                 {
-                    Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("EnhancedVision_AbilityDef")),
-                };
+                    crab34.Data.Abilites = new TacticalAbilityDef[]
+                    {
+                        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("EnhancedVision_AbilityDef")),
+                    };
+                }
+                
             }
 
             foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") &&( aad.name.Contains("Pretorian") || aad.name.Contains("Tank"))))
