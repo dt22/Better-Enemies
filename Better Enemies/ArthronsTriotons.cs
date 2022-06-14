@@ -153,7 +153,7 @@ namespace Better_Enemies
                 } 
             }
 
-            foreach (PassiveModifierAbilityDef ability in Repo.GetAllDefs<TacticalAbilityDef>())
+            foreach (TacticalAbilityDef ability in Repo.GetAllDefs<TacticalAbilityDef>())
             {
                 if (ability.name.Contains("Paranoid_AbilityDef"))
                 {
