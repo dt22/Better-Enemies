@@ -141,7 +141,7 @@ namespace Better_Enemies
 
             chironFireHeavy.Data.Abilites = new TacticalAbilityDef[]
             {
-                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("FireWard_AbilityDef")),
+                Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("FireWard2_AbilityDef")),
             };
 
             chironGooHeavy.Data.Abilites = new TacticalAbilityDef[]
