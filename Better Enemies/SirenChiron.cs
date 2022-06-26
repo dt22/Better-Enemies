@@ -151,7 +151,7 @@ namespace Better_Enemies
             
             foreach (WeaponDef ChironWormLauncher in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Chiron_Abdomen_") && a.name.Contains("Worm_Launcher_WeaponDef")))
             {
-                ChironWormLauncher.DamagePayload.DamageKeywords[0].Value = 240;
+                ChironWormLauncher.DamagePayload.DamageKeywords[1].Value = 240;
             }
         }
         
