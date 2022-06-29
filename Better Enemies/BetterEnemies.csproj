@@ -66,6 +66,7 @@
     <Compile Include="SmallCharactersAndSentinels.cs" />
     <Compile Include="SoldierDeployment.cs" />
     <Compile Include="Vehicles.cs" />
+    <Compile Include="WillPower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
