@@ -53,22 +53,22 @@ namespace Better_Enemies
             {
                 character.Data.Will -= 4;
             }
-
+            
             foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Equals("Crabman12_EliteShielder3_AlienMutationVariationDef")))
             {
                 character.Data.Will -= 2;
             }
-
+            
             foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("Crabman") && a.name.Contains("Pretorian")))
             {
                 character.Data.Will -= 5;
             }
-
+            
             foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("Crabman") && (a.name.Contains("EliteViralCommando") || a.name.Contains("UltraViralCommando"))))
             {
                 character.Data.Will -= 5;
             }
-
+            
             foreach (TacCharacterDef crabMyr in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") && (aad.name.Contains("EliteRanger") || aad.name.Contains("UltraRanger"))))
             {
                 crabMyr.Data.Will -= 5;

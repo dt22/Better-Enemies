@@ -110,7 +110,7 @@ namespace Better_Enemies
             acheronAAI.ActionDefs[1].Weight = 250;
             
             QueenAI.ActionDefs[9].Weight = 0.01f;
-            queenNav.NavAreas = queenNav.NavAreas.AddToArray("WalkableArmadillo");                 
+            //queenNav.NavAreas = queenNav.NavAreas.AddToArray("WalkableArmadillo");                 
 
             queenAITemplate.ActionDefs = new AIActionDef[]
             {
@@ -155,7 +155,7 @@ namespace Better_Enemies
                 Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("GunWeapon_TagDef")),
             };
 
-            chironStrikeAvailable.IgnoredStates = new string[0];
+            chironStrikeAvailable.IgnoredStates = null;
             chironStrikeTargetDef.MaxRange = 99;            
         }
     }

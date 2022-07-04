@@ -81,6 +81,11 @@ namespace Better_Enemies
             TacCharacterDef fish17 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman15_ViralAssault_AlienMutationVariationDef"));
             TacCharacterDef fishSniper5 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("FishmanElite_Shrowder_Sniper"));
             TacCharacterDef fishSniper6 = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(a => a.name.Equals("Fishman_Shrowder_TacCharacterDef"));
+            
+            RepositionAbilityDef dash = Repo.GetAllDefs<RepositionAbilityDef>().FirstOrDefault(a => a.name.Equals("Dash_AbilityDef"));
+            ApplyStatusAbilityDef MasterMarksman = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(a => a.name.Equals("MasterMarksman_AbilityDef"));
+            ApplyStatusAbilityDef ExtremeFocus = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef"));
+            PassiveModifierAbilityDef EnhancedVision = Repo.GetAllDefs<PassiveModifierAbilityDef>().FirstOrDefault(a => a.name.Equals("EnhancedVision_AbilityDef"));
 
             fishArmsParalyze.DamagePayload.DamageKeywords[1].Value = 8;
             fishArmsEliteParalyze.DamagePayload.DamageKeywords[1].Value = 16;
@@ -118,18 +123,20 @@ namespace Better_Enemies
             {
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Dash_AbilityDef")),
             };
+            
 
             crab30.Data.Abilites = new TacticalAbilityDef[]
             {
                 Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("MasterMarksman_AbilityDef")),
             };
+            
 
-            foreach (TacCharacterDef TriotonSniper in Repo.GetAllDefs<TacActorDef>().Where(a => a.name.Contains("Fishman") && a.name.Contains("Sniper")))
+            foreach (TacCharacterDef TriotonSniper in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("Fishman") && a.name.Contains("Sniper")))
             {
                 TriotonSniper.Data.Abilites = new TacticalAbilityDef[]
                 {
                     Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("ExtremeFocus_AbilityDef")),
-                };
+                };               
             }
 
             foreach (TacCharacterDef crab in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") && aad.name.Contains("Shielder")))
@@ -137,10 +144,10 @@ namespace Better_Enemies
                 crab.Data.Abilites = new TacticalAbilityDef[]
                 {
                     Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
-                };
+                };               
             }
 
-            foreach (TacticalAbilityDef ability in Repo.GetAllDefs<TacticalAbilityDef>())
+            foreach (AbilityDef ability in Repo.GetAllDefs<AbilityDef>())
             {
                 if (ability.name.Contains("Skirmisher_AbilityDef"))
                 {
@@ -148,12 +155,11 @@ namespace Better_Enemies
                     {
                         Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CloseQuarters_AbilityDef")),
                         Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Skirmisher_AbilityDef")),
-
                     };
-                } 
+                }
             }
-
-            foreach (TacticalAbilityDef ability in Repo.GetAllDefs<TacticalAbilityDef>())
+            
+            foreach (AbilityDef ability in Repo.GetAllDefs<AbilityDef>())
             {
                 if (ability.name.Contains("Paranoid_AbilityDef"))
                 {
@@ -164,24 +170,14 @@ namespace Better_Enemies
                             Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Paranoid_AbilityDef")),
                         };
                     }
-
-                    crab34.Data.Abilites = new TacticalAbilityDef[]
-                    {
-                        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("Paranoid_AbilityDef")),
-                        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("EnhancedVision_AbilityDef")),
-                    };
-                }
-                else
-                {
-                    crab34.Data.Abilites = new TacticalAbilityDef[]
-                    {
-                        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("EnhancedVision_AbilityDef")),
-                    };
-                }
-                
+                } 
             }
+            //crab34.Data.Abilites = new TacticalAbilityDef[]
+            //{
+            //    Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("EnhancedVision_AbilityDef")),
+            //};
 
-            foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") &&( aad.name.Contains("Pretorian") || aad.name.Contains("Tank"))))
+            foreach (TacCharacterDef character in Repo.GetAllDefs<TacCharacterDef>().Where(aad => aad.name.Contains("Crabman") && ( aad.name.Contains("Pretorian") || aad.name.Contains("Tank"))))
             {               
                character.Data.Speed = 6;             
             }
@@ -191,12 +187,12 @@ namespace Better_Enemies
                 crabShield.Data.Speed = 8;
             }            
 
-            foreach(WeaponDef crabmanGl in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Crabman_LeftHand_") && a.name.Contains("Grenade_WeaponDef")))
+            foreach(WeaponDef crabmanGl in Repo.GetAllDefs<WeaponDef>().Where(a => a.name.Contains("Crabman") && a.name.Contains("LeftHand") && a.name.Contains("Grenade") && a.name.Contains("WeaponDef")))
             {
                 crabmanGl.DamagePayload.Range = 20;
             }
 
-            foreach(TacCharacterDef commando in Repo.GetAllDefs<TacActorDef>().Where(a => a.name.Contains("Crabman") && a.name.Contains("Commando")))
+            foreach(TacCharacterDef commando in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("Crabman") && a.name.Contains("Commando")))
             {
                 commando.Data.Abilites = new TacticalAbilityDef[]
                 {

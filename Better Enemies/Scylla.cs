@@ -120,13 +120,13 @@ namespace Better_Enemies
 
             
 
-            foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("Queen")))
-            {
-                taccharacter.Data.Abilites = new TacticalAbilityDef[]
-                {
-                    Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CaterpillarMoveAbilityDef")),
-                };
-             }
+            //foreach (TacCharacterDef taccharacter in Repo.GetAllDefs<TacCharacterDef>().Where(a => a.name.Contains("Queen")))
+            //{
+            //    taccharacter.Data.Abilites = new TacticalAbilityDef[]
+            //    {
+            //        Repo.GetAllDefs<TacticalAbilityDef>().FirstOrDefault(a => a.name.Equals("CaterpillarMoveAbilityDef")),
+            //    };
+            //}
 
             queenCrystal.Data.Abilites = new TacticalAbilityDef[]
             {

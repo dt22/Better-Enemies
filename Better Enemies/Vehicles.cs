@@ -53,28 +53,28 @@ namespace Better_Enemies
             AIActionsTemplateDef AspidaAI = Repo.GetAllDefs<AIActionsTemplateDef>().FirstOrDefault(a => a.name.Equals("Aspida_AIActionsTemplateDef"));
             AIActionMoveAndAttackDef VehicleShoot = Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(a => a.name.Equals("MoveAndShoot3x3_AIActionDef"));
 
-            ArmadilloFT.Tags = new GameTagsList
-            {
-                ArmadilloFT.Tags[0],
-                ArmadilloFT.Tags[1],
-                ArmadilloFT.Tags[2],
-                ArmadilloFT.Tags[3],
-                ArmadilloFT.Tags[4],
-                ArmadilloFT.Tags[5],
-                ArmadilloFT.Tags[6],
-                Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("GunWeapon_TagDef")),
-            };
-
-            AspidaAI.ActionDefs = new AIActionDef[]
-            {
-                AspidaAI.ActionDefs[0],
-                AspidaAI.ActionDefs[1],
-                AspidaAI.ActionDefs[2],
-                AspidaAI.ActionDefs[3],
-                AspidaAI.ActionDefs[4],
-                AspidaAI.ActionDefs[5],
-                VehicleShoot,
-            };
-        }
+            //ArmadilloFT.Tags = new GameTagsList
+            //{
+            //    ArmadilloFT.Tags[0],
+            //    ArmadilloFT.Tags[1],
+            //    ArmadilloFT.Tags[2],
+            //    ArmadilloFT.Tags[3],
+            //    ArmadilloFT.Tags[4],
+            //    ArmadilloFT.Tags[5],
+            //    ArmadilloFT.Tags[6],
+            //    Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("GunWeapon_TagDef")),
+            //};
+            //
+            //AspidaAI.ActionDefs = new AIActionDef[]
+            //{
+            //    AspidaAI.ActionDefs[0],
+            //    AspidaAI.ActionDefs[1],
+            //    AspidaAI.ActionDefs[2],
+            //    AspidaAI.ActionDefs[3],
+            //    AspidaAI.ActionDefs[4],
+            //    AspidaAI.ActionDefs[5],
+            //    VehicleShoot,
+            //};
+        }   
     }
 }
