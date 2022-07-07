@@ -157,6 +157,7 @@ namespace Better_Enemies
                 sAE,
             };
 
+
             tacticalPerceptionMindFraggerEgg.PerceptionRange = 7;
             tacticalPerceptionTerror.PerceptionRange = 18;
             tacticalPerceptionEgg.PerceptionRange = 7;
