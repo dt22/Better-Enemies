@@ -50,7 +50,7 @@ namespace Better_Enemies
         public static void Apply_AIActionDefs()
         {
             Clone_PsychicScreamAI();
-            Create_BigBoomsAI();
+            //Create_BigBoomsAI();
             Clone_InstillFrenzyAI();
             Add_NewAIActionDefs();   
         }
@@ -83,7 +83,7 @@ namespace Better_Enemies
 
             MindCrushAI.Weight = 999;
             MindCrushAI.AbilityToExecute = MindCrush;
-            AIAbilityConsiderationDef EarlyExitConsideration1 = (AIAbilityConsiderationDef)MindCrushAI.EarlyExitConsiderations[1].Consideration;
+            AIAbilityDisabledStateConsiderationDef EarlyExitConsideration1 = (AIAbilityDisabledStateConsiderationDef)MindCrushAI.EarlyExitConsiderations[1].Consideration;
             EarlyExitConsideration1.Ability = MindCrush;
             AIProximityToEnemiesConsiderationDef Consideration1 = (AIProximityToEnemiesConsiderationDef)MindCrushAI.Evaluations[0].Considerations[0].Consideration;
             Consideration1.MaxRange = 10;
@@ -98,7 +98,8 @@ namespace Better_Enemies
             ApplyStatusAbilityDef BigBooms = Repo.GetAllDefs<ApplyStatusAbilityDef>().FirstOrDefault(p => p.name.Equals("BigBooms_AbilityDef"));
 
             string Name = "MoveAndDoBigBooms_AIActionDef";
-            AIActionMoveAndExecuteAbilityDef source = Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("MoveAndDoPsychicScream_AIActionDef"));
+            AIActionMoveAndExecuteAbilityDef source = Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("Queen_MoveAndPrepareShooting_AIActionDef"));
+            AIActionMoveAndAttackDef source2 = Repo.GetAllDefs<AIActionMoveAndAttackDef>().FirstOrDefault(p => p.name.Equals("Queen_MoveAndLaunchProjectiles_AIActionDef"));
             AIActionMoveAndExecuteAbilityDef BigBoomsAI = Helper.CreateDefFromClone(
                 source,
                 "CC80DE93-F64B-416C-B219-3FFD16322B97",
@@ -106,46 +107,55 @@ namespace Better_Enemies
             BigBoomsAI.EarlyExitConsiderations[1].Consideration = Helper.CreateDefFromClone(
                 source.EarlyExitConsiderations[1].Consideration,
                 "6C67BCF1-3811-4A16-820F-B717A46F037E",
-                "BigBoomsAbilityEnabled_AIConsiderationDef");
-            BigBoomsAI.EarlyExitConsiderations[2].Consideration = Helper.CreateDefFromClone(
-                source.EarlyExitConsiderations[2].Consideration,
+                "CanUseBigBooms_AIConsiderationDef");
+            AICanUseEquipmentConsiderationDef BigBoomsAIEarlyExitConsiderations2 = Helper.CreateDefFromClone(
+                source2.EarlyExitConsiderations[1].Consideration as AICanUseEquipmentConsiderationDef,
                 "EE5BD779-FBFF-4EE3-BBA8-E9495695B2A8",
                 "BigBoomsCanUseWeapons_AIConsiderationDef");
             BigBoomsAI.Evaluations[0].TargetGeneratorDef = Helper.CreateDefFromClone(
                 source.Evaluations[0].TargetGeneratorDef,
                 "E37868AA-DB27-4764-9349-EF20C8B41277",
-                "BigBoomsExplosiveWeapon_AITargetGeneratorDef");
-            BigBoomsAI.Evaluations[1].Considerations[0].Consideration = Helper.CreateDefFromClone(
-                source.Evaluations[1].Considerations[0].Consideration,
+                "BigBoomsActionZone_AITargetGeneratorDef");
+            BigBoomsAI.Evaluations[0].Considerations[0].Consideration = Helper.CreateDefFromClone(
+                source.Evaluations[0].Considerations[0].Consideration,
                 "FA3E60DF-E33B-4697-802E-CF6B5A4E63CF",
                 "EnoughActionPointsToShootAfterBigBooms_AIConsiderationDef");
-            BigBoomsAI.Evaluations[1].Considerations[1].Consideration = Helper.CreateDefFromClone(
-                source.Evaluations[1].Considerations[1].Consideration,
+            AIActorEquipmentTargetGeneratorDef BigBoomsExplosiveTargetGen = Helper.CreateDefFromClone(
+                source2.Evaluations[0].TargetGeneratorDef as AIActorEquipmentTargetGeneratorDef,
                 "CF63B6E1-7415-4185-ACB2-43A607058789",
-                "BigBoomsAttackPosition_AIConsiderationDef");           
-            BigBoomsAI.Evaluations[2].Considerations[0].Consideration = Helper.CreateDefFromClone(
-                source.Evaluations[2].Considerations[0].Consideration,
-                "B310EDC4-87DF-4FFD-848B-BA935541C537",
-                "WillpointsLeftAfterBigBooms_AIConsiderationDef");
+                "BigBooms_ExplosiveWeapon_AITargetGeneratorDef");           
+            //BigBoomsAI.Evaluations[2].Considerations[0].Consideration = Helper.CreateDefFromClone(
+            //    source.Evaluations[2].Considerations[0].Consideration,
+            //    "B310EDC4-87DF-4FFD-848B-BA935541C537",
+            //    "WillpointsLeftAfterBigBooms_AIConsiderationDef");
 
             BigBoomsAI.Weight = 999;
             BigBoomsAI.AbilityToExecute = BigBooms;
-            AIAbilityConsiderationDef EarlyExitConsideration1 = (AIAbilityConsiderationDef)BigBoomsAI.EarlyExitConsiderations[1].Consideration;
+            BigBoomsAI.EarlyExitConsiderations = new AIAdjustedConsideration[]
+            {
+                BigBoomsAI.EarlyExitConsiderations[0],
+                BigBoomsAI.EarlyExitConsiderations[1],
+            };
+            AIAbilityDisabledStateConsiderationDef EarlyExitConsideration1 = (AIAbilityDisabledStateConsiderationDef)BigBoomsAI.EarlyExitConsiderations[1].Consideration;
             EarlyExitConsideration1.Ability = BigBooms;
-            AICanUseEquipmentConsiderationDef EarlyExitConsideration2 = (AICanUseEquipmentConsiderationDef)BigBoomsAI.EarlyExitConsiderations[2].Consideration;
-            EarlyExitConsideration2.EquipmentTags = new GameTagDef[]
+
+            BigBoomsAI.Evaluations = new AITargetEvaluation[]
             {
-                Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef")),
+                BigBoomsAI.Evaluations[0],
+                source2.Evaluations[0],
             };
-            AIActorEquipmentTargetGeneratorDef TargetGenerator1 = (AIActorEquipmentTargetGeneratorDef)BigBoomsAI.Evaluations[0].TargetGeneratorDef;
-            TargetGenerator1.EquipmentTags = new GameTagDef[]
-            {
-                Repo.GetAllDefs<ItemClassificationTagDef>().FirstOrDefault(p => p.name.Equals("ExplosiveWeapon_TagDef")),
-            };
-            AIEnoughActionPointsForAbilityConsiderationDef Consideration1 = (AIEnoughActionPointsForAbilityConsiderationDef)BigBoomsAI.Evaluations[1].Considerations[0].Consideration;
+            BigBoomsAI.Evaluations[1].TargetGeneratorDef = BigBoomsExplosiveTargetGen;
+            //AICanUseEquipmentConsiderationDef EarlyExitConsideration2 = (AICanUseEquipmentConsiderationDef)BigBoomsAI.EarlyExitConsiderations[2].Consideration;
+            //AIActorEquipmentTargetGeneratorDef TargetGenerator1 = (AIActorEquipmentTargetGeneratorDef)BigBoomsAI.Evaluations[0].TargetGeneratorDef;
+            AIEnoughActionPointsForAbilityConsiderationDef Consideration1 = (AIEnoughActionPointsForAbilityConsiderationDef)BigBoomsAI.Evaluations[0].Considerations[0].Consideration;
             Consideration1.ChangeAbilitiesCostStatusDef = Repo.GetAllDefs<ChangeAbilitiesCostStatusDef>().FirstOrDefault(p => p.name.Equals("E_ReduceExplosiveAbilitiesCost [BigBooms_AbilityDef]"));
-            AIWillpointsLeftAfterAbilityConsiderationDef Consideration2 = (AIWillpointsLeftAfterAbilityConsiderationDef)BigBoomsAI.Evaluations[2].Considerations[0].Consideration;
-            Consideration2.Ability = BigBooms;
+            //AIWillpointsLeftAfterAbilityConsiderationDef Consideration2 = (AIWillpointsLeftAfterAbilityConsiderationDef)BigBoomsAI.Evaluations[2].Considerations[0].Consideration;
+            //Consideration2.Ability = BigBooms;
+
+            BigBoomsAI.Evaluations[0].Considerations = new AIAdjustedConsideration[]
+            {
+                BigBoomsAI.Evaluations[0].Considerations[0],
+            };
         }
         public static void Clone_InstillFrenzyAI()
         {
@@ -168,7 +178,7 @@ namespace Better_Enemies
 
             ElectricReinforcementAI.Weight = 999;
             ElectricReinforcementAI.AbilityDefs[0] = ElectricReinforcement;
-            AIAbilityConsiderationDef EarlyExitConsideration1 = (AIAbilityConsiderationDef)ElectricReinforcementAI.EarlyExitConsiderations[1].Consideration;
+            AIAbilityDisabledStateConsiderationDef EarlyExitConsideration1 = (AIAbilityDisabledStateConsiderationDef)ElectricReinforcementAI.EarlyExitConsiderations[1].Consideration;
             EarlyExitConsideration1.Ability = ElectricReinforcement;
             AIAbilityNumberOfTargetsConsiderationDef Consideration1 = (AIAbilityNumberOfTargetsConsiderationDef)ElectricReinforcementAI.Evaluations[0].Considerations[0].Consideration;
             Consideration1.Ability = ElectricReinforcement;          
@@ -207,7 +217,7 @@ namespace Better_Enemies
                 DefaultAIActionsTemplateDef.ActionDefs[0],
                 DefaultAIActionsTemplateDef.ActionDefs[0],
                 Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("MoveAndDoMindCrush_AIActionDef")),
-                Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("MoveAndDoBigBooms_AIActionDef")),
+                //Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("MoveAndDoBigBooms_AIActionDef")),
                 Repo.GetAllDefs<AIActionExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("ElectricReinforcement_AIActionDef")),
             };
         }
