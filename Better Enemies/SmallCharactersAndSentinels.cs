@@ -118,6 +118,7 @@ namespace Better_Enemies
 
             TacCharacterDef faceHuggerTac = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(p => p.name.Equals("Facehugger_TacCharacterDef"));
             TacCharacterDef faceHuggerVariation = Repo.GetAllDefs<TacCharacterDef>().FirstOrDefault(p => p.name.Equals("Facehugger_AlienMutationVariationDef"));
+            TacticalActorDef faceHugger = Repo.GetAllDefs<TacticalActorDef>().FirstOrDefault(p => p.name.Equals("Facehugger_ActorDef"));
 
             GameTagDef damagedByCaterpillar = Repo.GetAllDefs<GameTagDef>().FirstOrDefault(p => p.name.Equals("DamageByCaterpillarTracks_TagDef"));
 
@@ -148,14 +149,16 @@ namespace Better_Enemies
             sAE.ViewElementDef.DisplayName1 = new LocalizedTextBind("ACID EXPLOSION");
             sAE.ViewElementDef.Description = new LocalizedTextBind("Upon death, the mind fragger bursts in an acid explosion damaging nearby targets");
 
-            faceHuggerTac.Data.Abilites = new TacticalAbilityDef[]
-            {
-                sAE,
-            };
-            faceHuggerVariation.Data.Abilites = new TacticalAbilityDef[]
-            {
-                sAE,
-            };
+            //faceHuggerTac.Data.Abilites = new TacticalAbilityDef[]
+            //{
+            //    sAE,
+            //};
+            //faceHuggerVariation.Data.Abilites = new TacticalAbilityDef[]
+            //{
+            //    sAE,
+            //};
+            RagdollDieAbilityDef FHDie = (RagdollDieAbilityDef)faceHugger.Abilities[2];
+            FHDie.DeathEffect = sAEEffect;
 
 
             tacticalPerceptionMindFraggerEgg.PerceptionRange = 7;
