@@ -50,7 +50,7 @@ namespace Better_Enemies
         public static void Apply_AIActionDefs()
         {
             Clone_PsychicScreamAI();
-            //Create_BigBoomsAI();
+            Create_BigBoomsAI();
             Clone_InstillFrenzyAI();
             Add_NewAIActionDefs();   
         }
@@ -107,15 +107,15 @@ namespace Better_Enemies
             BigBoomsAI.EarlyExitConsiderations[1].Consideration = Helper.CreateDefFromClone(
                 source.EarlyExitConsiderations[1].Consideration,
                 "6C67BCF1-3811-4A16-820F-B717A46F037E",
-                "CanUseBigBooms_AIConsiderationDef");
-            BigBoomsAI.EarlyExitConsiderations[2].Consideration = Helper.CreateDefFromClone(
-                source2.EarlyExitConsiderations[1].Consideration as AICanUseEquipmentConsiderationDef,
-                "EE5BD779-FBFF-4EE3-BBA8-E9495695B2A8",
-                "BigBoomsCanUseWeapons_AIConsiderationDef");
-            BigBoomsAI.Evaluations[0].TargetGeneratorDef = Helper.CreateDefFromClone(
-                source2.Evaluations[0].TargetGeneratorDef,
-                "E37868AA-DB27-4764-9349-EF20C8B41277",
-                "BigBooms_ExplosiveWeapon_AITargetGeneratorDef");
+                "BigBoomsAbilityEnabled_AIConsiderationDef");
+            //BigBoomsAI.EarlyExitConsiderations[2].Consideration = Helper.CreateDefFromClone(
+            //    source.EarlyExitConsiderations[2].Consideration as AICanUseEquipmentConsiderationDef,
+            //    "EE5BD779-FBFF-4EE3-BBA8-E9495695B2A8",
+            //    "BigBoomsCanUseWeapons_AIConsiderationDef");
+            //BigBoomsAI.Evaluations[0].TargetGeneratorDef = Helper.CreateDefFromClone(
+            //    source.Evaluations[0].TargetGeneratorDef,
+            //    "E37868AA-DB27-4764-9349-EF20C8B41277",
+            //    "BigBoomsExplosiveWeapon_AITargetGeneratorDef");
             BigBoomsAI.Evaluations[1].Considerations[0].Consideration = Helper.CreateDefFromClone(
                 source.Evaluations[1].Considerations[0].Consideration,
                 "FA3E60DF-E33B-4697-802E-CF6B5A4E63CF",
@@ -134,7 +134,7 @@ namespace Better_Enemies
             
             AIAbilityDisabledStateConsiderationDef EarlyExitConsideration1 = (AIAbilityDisabledStateConsiderationDef)BigBoomsAI.EarlyExitConsiderations[1].Consideration;
             EarlyExitConsideration1.Ability = BigBooms;                                            
-            AIEnoughActionPointsForAbilityConsiderationDef Consideration1 = (AIEnoughActionPointsForAbilityConsiderationDef)BigBoomsAI.Evaluations[0].Considerations[0].Consideration;
+            AIEnoughActionPointsForAbilityConsiderationDef Consideration1 = (AIEnoughActionPointsForAbilityConsiderationDef)BigBoomsAI.Evaluations[1].Considerations[0].Consideration;
             Consideration1.ChangeAbilitiesCostStatusDef = Repo.GetAllDefs<ChangeAbilitiesCostStatusDef>().FirstOrDefault(p => p.name.Equals("E_ReduceExplosiveAbilitiesCost [BigBooms_AbilityDef]"));
             AIWillpointsLeftAfterAbilityConsiderationDef Consideration2 = (AIWillpointsLeftAfterAbilityConsiderationDef)BigBoomsAI.Evaluations[2].Considerations[0].Consideration;
             Consideration2.Ability = BigBooms;
