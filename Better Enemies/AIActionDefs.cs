@@ -137,12 +137,7 @@ namespace Better_Enemies
             AIEnoughActionPointsForAbilityConsiderationDef Consideration1 = (AIEnoughActionPointsForAbilityConsiderationDef)BigBoomsAI.Evaluations[1].Considerations[0].Consideration;
             Consideration1.ChangeAbilitiesCostStatusDef = Repo.GetAllDefs<ChangeAbilitiesCostStatusDef>().FirstOrDefault(p => p.name.Equals("E_ReduceExplosiveAbilitiesCost [BigBooms_AbilityDef]"));
             AIWillpointsLeftAfterAbilityConsiderationDef Consideration2 = (AIWillpointsLeftAfterAbilityConsiderationDef)BigBoomsAI.Evaluations[2].Considerations[0].Consideration;
-            Consideration2.Ability = BigBooms;
-
-            BigBoomsAI.Evaluations[0].Considerations = new AIAdjustedConsideration[]
-            {
-                BigBoomsAI.Evaluations[0].Considerations[0],
-            };
+            Consideration2.Ability = BigBooms;           
         }
         public static void Clone_InstillFrenzyAI()
         {
