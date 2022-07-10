@@ -50,7 +50,7 @@ namespace Better_Enemies
         public static void Apply_AIActionDefs()
         {
             Clone_PsychicScreamAI();
-            Create_BigBoomsAI();
+            //Create_BigBoomsAI();
             Clone_InstillFrenzyAI();
             Add_NewAIActionDefs();   
         }
@@ -108,20 +108,20 @@ namespace Better_Enemies
                 source.EarlyExitConsiderations[1].Consideration,
                 "6C67BCF1-3811-4A16-820F-B717A46F037E",
                 "BigBoomsAbilityEnabled_AIConsiderationDef");
-            //BigBoomsAI.EarlyExitConsiderations[2].Consideration = Helper.CreateDefFromClone(
-            //    source.EarlyExitConsiderations[2].Consideration as AICanUseEquipmentConsiderationDef,
-            //    "EE5BD779-FBFF-4EE3-BBA8-E9495695B2A8",
-            //    "BigBoomsCanUseWeapons_AIConsiderationDef");
-            //BigBoomsAI.Evaluations[0].TargetGeneratorDef = Helper.CreateDefFromClone(
-            //    source.Evaluations[0].TargetGeneratorDef,
-            //    "E37868AA-DB27-4764-9349-EF20C8B41277",
-            //    "BigBoomsExplosiveWeapon_AITargetGeneratorDef");
+            BigBoomsAI.EarlyExitConsiderations[2].Consideration = Helper.CreateDefFromClone(
+                source2.EarlyExitConsiderations[1].Consideration as AICanUseEquipmentConsiderationDef,
+                "EE5BD779-FBFF-4EE3-BBA8-E9495695B2A8",
+                "BigBoomsCanUseWeapons_AIConsiderationDef");
+            BigBoomsAI.Evaluations[0].TargetGeneratorDef = Helper.CreateDefFromClone(
+                source2.Evaluations[0].TargetGeneratorDef,
+                "E37868AA-DB27-4764-9349-EF20C8B41277",
+                "BigBoomsExplosiveWeapon_AITargetGeneratorDef");
             BigBoomsAI.Evaluations[1].Considerations[0].Consideration = Helper.CreateDefFromClone(
                 source.Evaluations[1].Considerations[0].Consideration,
                 "FA3E60DF-E33B-4697-802E-CF6B5A4E63CF",
                 "EnoughActionPointsToShootAfterBigBooms_AIConsiderationDef");
-            BigBoomsAI.Evaluations[1].Considerations[1].Consideration = Helper.CreateDefFromClone(
-                source.Evaluations[1].Considerations[1].Consideration,
+            AIAttackPositionConsiderationDef AttackPosition  = Helper.CreateDefFromClone(
+                source2.Evaluations[2].Considerations[0].Consideration as AIAttackPositionConsiderationDef,
                 "CF63B6E1-7415-4185-ACB2-43A607058789",
                 "BigBoomsAttackPosition_AIConsiderationDef");           
             BigBoomsAI.Evaluations[2].Considerations[0].Consideration = Helper.CreateDefFromClone(
@@ -137,7 +137,32 @@ namespace Better_Enemies
             AIEnoughActionPointsForAbilityConsiderationDef Consideration1 = (AIEnoughActionPointsForAbilityConsiderationDef)BigBoomsAI.Evaluations[1].Considerations[0].Consideration;
             Consideration1.ChangeAbilitiesCostStatusDef = Repo.GetAllDefs<ChangeAbilitiesCostStatusDef>().FirstOrDefault(p => p.name.Equals("E_ReduceExplosiveAbilitiesCost [BigBooms_AbilityDef]"));
             AIWillpointsLeftAfterAbilityConsiderationDef Consideration2 = (AIWillpointsLeftAfterAbilityConsiderationDef)BigBoomsAI.Evaluations[2].Considerations[0].Consideration;
-            Consideration2.Ability = BigBooms;           
+            Consideration2.Ability = BigBooms;
+            
+            BigBoomsAI.Evaluations[1].Considerations[1].Consideration = AttackPosition;
+
+            BigBoomsAI.Evaluations = new AITargetEvaluation[]
+            {
+                BigBoomsAI.Evaluations[0],
+                BigBoomsAI.Evaluations[1],
+                BigBoomsAI.Evaluations[2],
+                //new AITargetEvaluation()
+                //{
+                //    TargetGeneratorDef = source2.Evaluations[2].TargetGeneratorDef,
+                //    FallbackTargetGeneratorDef = null,
+                //    TopScoresToConsiderPerc = source2.Evaluations[2].TopScoresToConsiderPerc,
+                //    MaxNumberOfTargetsPerc = source2.Evaluations[2].MaxNumberOfTargetsPerc,
+                //    MinNumberOfTargets = source2.Evaluations[2].MinNumberOfTargets,
+                //    MinNumberOfTargetsPerc = source2.Evaluations[2].MaxNumberOfTargetsPerc, 
+                //    Considerations = new AIAdjustedConsideration[]
+                //    {
+                //       new AIAdjustedConsideration()
+                //       {
+                //           Consideration = AttackPosition,
+                //       },
+                //    },
+                //},
+            };           
         }
         public static void Clone_InstillFrenzyAI()
         {
@@ -199,7 +224,7 @@ namespace Better_Enemies
                 DefaultAIActionsTemplateDef.ActionDefs[25],
                 DefaultAIActionsTemplateDef.ActionDefs[26],
                 Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("MoveAndDoMindCrush_AIActionDef")),
-                Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("MoveAndDoBigBooms_AIActionDef")),
+                //Repo.GetAllDefs<AIActionMoveAndExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("MoveAndDoBigBooms_AIActionDef")),
                 Repo.GetAllDefs<AIActionExecuteAbilityDef>().FirstOrDefault(p => p.name.Equals("ElectricReinforcement_AIActionDef")),
             };
         }
